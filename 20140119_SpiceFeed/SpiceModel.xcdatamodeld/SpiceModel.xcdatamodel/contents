@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Collection" syncable="YES">
+    <entity name="Collection" representedClassName="Collection" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfImages" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="flaves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="collections" inverseEntity="Flave" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="collections" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Flave" syncable="YES">
+    <entity name="Flave" representedClassName="Flave" syncable="YES">
         <attribute name="flaveID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="reflaves" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -19,29 +19,29 @@
         <relationship name="originalUploader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="flaves" inverseEntity="User" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="flaves" inverseEntity="Tag" syncable="YES"/>
     </entity>
-    <entity name="FlaveList" syncable="YES">
+    <entity name="FlaveList" representedClassName="FlaveList" syncable="YES">
         <attribute name="numberOfFlaves" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="flaves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="flaveList" inverseEntity="Flave" syncable="YES"/>
     </entity>
-    <entity name="Followers" syncable="YES">
+    <entity name="Followers" representedClassName="Followers" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Friends" syncable="YES">
+    <entity name="Friends" representedClassName="Friends" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Tag" syncable="YES">
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flaves" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flave" inverseName="tags" inverseEntity="Flave" syncable="YES"/>
         <relationship name="tagList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TagList" inverseName="tags" inverseEntity="TagList" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="favoriteTags" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="TagList" syncable="YES">
+    <entity name="TagList" representedClassName="TagList" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="tagList" inverseEntity="Tag" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="dateJoined" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,7 +62,7 @@
         <relationship name="friends" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Friends" inverseName="users" inverseEntity="Friends" syncable="YES"/>
         <relationship name="userList" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="UserList" inverseName="users" inverseEntity="UserList" syncable="YES"/>
     </entity>
-    <entity name="UserList" syncable="YES">
+    <entity name="UserList" representedClassName="UserList" syncable="YES">
         <attribute name="emails" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="numberOfUsers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="userList" inverseEntity="User" syncable="YES"/>

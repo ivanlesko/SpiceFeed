@@ -1,19 +1,22 @@
 //
-//  Tag.m
+//  Collection.m
 //  20140119_SpiceFeed
 //
 //  Created by Ivan Lesko on 1/26/14.
 //  Copyright (c) 2014 Ivan Lesko. All rights reserved.
 //
 
-#import "Tag.h"
+#import "Collection.h"
+#import "Flave.h"
+#import "User.h"
 
 
-@implementation Tag
+@implementation Collection
 
+@dynamic dateCreated;
 @dynamic name;
+@dynamic numberOfImages;
 @dynamic flaves;
-@dynamic users;
-@dynamic tagList;
+@dynamic owner;
 
 @end

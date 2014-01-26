@@ -436,10 +436,10 @@
             </objects>
             <point key="canvasLocation" x="1072" y="774"/>
         </scene>
-        <!--View Controller-->
+        <!--Flave Page View Controller-->
         <scene sceneID="T2a-Ty-IeA">
             <objects>
-                <viewController id="K2U-pw-Srs" sceneMemberID="viewController">
+                <viewController id="K2U-pw-Srs" customClass="FlavePageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8a3-fk-oi7"/>
                         <viewControllerLayoutGuide type="bottom" id="tnp-gm-1BP"/>

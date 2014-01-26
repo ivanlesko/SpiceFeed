@@ -1,5 +1,5 @@
 //
-//  Tag.h
+//  Followers.h
 //  20140119_SpiceFeed
 //
 //  Created by Ivan Lesko on 1/26/14.
@@ -10,15 +10,13 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Tag : NSManagedObject
+@interface Followers : NSManagedObject
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSManagedObject *flaves;
+@property (nonatomic, retain) NSNumber * count;
 @property (nonatomic, retain) NSSet *users;
-@property (nonatomic, retain) NSManagedObject *tagList;
 @end
 
-@interface Tag (CoreDataGeneratedAccessors)
+@interface Followers (CoreDataGeneratedAccessors)
 
 - (void)addUsersObject:(NSManagedObject *)value;
 - (void)removeUsersObject:(NSManagedObject *)value;
