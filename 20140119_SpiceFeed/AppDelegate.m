@@ -13,6 +13,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [Parse setApplicationId:@"4EQeSriecIvi5kYcRRk0cTEsjOj8aNtI115HOoNe"
+                  clientKey:@"LESHLEU9pyjg4u5mZDUIAWguDTCSlhxIuiqKHpIA"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     return YES;
 }
 							

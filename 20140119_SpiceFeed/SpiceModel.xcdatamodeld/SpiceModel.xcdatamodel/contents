@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Collection" syncable="YES">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfImages" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="flaves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="collections" inverseEntity="Flave" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="collections" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Flave" syncable="YES">
+        <attribute name="flaveID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="reflaves" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uploadDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collection" inverseName="flaves" inverseEntity="Collection" syncable="YES"/>
+        <relationship name="flaveList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlaveList" inverseName="flaves" inverseEntity="FlaveList" syncable="YES"/>
+        <relationship name="originalUploader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="uploads" inverseEntity="User" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="flaves" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="FlaveList" syncable="YES">
+        <relationship name="flaves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="flaveList" inverseEntity="Flave" syncable="YES"/>
+    </entity>
+    <entity name="Followers" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Friends" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Tag" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="flaves" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flave" inverseName="tags" inverseEntity="Flave" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dateJoined" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="followerCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="friendCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastLogin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastLogout" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portfolioPage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePic" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collection" inverseName="owner" inverseEntity="Collection" syncable="YES"/>
+        <relationship name="favoriteTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" syncable="YES"/>
+        <relationship name="followers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Followers" inverseName="users" inverseEntity="Followers" syncable="YES"/>
+        <relationship name="friends" optional="YES" maxCount="1" deletionRule="Nullify" syncable="YES"/>
+        <relationship name="uploads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="originalUploader" inverseEntity="Flave" syncable="YES"/>
+    </entity>
+    <entity name="UserList" syncable="YES">
+        <attribute name="emails" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="numberOfUsers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Collection" positionX="-5463" positionY="-5085" width="128" height="118"/>
+        <element name="Flave" positionX="-5825" positionY="-5107" width="128" height="193"/>
+        <element name="FlaveList" positionX="-5987" positionY="-4882" width="128" height="58"/>
+        <element name="Followers" positionX="-5463" positionY="-4752" width="128" height="73"/>
+        <element name="Friends" positionX="-5465" positionY="-4671" width="128" height="73"/>
+        <element name="Tag" positionX="-5859" positionY="-4789" width="128" height="73"/>
+        <element name="User" positionX="-5663" positionY="-4941" width="128" height="313"/>
+        <element name="UserList" positionX="-5465" positionY="-4905" width="128" height="88"/>
+    </elements>
+</model>

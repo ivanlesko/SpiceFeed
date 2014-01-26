@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */; };
+		4E38704518946E4E00AC82E2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704418946E4E00AC82E2 /* CoreData.framework */; };
+		4E387047189479D500AC82E2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E387046189479D500AC82E2 /* Parse.framework */; };
+		4E38704918947A0C00AC82E2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704818947A0C00AC82E2 /* AudioToolbox.framework */; };
+		4E38704B18947A1100AC82E2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704A18947A1100AC82E2 /* CFNetwork.framework */; };
+		4E38704D18947A1B00AC82E2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704C18947A1B00AC82E2 /* CoreLocation.framework */; };
+		4E38704F18947A2500AC82E2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704E18947A2500AC82E2 /* libz.dylib */; };
+		4E38705118947A2C00AC82E2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38705018947A2C00AC82E2 /* MobileCoreServices.framework */; };
+		4E38705318947A3500AC82E2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38705218947A3500AC82E2 /* QuartzCore.framework */; };
+		4E38705518947A3A00AC82E2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38705418947A3A00AC82E2 /* Security.framework */; };
+		4E38705718947A3F00AC82E2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38705618947A3F00AC82E2 /* StoreKit.framework */; };
+		4E38705918947A4400AC82E2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38705818947A4400AC82E2 /* SystemConfiguration.framework */; };
+		4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38705C1894870E00AC82E2 /* spiceIcon.png */; };
 		4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */; };
 		4E9C85121890DF7700729455 /* profileAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C85111890DF7700729455 /* profileAvatar.png */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
@@ -52,6 +65,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E3870421894515300AC82E2 /* SpiceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpiceModel.xcdatamodel; sourceTree = "<group>"; };
+		4E38704418946E4E00AC82E2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4E387046189479D500AC82E2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		4E38704818947A0C00AC82E2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4E38704A18947A1100AC82E2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4E38704C18947A1B00AC82E2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4E38704E18947A2500AC82E2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4E38705018947A2C00AC82E2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4E38705218947A3500AC82E2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4E38705418947A3A00AC82E2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4E38705618947A3F00AC82E2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4E38705818947A4400AC82E2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4E38705C1894870E00AC82E2 /* spiceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spiceIcon.png; sourceTree = "<group>"; };
 		4E9C850D1890D34400729455 /* EmailResendConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailResendConfirmationViewController.h; sourceTree = "<group>"; };
 		4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailResendConfirmationViewController.m; sourceTree = "<group>"; };
 		4E9C85111890DF7700729455 /* profileAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileAvatar.png; sourceTree = "<group>"; };
@@ -113,9 +139,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E38705918947A4400AC82E2 /* SystemConfiguration.framework in Frameworks */,
+				4E38705718947A3F00AC82E2 /* StoreKit.framework in Frameworks */,
+				4E38705518947A3A00AC82E2 /* Security.framework in Frameworks */,
+				4E38705318947A3500AC82E2 /* QuartzCore.framework in Frameworks */,
+				4E38705118947A2C00AC82E2 /* MobileCoreServices.framework in Frameworks */,
+				4E38704F18947A2500AC82E2 /* libz.dylib in Frameworks */,
+				4E38704D18947A1B00AC82E2 /* CoreLocation.framework in Frameworks */,
+				4E38704B18947A1100AC82E2 /* CFNetwork.framework in Frameworks */,
+				4E38704918947A0C00AC82E2 /* AudioToolbox.framework in Frameworks */,
+				4E38704518946E4E00AC82E2 /* CoreData.framework in Frameworks */,
 				4EAA7090188CC8ED004CA02A /* CoreGraphics.framework in Frameworks */,
 				4EAA7092188CC8ED004CA02A /* UIKit.framework in Frameworks */,
 				4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */,
+				4E387047189479D500AC82E2 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +181,7 @@
 		4E9C85101890D52900729455 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4E38705C1894870E00AC82E2 /* spiceIcon.png */,
 				4E9C85111890DF7700729455 /* profileAvatar.png */,
 			);
 			name = Images;
@@ -171,6 +209,17 @@
 		4EAA708C188CC8ED004CA02A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E38705818947A4400AC82E2 /* SystemConfiguration.framework */,
+				4E38705618947A3F00AC82E2 /* StoreKit.framework */,
+				4E38705418947A3A00AC82E2 /* Security.framework */,
+				4E38705218947A3500AC82E2 /* QuartzCore.framework */,
+				4E38705018947A2C00AC82E2 /* MobileCoreServices.framework */,
+				4E38704E18947A2500AC82E2 /* libz.dylib */,
+				4E38704C18947A1B00AC82E2 /* CoreLocation.framework */,
+				4E38704A18947A1100AC82E2 /* CFNetwork.framework */,
+				4E38704818947A0C00AC82E2 /* AudioToolbox.framework */,
+				4E387046189479D500AC82E2 /* Parse.framework */,
+				4E38704418946E4E00AC82E2 /* CoreData.framework */,
 				4EAA708D188CC8ED004CA02A /* Foundation.framework */,
 				4EAA708F188CC8ED004CA02A /* CoreGraphics.framework */,
 				4EAA7091188CC8ED004CA02A /* UIKit.framework */,
@@ -237,6 +286,7 @@
 				4EAA712F188CDF01004CA02A /* Tag.m */,
 				4EAA7131188CDF31004CA02A /* ACategory.h */,
 				4EAA7132188CDF31004CA02A /* ACategory.m */,
+				4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -416,6 +466,7 @@
 				4EAA70A6188CC8ED004CA02A /* Images.xcassets in Resources */,
 				4EAA7098188CC8ED004CA02A /* InfoPlist.strings in Resources */,
 				4EAA70A1188CC8ED004CA02A /* Main.storyboard in Resources */,
+				4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +505,7 @@
 				4EAA713F188CE143004CA02A /* AddImageViewController.m in Sources */,
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,
 				4EAA709A188CC8ED004CA02A /* main.m in Sources */,
+				4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +632,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ivanlesko/Documents/XCode\\ Projects/20140119_SpiceFeed/20140119_SpiceFeed",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "20140119_SpiceFeed/20140119_SpiceFeed-Prefix.pch";
 				INFOPLIST_FILE = "20140119_SpiceFeed/20140119_SpiceFeed-Info.plist";
@@ -593,6 +649,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/ivanlesko/Documents/XCode\\ Projects/20140119_SpiceFeed/20140119_SpiceFeed",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "20140119_SpiceFeed/20140119_SpiceFeed-Prefix.pch";
 				INFOPLIST_FILE = "20140119_SpiceFeed/20140119_SpiceFeed-Info.plist";
@@ -674,6 +734,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4E3870421894515300AC82E2 /* SpiceModel.xcdatamodel */,
+			);
+			currentVersion = 4E3870421894515300AC82E2 /* SpiceModel.xcdatamodel */;
+			path = SpiceModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4EAA7082188CC8ED004CA02A /* Project object */;
 }
