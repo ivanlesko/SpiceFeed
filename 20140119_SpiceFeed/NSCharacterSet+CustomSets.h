@@ -10,6 +10,6 @@
 
 @interface NSCharacterSet (CustomSets)
 
-+ (NSCharacterSet *)illegalSetForMorseCode;
++ (NSCharacterSet *)lettersAndNumbers;
 
 @end

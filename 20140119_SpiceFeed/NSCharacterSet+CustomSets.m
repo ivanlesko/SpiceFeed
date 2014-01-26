@@ -10,9 +10,10 @@
 
 @implementation NSCharacterSet (CustomSets)
 
-+ (NSCharacterSet *)illegalSetForMorseCode
++ (NSCharacterSet *)lettersAndNumbers;
 {
-    return [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789 "] invertedSet];
+    return
+    [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789 "] invertedSet];
 }
 
 @end
