@@ -35,6 +35,8 @@
     self.collectionView.dataSource = self;
     
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"sampleImage"];
+    
+    self.usernameLabel.text = [PFUser currentUser][@"username"];
 }
 
 - (void)didReceiveMemoryWarning

@@ -26,37 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    PFObject *newUser = [PFObject objectWithClassName:@"User"];
-    [newUser setObject:@"mail@ivanlesko.com" forKey:@"email"];
-    [newUser setObject:@"Ivan" forKey:@"firstName"];
-    [newUser setObject:@"Lesko" forKey:@"lastName"];
-    [newUser setObject:@"Ivan Lesko" forKey:@"fullName"];
-    [newUser setObject:@"treeflood" forKey:@"username"];
-    [newUser setObject:@"http://www.ivanlesko.com" forKey:@"websiteURL"];
-    [newUser saveInBackground];
-
+    [PFUser logOut];
     
-    PFObject *newFlave = [PFObject objectWithClassName:@"Flave"];
-    newFlave[@"source"] = @"http://www.visualspicer.com";
-    newFlave[@"tags"] = @"papercraft, logo, design";
-    newFlave[@"uploader"] = newUser[@"username"];
-    newFlave[@"reflaves"] = @(15);
-    
-    [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error) {
-            NSLog(@"%@", [error localizedDescription]);
-        } else {
-            NSLog(@"success.");
-        }
-    }];
-    
-//    PFQuery *query = [PFQuery queryWithClassName:@"Flave"];
-//    [query getObjectInBackgroundWithId:@"Xg1Tsg7kPb" block:^(PFObject *object, NSError *error) {
-//        NSLog(@"");
-//    }];
-    
+    if ([PFUser currentUser]) {
+        
+    } else {
+        NSLog(@"no current user");
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,4 +42,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"login"]) {
+        [PFUser logInWithUsernameInBackground:self.emailField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
+            
+        }];
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E31F5F418958774003C1E54 /* NSCharacterSet+CustomSets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F5F318958774003C1E54 /* NSCharacterSet+CustomSets.m */; };
 		4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */; };
 		4E38704518946E4E00AC82E2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704418946E4E00AC82E2 /* CoreData.framework */; };
 		4E387047189479D500AC82E2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E387046189479D500AC82E2 /* Parse.framework */; };
@@ -36,7 +37,6 @@
 		4EAA70AF188CC8ED004CA02A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA7091188CC8ED004CA02A /* UIKit.framework */; };
 		4EAA70B7188CC8ED004CA02A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EAA70B5188CC8ED004CA02A /* InfoPlist.strings */; };
 		4EAA70B9188CC8ED004CA02A /* _0140119_SpiceFeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70B8188CC8ED004CA02A /* _0140119_SpiceFeedTests.m */; };
-		4EAA70C7188CCCA9004CA02A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70C6188CCCA9004CA02A /* User.m */; };
 		4EAA70CD188CCCC1004CA02A /* Flave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70CC188CCCC1004CA02A /* Flave.m */; };
 		4EAA70D0188CCE06004CA02A /* HomePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70CF188CCE06004CA02A /* HomePageControllerViewController.m */; };
 		4EAA70D9188CD01A004CA02A /* HomeNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70D8188CD01A004CA02A /* HomeNetworkViewController.m */; };
@@ -52,6 +52,7 @@
 		4EAA7146188CE189004CA02A /* TagResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA7145188CE189004CA02A /* TagResultViewController.m */; };
 		4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA7149188CE3BC004CA02A /* LoginPageController.m */; };
 		4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA714D188CE481004CA02A /* FlavePageViewController.m */; };
+		4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E31F5F218958774003C1E54 /* NSCharacterSet+CustomSets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCharacterSet+CustomSets.h"; sourceTree = "<group>"; };
+		4E31F5F318958774003C1E54 /* NSCharacterSet+CustomSets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCharacterSet+CustomSets.m"; sourceTree = "<group>"; };
 		4E3870421894515300AC82E2 /* SpiceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpiceModel.xcdatamodel; sourceTree = "<group>"; };
 		4E38704418946E4E00AC82E2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E387046189479D500AC82E2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -100,8 +103,6 @@
 		4EAA70B4188CC8ED004CA02A /* 20140119_SpiceFeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "20140119_SpiceFeedTests-Info.plist"; sourceTree = "<group>"; };
 		4EAA70B6188CC8ED004CA02A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4EAA70B8188CC8ED004CA02A /* _0140119_SpiceFeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _0140119_SpiceFeedTests.m; sourceTree = "<group>"; };
-		4EAA70C5188CCCA9004CA02A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		4EAA70C6188CCCA9004CA02A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		4EAA70CB188CCCC1004CA02A /* Flave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flave.h; sourceTree = "<group>"; };
 		4EAA70CC188CCCC1004CA02A /* Flave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flave.m; sourceTree = "<group>"; };
 		4EAA70CE188CCE06004CA02A /* HomePageControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageControllerViewController.h; sourceTree = "<group>"; };
@@ -132,6 +133,8 @@
 		4EAA7149188CE3BC004CA02A /* LoginPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPageController.m; sourceTree = "<group>"; };
 		4EAA714C188CE481004CA02A /* FlavePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlavePageViewController.h; sourceTree = "<group>"; };
 		4EAA714D188CE481004CA02A /* FlavePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlavePageViewController.m; sourceTree = "<group>"; };
+		4EAE296C1894D0DF00DB7FBE /* SignupPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupPageViewController.h; sourceTree = "<group>"; };
+		4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E31F5F118958744003C1E54 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4E31F5F218958774003C1E54 /* NSCharacterSet+CustomSets.h */,
+				4E31F5F318958774003C1E54 /* NSCharacterSet+CustomSets.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		4E9C850C1890D2FB00729455 /* Email Resend Confirmation Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +243,7 @@
 		4EAA7093188CC8ED004CA02A /* 20140119_SpiceFeed */ = {
 			isa = PBXGroup;
 			children = (
+				4E31F5F118958744003C1E54 /* Categories */,
 				4E9C85101890D52900729455 /* Images */,
 				4EAA70C4188CCC8E004CA02A /* Controllers */,
 				4EAA70C3188CCC87004CA02A /* Views */,
@@ -278,8 +291,6 @@
 		4EAA70C2188CCC82004CA02A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4EAA70C5188CCCA9004CA02A /* User.h */,
-				4EAA70C6188CCCA9004CA02A /* User.m */,
 				4EAA70CB188CCCC1004CA02A /* Flave.h */,
 				4EAA70CC188CCCC1004CA02A /* Flave.m */,
 				4EAA712E188CDF01004CA02A /* Tag.h */,
@@ -301,6 +312,7 @@
 		4EAA70C4188CCC8E004CA02A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4EAE296B1894D0C700DB7FBE /* Signup Page */,
 				4E9C850C1890D2FB00729455 /* Email Resend Confirmation Page */,
 				4EAA714B188CE40D004CA02A /* Flave Page */,
 				4EAA7147188CE3A5004CA02A /* Login Page */,
@@ -384,6 +396,15 @@
 				4EAA714D188CE481004CA02A /* FlavePageViewController.m */,
 			);
 			name = "Flave Page";
+			sourceTree = "<group>";
+		};
+		4EAE296B1894D0C700DB7FBE /* Signup Page */ = {
+			isa = PBXGroup;
+			children = (
+				4EAE296C1894D0DF00DB7FBE /* SignupPageViewController.h */,
+				4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */,
+			);
+			name = "Signup Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,16 +507,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
+				4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */,
 				4EAA7130188CDF01004CA02A /* Tag.m in Sources */,
 				4EAA7146188CE189004CA02A /* TagResultViewController.m in Sources */,
 				4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */,
+				4E31F5F418958774003C1E54 /* NSCharacterSet+CustomSets.m in Sources */,
 				4EAA7133188CDF31004CA02A /* ACategory.m in Sources */,
 				4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */,
 				4EAA70D9188CD01A004CA02A /* HomeNetworkViewController.m in Sources */,
 				4EAA70DC188CD02D004CA02A /* HomeTrendingViewController.m in Sources */,
 				4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */,
 				4EAA70CD188CCCC1004CA02A /* Flave.m in Sources */,
-				4EAA70C7188CCCA9004CA02A /* User.m in Sources */,
 				4EAA70A4188CC8ED004CA02A /* ViewController.m in Sources */,
 				4EAA70DF188CD03D004CA02A /* HomeCategoriesViewController.m in Sources */,
 				4EAA70D0188CCE06004CA02A /* HomePageControllerViewController.m in Sources */,

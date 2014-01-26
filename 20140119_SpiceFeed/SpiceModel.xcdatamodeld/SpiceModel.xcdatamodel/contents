@@ -33,6 +33,7 @@
     <entity name="Tag" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flaves" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flave" inverseName="tags" inverseEntity="Flave" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="favoriteTags" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -49,24 +50,25 @@
         <attribute name="profilePic" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collection" inverseName="owner" inverseEntity="Collection" syncable="YES"/>
-        <relationship name="favoriteTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" syncable="YES"/>
+        <relationship name="favoriteTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="users" inverseEntity="Tag" syncable="YES"/>
         <relationship name="followers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Followers" inverseName="users" inverseEntity="Followers" syncable="YES"/>
-        <relationship name="friends" optional="YES" maxCount="1" deletionRule="Nullify" syncable="YES"/>
+        <relationship name="friends" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Friends" inverseName="users" inverseEntity="Friends" syncable="YES"/>
         <relationship name="uploads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="originalUploader" inverseEntity="Flave" syncable="YES"/>
+        <relationship name="userList" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="UserList" inverseName="users" inverseEntity="UserList" syncable="YES"/>
     </entity>
     <entity name="UserList" syncable="YES">
         <attribute name="emails" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="numberOfUsers" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="userList" inverseEntity="User" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Collection" positionX="-5463" positionY="-5085" width="128" height="118"/>
+        <element name="Collection" positionX="-5499" positionY="-5095" width="128" height="118"/>
         <element name="Flave" positionX="-5825" positionY="-5107" width="128" height="193"/>
-        <element name="FlaveList" positionX="-5987" positionY="-4882" width="128" height="58"/>
-        <element name="Followers" positionX="-5463" positionY="-4752" width="128" height="73"/>
-        <element name="Friends" positionX="-5465" positionY="-4671" width="128" height="73"/>
-        <element name="Tag" positionX="-5859" positionY="-4789" width="128" height="73"/>
-        <element name="User" positionX="-5663" positionY="-4941" width="128" height="313"/>
-        <element name="UserList" positionX="-5465" positionY="-4905" width="128" height="88"/>
+        <element name="FlaveList" positionX="-5985" positionY="-5040" width="128" height="58"/>
+        <element name="Followers" positionX="-5474" positionY="-4797" width="128" height="73"/>
+        <element name="Tag" positionX="-5976" positionY="-4750" width="128" height="88"/>
+        <element name="User" positionX="-5654" positionY="-4923" width="128" height="328"/>
+        <element name="UserList" positionX="-5472" positionY="-4597" width="128" height="88"/>
+        <element name="Friends" positionX="-5474" positionY="-4690" width="128" height="73"/>
     </elements>
 </model>

@@ -34,7 +34,7 @@
     self.pageViewController = pageViewController;
     self.pageViewController.delegate = self;
     
-    
+    NSLog(@"%@", [PFUser currentUser]);
 }
 
 - (void)didReceiveMemoryWarning
