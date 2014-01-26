@@ -27,13 +27,10 @@
 {
     [super viewDidLoad];
     
-    [PFUser logOut];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    if ([PFUser currentUser]) {
-        
-    } else {
-        NSLog(@"no current user");
-    }
+    self.emailField.delegate = self;
+    self.passwordField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,13 +53,35 @@
     [super viewWillDisappear:animated];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if ([segue.identifier isEqualToString:@"login"]) {
-        [PFUser logInWithUsernameInBackground:self.emailField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
-            
-        }];
+    // Dismiss keyboards.
+    for (UIControl *aControl in self.view.subviews) {
+        [aControl endEditing:YES];
     }
+}
+
+- (IBAction)performLoginSuccessSegueIfValid:(id)sender
+{
+    [PFUser logInWithUsernameInBackground:self.emailField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
+        // If there was no error, login.
+        if (user) {
+            [self performSegueWithIdentifier:@"login" sender:self];
+        }
+    }];
+}
+
+#pragma mark - Textfield delegate methods
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.emailField.text.length != 0 &&
+        self.passwordField.text.length != 0) {
+        // If the user has entered account information, enable the login button.
+        self.loginButton.enabled = YES;
+    }
+    
+    return YES;
 }
 
 @end

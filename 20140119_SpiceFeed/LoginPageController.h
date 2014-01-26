@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginPageController : UIViewController
+@interface LoginPageController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+- (IBAction)performLoginSuccessSegueIfValid:(id)sender;
 
 @end

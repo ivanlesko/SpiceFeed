@@ -16,10 +16,11 @@
         <attribute name="uploadDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collection" inverseName="flaves" inverseEntity="Collection" syncable="YES"/>
         <relationship name="flaveList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FlaveList" inverseName="flaves" inverseEntity="FlaveList" syncable="YES"/>
-        <relationship name="originalUploader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="uploads" inverseEntity="User" syncable="YES"/>
+        <relationship name="originalUploader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="flaves" inverseEntity="User" syncable="YES"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="flaves" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="FlaveList" syncable="YES">
+        <attribute name="numberOfFlaves" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="flaves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="flaveList" inverseEntity="Flave" syncable="YES"/>
     </entity>
     <entity name="Followers" syncable="YES">
@@ -33,7 +34,12 @@
     <entity name="Tag" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="flaves" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flave" inverseName="tags" inverseEntity="Flave" syncable="YES"/>
+        <relationship name="tagList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TagList" inverseName="tags" inverseEntity="TagList" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="favoriteTags" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="TagList" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="tagList" inverseEntity="Tag" syncable="YES"/>
     </entity>
     <entity name="User" syncable="YES">
         <attribute name="active" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -51,9 +57,9 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collection" inverseName="owner" inverseEntity="Collection" syncable="YES"/>
         <relationship name="favoriteTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="users" inverseEntity="Tag" syncable="YES"/>
+        <relationship name="flaves" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="originalUploader" inverseEntity="Flave" syncable="YES"/>
         <relationship name="followers" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Followers" inverseName="users" inverseEntity="Followers" syncable="YES"/>
         <relationship name="friends" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Friends" inverseName="users" inverseEntity="Friends" syncable="YES"/>
-        <relationship name="uploads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flave" inverseName="originalUploader" inverseEntity="Flave" syncable="YES"/>
         <relationship name="userList" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="UserList" inverseName="users" inverseEntity="UserList" syncable="YES"/>
     </entity>
     <entity name="UserList" syncable="YES">
@@ -64,11 +70,12 @@
     <elements>
         <element name="Collection" positionX="-5499" positionY="-5095" width="128" height="118"/>
         <element name="Flave" positionX="-5825" positionY="-5107" width="128" height="193"/>
-        <element name="FlaveList" positionX="-5985" positionY="-5040" width="128" height="58"/>
+        <element name="FlaveList" positionX="-6012" positionY="-5004" width="128" height="73"/>
         <element name="Followers" positionX="-5474" positionY="-4797" width="128" height="73"/>
-        <element name="Tag" positionX="-5976" positionY="-4750" width="128" height="88"/>
+        <element name="Friends" positionX="-5474" positionY="-4690" width="128" height="73"/>
+        <element name="Tag" positionX="-6003" positionY="-4855" width="128" height="103"/>
         <element name="User" positionX="-5654" positionY="-4923" width="128" height="328"/>
         <element name="UserList" positionX="-5472" positionY="-4597" width="128" height="88"/>
-        <element name="Friends" positionX="-5474" positionY="-4690" width="128" height="73"/>
+        <element name="TagList" positionX="-6183" positionY="-4834" width="128" height="73"/>
     </elements>
 </model>
