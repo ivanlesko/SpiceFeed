@@ -16,3 +16,7 @@
     #import <Parse/Parse.h>
     #import "NSCharacterSet+CustomSets.h"
 #endif
+
+#import <Parse/Parse.h>
+
+#import "HelperMethods.h"

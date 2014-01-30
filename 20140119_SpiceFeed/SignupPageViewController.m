@@ -73,7 +73,7 @@
                 [self performSegueWithIdentifier:@"joinSuccess" sender:self];
             } else {
                 // If Parse threw an error.
-                self.errorLabl.text = [NSString stringWithFormat:@"%d", error.code];
+                self.errorLabl.text = [NSString stringWithFormat:@"%ld", (long)error.code];
             }
         }];
     }
