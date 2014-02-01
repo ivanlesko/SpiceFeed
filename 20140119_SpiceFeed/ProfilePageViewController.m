@@ -37,6 +37,7 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"sampleImage"];
     
     self.usernameLabel.text = [PFUser currentUser][@"username"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,9 +46,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"sampleImage" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userFlaveThumbnail" forIndexPath:indexPath];
     
     UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,
                                                                          0,
@@ -64,8 +70,10 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return [[[PFUser currentUser] objectForKey:@"flaveCount"] integerValue];
 }
+
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -73,3 +81,13 @@
 }
 
 @end
+
+
+
+
+
+
+
+
+
+

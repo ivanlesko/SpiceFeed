@@ -28,6 +28,7 @@
 		4E31F61B1895D5EF003C1E54 /* TagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F61A1895D5EF003C1E54 /* TagList.m */; };
 		4E31F61E1895D5EF003C1E54 /* Flave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F61D1895D5EF003C1E54 /* Flave.m */; };
 		4E31F6211895D5F0003C1E54 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F6201895D5F0003C1E54 /* Collection.m */; };
+		4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E320D5F189C43FA00933EC8 /* SharedNetworkController.m */; };
 		4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */; };
 		4E38704518946E4E00AC82E2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704418946E4E00AC82E2 /* CoreData.framework */; };
 		4E387047189479D500AC82E2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E387046189479D500AC82E2 /* Parse.framework */; };
@@ -116,6 +117,8 @@
 		4E31F61D1895D5EF003C1E54 /* Flave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flave.m; sourceTree = "<group>"; };
 		4E31F61F1895D5F0003C1E54 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
 		4E31F6201895D5F0003C1E54 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
+		4E320D5E189C43FA00933EC8 /* SharedNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedNetworkController.h; sourceTree = "<group>"; };
+		4E320D5F189C43FA00933EC8 /* SharedNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedNetworkController.m; sourceTree = "<group>"; };
 		4E3870421894515300AC82E2 /* SpiceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpiceModel.xcdatamodel; sourceTree = "<group>"; };
 		4E38704418946E4E00AC82E2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E387046189479D500AC82E2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -232,6 +235,15 @@
 				4E31F5F318958774003C1E54 /* NSCharacterSet+CustomSets.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		4E320D5D189C43DB00933EC8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4E320D5E189C43FA00933EC8 /* SharedNetworkController.h */,
+				4E320D5F189C43FA00933EC8 /* SharedNetworkController.m */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		4E9C850C1890D2FB00729455 /* Email Resend Confirmation Page */ = {
@@ -390,6 +402,7 @@
 		4EAA70C4188CCC8E004CA02A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4E320D5D189C43DB00933EC8 /* Network */,
 				4EAE296B1894D0C700DB7FBE /* Signup Page */,
 				4E9C850C1890D2FB00729455 /* Email Resend Confirmation Page */,
 				4EAA714B188CE40D004CA02A /* Flave Page */,
@@ -618,6 +631,7 @@
 				4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */,
 				4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */,
 				4E31F61E1895D5EF003C1E54 /* Flave.m in Sources */,
+				4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */,
 				4E31F6151895D5EF003C1E54 /* UserList.m in Sources */,
 				4E31F60F1895D5EF003C1E54 /* Followers.m in Sources */,
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,

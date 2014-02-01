@@ -8,7 +8,7 @@
 
 #import "AddFlavePageViewController.h"
 
-@interface AddFlavePageViewController ()
+@interface AddFlavePageViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @end
 
@@ -68,8 +68,6 @@
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     } else if (buttonIndex == 1) {
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        NSLog(@"unknown button pressed");
     }
     
     [self presentViewController:self.imagePicker
@@ -88,6 +86,14 @@
         CGSize dimensions = image.size;
         
         if (dimensions.height > dimensions.width) {
+            
+            /**
+             * FIX THESE CONTEXT SIZES.
+             * THEY ARE JUST PLACEHOLDERS
+             * IMAGE CONTEXT SHOULD REFLECT THE ASPECT
+             * RATIO OF THE SELECTED IMAGE
+             **/
+            
             // If the image is portrait.
             UIGraphicsBeginImageContext(CGSizeMake(640, 960));
             [image drawInRect:CGRectMake(0, 0, 640, 960)];
@@ -109,40 +115,87 @@
         self.selectedImage.image = smallImage;
         
         NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.7f);
-        [self saveNewFlaveWIthImageData:imageData];
+        self.selectedImageData = imageData;
     }];
     
     NSLog(@"%@", info);
 }
 
+- (IBAction)spiceItPushed:(id)sender
+{
+    [self saveNewFlaveWIthImageData:self.selectedImageData];
+}
+
 - (void)saveNewFlaveWIthImageData:(NSData *)imageData
 {
-    if (self.selectedImage.image) {
-        PFObject *newFlave = [PFObject objectWithClassName:@"Flave"];
-        [newFlave setObject:[[PFUser currentUser] objectForKey:@"username"] forKey:@"uploader"];
-        [newFlave setObject:imageData forKey:@"imageData"];
-        [newFlave setObject:@(0) forKey:@"reflaveCount"];
-        if (![self.tagsTextfield.text isEqualToString:@""]) {
-            [newFlave setObject:self.tagsTextfield.text forKey:@"tags"];
-        }
+    // If there is image data.
+    if (imageData) {
+        // Create the image file for the flave.
+        PFFile *imageFile = [PFFile fileWithName:@"newFlave.jpg" data:imageData];
         
-        [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (succeeded) {
-                self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
-                self.spiceItButton.enabled = NO;
-            }
+        // Save the image file.
+        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             
-            if (error) {
-                NSLog(@"Error: %@", error.localizedDescription);
-                NSLog(@"Error: %@", error.debugDescription);
+            PFObject *newFlave = [PFObject objectWithClassName:@"Flave"];
+            newFlave[@"uploader"] = [[PFUser currentUser] objectForKey:@"username"];
+            newFlave[@"image"] = imageFile;
+            newFlave[@"reflaveCount"] = @0;
+            newFlave[@"isTrending"] = NO;
+            newFlave.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+            
+            if (![self.tagsTextfield.text isEqualToString:@""]) {
+                [newFlave setObject:self.tagsTextfield.text forKey:@"tags"];
             }
+            // Save the new Flave.
+            [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    PFRelation *relation = [[PFUser currentUser] relationForKey:@"flaves"];
+                    [relation addObject:newFlave];
+                    
+                    // Update the user's flaveCount to match the current amount.
+                    PFQuery *query = [PFUser query];
+                    
+                    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                        PFRelation *flaveRelation = [[PFUser currentUser] relationForKey:@"flaves"];
+                        [[flaveRelation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                            if (!error) {
+                                NSLog(@"%d", objects.count);
+                                [[PFUser currentUser] setObject:@(objects.count) forKey:@"flaveCount"];
+                                NSLog(@"%d", [[[PFUser currentUser] objectForKey:@"flaveCount"] intValue]);
+                                
+                                [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                    if (!error) {
+                                        
+                                    } else {
+                                        NSLog(@"Update User Error: %@", error.localizedDescription);
+                                        NSLog(@"Update User Error: %@", error.debugDescription);
+                                    }
+                                    
+                                    self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
+                                    self.spiceItButton.enabled = NO;
+                                }];
+                            } else {
+                                NSLog(@"%@", error.localizedDescription);
+                            }
+                        }];
+                    }];
+                }
+                else {
+                    NSLog(@"Error: %@", error.localizedDescription);
+                    NSLog(@"Error: %@", error.debugDescription);
+                }
+            }];
         }];
+    } else {
+        NSLog(@"No image data passed to method.");
     }
 }
 
-- (IBAction)spiceItPushed:(id)sender
-{
+#pragma mark - Textfield Delegate Methods
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    return YES;
 }
 
 

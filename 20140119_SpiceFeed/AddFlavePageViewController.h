@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFlavePageViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface AddFlavePageViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *tagsTextfield;
 @property (weak, nonatomic) IBOutlet UIButton *spiceItButton;
-
 
 @property (nonatomic, strong) UIActionSheet *actionSheet;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImage;
+@property (nonatomic, strong) NSData *selectedImageData;
 
 - (IBAction)addFlavePushed:(id)sender;
 - (IBAction)spiceItButtonPushed:(id)sender;

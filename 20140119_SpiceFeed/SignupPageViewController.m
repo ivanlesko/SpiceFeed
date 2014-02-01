@@ -56,6 +56,7 @@
     newUser.username = self.usernameField.text;
     newUser.password = self.passwordConfirmField.text;
     newUser.email    = self.emailField.text;
+    newUser[@"flaveCount"] = @0;
         
     // Check and make sure the user is only using a-Z and 0-9 in their usernames.
     if ([self.usernameField.text  rangeOfCharacterFromSet:[NSCharacterSet lettersAndNumbers]].location != NSNotFound ||
@@ -71,6 +72,8 @@
                 [newUser setObject:self.firstNameField.text forKey:@"firstName"];
                 [newUser setObject:self.lastNameField.text forKey:@"lastName"];
                 [self performSegueWithIdentifier:@"joinSuccess" sender:self];
+                
+                NSLog(@"new user flave count: %d", [newUser[@"flaveCount"]intValue]);
             } else {
                 // If Parse threw an error.
                 self.errorLabl.text = [NSString stringWithFormat:@"%ld", (long)error.code];
