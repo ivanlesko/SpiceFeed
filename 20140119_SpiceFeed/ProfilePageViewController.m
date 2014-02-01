@@ -38,6 +38,7 @@
     
     self.usernameLabel.text = [PFUser currentUser][@"username"];
     
+    [self updateUserFlaves];
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,7 +61,9 @@
                                                                          50,
                                                                          50)];
     
-    bgImage.image = [UIImage imageNamed:@"profileAvatar.png"];
+    NSLog(@"3");
+          
+    bgImage.image = [[self.userFlaves objectAtIndex:indexPath.row] objectForKey:@"image"];
     
     cell.backgroundView = bgImage;
     
@@ -73,11 +76,30 @@
     return [[[PFUser currentUser] objectForKey:@"flaveCount"] integerValue];
 }
 
-
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
+}
+
+- (void)updateUserFlaves
+{
+    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
+    flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [flaveQuery whereKey:@"uploader" equalTo:[PFUser currentUser][@"username"]];
+        [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.userFlaves = objects;
+                    NSLog(@"1");
+                });
+            } else {
+                NSLog(@"ProfilePage Error: %@", error.debugDescription);
+                NSLog(@"ProfilePage Error: %@", error.localizedDescription);
+            }
+        }];
+    }];
+    NSLog(@"2");
 }
 
 @end

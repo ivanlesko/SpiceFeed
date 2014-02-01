@@ -156,28 +156,25 @@
                     PFQuery *query = [PFUser query];
                     
                     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                        PFRelation *flaveRelation = [[PFUser currentUser] relationForKey:@"flaves"];
-                        [[flaveRelation query] findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                            if (!error) {
-                                NSLog(@"%d", objects.count);
-                                [[PFUser currentUser] setObject:@(objects.count) forKey:@"flaveCount"];
-                                NSLog(@"%d", [[[PFUser currentUser] objectForKey:@"flaveCount"] intValue]);
-                                
-                                [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                    if (!error) {
-                                        
-                                    } else {
-                                        NSLog(@"Update User Error: %@", error.localizedDescription);
-                                        NSLog(@"Update User Error: %@", error.debugDescription);
-                                    }
+                        if (!error) {
+                            NSLog(@"%d", objects.count);
+                            [[PFUser currentUser] setObject:@(objects.count) forKey:@"flaveCount"];
+                            NSLog(@"%d", [[[PFUser currentUser] objectForKey:@"flaveCount"] intValue]);
+                            
+                            [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                if (!error) {
                                     
-                                    self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
-                                    self.spiceItButton.enabled = NO;
-                                }];
-                            } else {
-                                NSLog(@"%@", error.localizedDescription);
-                            }
-                        }];
+                                } else {
+                                    NSLog(@"Update User Error: %@", error.localizedDescription);
+                                    NSLog(@"Update User Error: %@", error.debugDescription);
+                                }
+                                
+                                self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
+                                self.spiceItButton.enabled = NO;
+                            }];
+                        } else {
+                            NSLog(@"%@", error.localizedDescription);
+                        }
                     }];
                 }
                 else {
