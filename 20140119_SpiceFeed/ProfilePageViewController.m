@@ -38,6 +38,8 @@
     
     self.usernameLabel.text = [PFUser currentUser][@"username"];
     
+    self.userFlaves = [NSMutableArray new];
+    
     [self updateUserFlaves];
 }
 
@@ -63,7 +65,7 @@
     
     NSLog(@"3");
           
-    bgImage.image = [[self.userFlaves objectAtIndex:indexPath.row] objectForKey:@"image"];
+//    bgImage.image = [[self.userFlaves objectAtIndex:indexPath.row] objectForKey:@"image"];
     
     cell.backgroundView = bgImage;
     
@@ -89,9 +91,11 @@
         [flaveQuery whereKey:@"uploader" equalTo:[PFUser currentUser][@"username"]];
         [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
+                self.userFlaves = [NSMutableArray arrayWithArray:objects];
+                NSLog(@"flaves count: %d", self.userFlaves.count);
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    self.userFlaves = objects;
-                    NSLog(@"1");
+                    [self.collectionView reloadData];
                 });
             } else {
                 NSLog(@"ProfilePage Error: %@", error.debugDescription);

@@ -15,6 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
-@property (nonatomic, strong) NSArray *userFlaves;
+@property (nonatomic, strong) NSMutableArray *userFlaves;
 
 @end

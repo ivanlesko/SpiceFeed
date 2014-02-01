@@ -66,8 +66,10 @@
     
     if (buttonIndex == 0) {
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        self.selectedImageSource = @"photoLibrary";
     } else if (buttonIndex == 1) {
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.selectedImageSource = @"camera";
     }
     
     [self presentViewController:self.imagePicker
@@ -79,8 +81,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self.imagePicker dismissViewControllerAnimated:YES completion:^{
-        // Enable the upload button after the user selects and image.
-        self.spiceItButton.enabled = YES;
         
         UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         CGSize dimensions = image.size;
@@ -128,24 +128,30 @@
 
 - (void)saveNewFlaveWIthImageData:(NSData *)imageData
 {
-    // If there is image data.
-    if (imageData) {
-        // Create the image file for the flave.
-        PFFile *imageFile = [PFFile fileWithName:@"newFlave.jpg" data:imageData];
-        
-        // Save the image file.
-        [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    NSString *uniqueString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID);
+    NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
+    
+    // Create the image file for the flave.
+    PFFile *imageFile = [PFFile fileWithName:uniqueName data:imageData];
+    
+    // Save the image file.
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
             PFObject *newFlave = [PFObject objectWithClassName:@"Flave"];
             newFlave[@"uploader"] = [[PFUser currentUser] objectForKey:@"username"];
             newFlave[@"image"] = imageFile;
+            newFlave[@"source"] = self.selectedImageSource;
             newFlave[@"reflaveCount"] = @0;
-            newFlave[@"isTrending"] = NO;
+            newFlave[@"isTrending"] = @NO;
             newFlave.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
             
             if (![self.tagsTextfield.text isEqualToString:@""]) {
-                [newFlave setObject:self.tagsTextfield.text forKey:@"tags"];
+                NSArray *tags = [NSArray new];
+                tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
+                newFlave[@"tags"] = @[];
             }
+            
             // Save the new Flave.
             [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
@@ -174,6 +180,7 @@
                             }];
                         } else {
                             NSLog(@"%@", error.localizedDescription);
+                            NSLog(@"%@", error.debugDescription);
                         }
                     }];
                 }
@@ -182,16 +189,24 @@
                     NSLog(@"Error: %@", error.debugDescription);
                 }
             }];
-        }];
-    } else {
-        NSLog(@"No image data passed to method.");
-    }
+        } else {
+            NSLog(@"ImageFile Error: %@", error.localizedDescription);
+            NSLog(@"ImageFile Error: %@", error.debugDescription);
+        }
+    }];
 }
 
 #pragma mark - Textfield Delegate Methods
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
+    if (textField.text) {
+        self.spiceItButton.enabled = YES;
+        return YES;
+    } else {
+        self.spiceItButton.enabled = NO;
+    }
+    
     return YES;
 }
 
