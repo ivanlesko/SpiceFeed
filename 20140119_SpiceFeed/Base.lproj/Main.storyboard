@@ -444,14 +444,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJa-OU-AG0">
-                                <rect key="frame" x="102" y="362" width="115" height="48"/>
+                                <rect key="frame" x="103" y="362" width="115" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Spice it!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="spiceItButtonPushed:" destination="RLq-gW-HgA" eventType="touchUpInside" id="5uQ-AY-sf7"/>
-                                    <action selector="spiceItPushed:" destination="RLq-gW-HgA" eventType="touchUpInside" id="MNa-jE-l3V"/>
+                                    <action selector="spiceItButtonPushed:" destination="RLq-gW-HgA" eventType="touchUpInside" id="vbs-ML-mt7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2W-Ro-CYe">
@@ -630,6 +629,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YXB-iH-XPS"/>
+        <segue reference="Ll3-5d-raz"/>
     </inferredMetricsTieBreakers>
 </document>

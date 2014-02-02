@@ -42,6 +42,7 @@
 		4E38705718947A3F00AC82E2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38705618947A3F00AC82E2 /* StoreKit.framework */; };
 		4E38705918947A4400AC82E2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38705818947A4400AC82E2 /* SystemConfiguration.framework */; };
 		4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38705C1894870E00AC82E2 /* spiceIcon.png */; };
+		4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */; };
 		4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */; };
 		4E9C85121890DF7700729455 /* profileAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C85111890DF7700729455 /* profileAvatar.png */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
@@ -132,6 +133,8 @@
 		4E38705618947A3F00AC82E2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4E38705818947A4400AC82E2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4E38705C1894870E00AC82E2 /* spiceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spiceIcon.png; sourceTree = "<group>"; };
+		4E42AAAA189DBE1600331108 /* UIView+ViewAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewAnimations.h"; sourceTree = "<group>"; };
+		4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewAnimations.m"; sourceTree = "<group>"; };
 		4E9C850D1890D34400729455 /* EmailResendConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailResendConfirmationViewController.h; sourceTree = "<group>"; };
 		4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailResendConfirmationViewController.m; sourceTree = "<group>"; };
 		4E9C85111890DF7700729455 /* profileAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileAvatar.png; sourceTree = "<group>"; };
@@ -246,6 +249,15 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		4E42AAAD189DBE1E00331108 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */,
+				4E42AAAA189DBE1600331108 /* UIView+ViewAnimations.h */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		4E9C850C1890D2FB00729455 /* Email Resend Confirmation Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +330,7 @@
 		4EAA7093188CC8ED004CA02A /* 20140119_SpiceFeed */ = {
 			isa = PBXGroup;
 			children = (
+				4E42AAAD189DBE1E00331108 /* Categories */,
 				4E31F5F118958744003C1E54 /* Categories */,
 				4E9C85101890D52900729455 /* Images */,
 				4EAA70C4188CCC8E004CA02A /* Controllers */,
@@ -611,6 +624,7 @@
 				4E31F6121895D5EF003C1E54 /* User.m in Sources */,
 				4E31F6211895D5F0003C1E54 /* Collection.m in Sources */,
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
+				4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */,
 				4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */,
 				4EAA7146188CE189004CA02A /* TagResultViewController.m in Sources */,
 				4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */,

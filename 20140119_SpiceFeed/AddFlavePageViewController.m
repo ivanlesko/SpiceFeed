@@ -8,6 +8,8 @@
 
 #import "AddFlavePageViewController.h"
 
+#define SLIDE_TIMER 0.15
+
 @interface AddFlavePageViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @end
@@ -30,6 +32,10 @@
     
     self.actionSheet.delegate = self;
     self.tagsTextfield.delegate = self;
+    [self.tagsTextfield addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+    self.tagsTextfield.alpha = 0.0f;
+    self.tagsTextfield.userInteractionEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,9 +58,6 @@
                                           otherButtonTitles:@"Photo Library", @"Camera", nil];
     
     [self.actionSheet showInView:self.view];
-}
-
-- (IBAction)spiceItButtonPushed:(id)sender {
 }
 
 #pragma mark - Action Sheet Delegate
@@ -113,17 +116,29 @@
         
         // Place compressed image onto the screen.
         self.selectedImage.image = smallImage;
-        
         NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.7f);
         self.selectedImageData = imageData;
+        
+        self.selectedImage.alpha = 0.0f;
+        [UIView animateWithDuration:0.4
+                         animations:^{
+                             self.selectedImage.alpha = 1.0f;
+                             self.tagsTextfield.alpha = 1.0f;
+                             self.tagsTextfield.userInteractionEnabled = YES;
+                         }];
     }];
-    
-    NSLog(@"%@", info);
 }
 
-- (IBAction)spiceItPushed:(id)sender
+- (IBAction)spiceItButtonPushed:(id)sender
 {
     [self saveNewFlaveWIthImageData:self.selectedImageData];
+    
+    BOOL framePositionCheck = CGRectEqualToRect(self.view.frame, [[self.view superview]frame]);
+    
+    if (!framePositionCheck) {
+        [UIView moveViewToParentViewBounds:self.view withParentView:self.view.superview withTimeInterval:SLIDE_TIMER];
+        [self.tagsTextfield resignFirstResponder];
+    }
 }
 
 - (void)saveNewFlaveWIthImageData:(NSData *)imageData
@@ -149,12 +164,24 @@
             if (![self.tagsTextfield.text isEqualToString:@""]) {
                 NSArray *tags = [NSArray new];
                 tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
-                newFlave[@"tags"] = @[];
+                newFlave[@"tags"] = tags;
+                
+                PFRelation *tagsRelation = [newFlave relationForKey:@"tags"];
+                for (NSString *newTag in tags) {
+                    PFObject *tag = [PFObject objectWithClassName:@"Tag"];
+                    tag[@"name"] = newTag;
+                    if ([tags containsObject:newTag]) {
+                        // If the tag already exists, in the tags class.
+                        NSLog(@"%@ tag already exists.", newTag);
+                    } else {
+                        [tagsRelation addObject:tag];
+                    }
+                }
             }
             
-            // Save the new Flave.
             [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
+                    
                     PFRelation *relation = [[PFUser currentUser] relationForKey:@"flaves"];
                     [relation addObject:newFlave];
                     
@@ -174,7 +201,6 @@
                                     NSLog(@"Update User Error: %@", error.localizedDescription);
                                     NSLog(@"Update User Error: %@", error.debugDescription);
                                 }
-                                
                                 self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
                                 self.spiceItButton.enabled = NO;
                             }];
@@ -189,6 +215,7 @@
                     NSLog(@"Error: %@", error.debugDescription);
                 }
             }];
+            // Save the new Flave.
         } else {
             NSLog(@"ImageFile Error: %@", error.localizedDescription);
             NSLog(@"ImageFile Error: %@", error.debugDescription);
@@ -198,16 +225,41 @@
 
 #pragma mark - Textfield Delegate Methods
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    if (textField.text) {
+    [self moveFrameToTextfield:self.tagsTextfield];
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    [UIView moveViewToParentViewBounds:self.view withParentView:self.view.superview withTimeInterval:SLIDE_TIMER];
+    
+    return YES;
+}
+
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    if (textField.text.length != 0) {
         self.spiceItButton.enabled = YES;
-        return YES;
     } else {
         self.spiceItButton.enabled = NO;
     }
-    
-    return YES;
+}
+
+#pragma mark - Textfield animated method
+
+- (void)moveFrameToTextfield:(UITextField *)textfield
+{
+    [UIView animateWithDuration:0.35
+                     animations:^{
+                         self.view.frame = CGRectMake(self.view.frame.origin.x,
+                                                      self.view.frame.origin.y - (textfield.frame.origin.y - self.view.frame.size.height * 0.2),
+                                                      self.view.frame.size.width,
+                                                      self.view.frame.size.height);
+                     }
+                     completion:nil];
 }
 
 

@@ -20,3 +20,5 @@
 #import <Parse/Parse.h>
 
 #import "HelperMethods.h"
+
+#import "UIView+ViewAnimations.h"
