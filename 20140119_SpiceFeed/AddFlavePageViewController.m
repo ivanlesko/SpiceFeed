@@ -143,6 +143,8 @@
 
 - (void)saveNewFlaveWIthImageData:(NSData *)imageData
 {
+    self.tagsTextfield.text = @"";
+    
     CFUUIDRef theUUID = CFUUIDCreate(NULL);
     NSString *uniqueString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID);
     NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
@@ -161,26 +163,25 @@
             newFlave[@"isTrending"] = @NO;
             newFlave.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
             
-            if (![self.tagsTextfield.text isEqualToString:@""]) {
-                NSArray *tags = [NSArray new];
-                tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
-                newFlave[@"tags"] = tags;
-                
-                PFRelation *tagsRelation = [newFlave relationForKey:@"tags"];
-                for (NSString *newTag in tags) {
-                    PFObject *tag = [PFObject objectWithClassName:@"Tag"];
-                    tag[@"name"] = newTag;
-                    if ([tags containsObject:newTag]) {
-                        // If the tag already exists, in the tags class.
-                        NSLog(@"%@ tag already exists.", newTag);
-                    } else {
-                        [tagsRelation addObject:tag];
-                    }
-                }
-            }
-            
             [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
+                    NSArray *tags = [NSArray new];
+                    tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
+                    newFlave[@"tags"] = tags;
+                    
+                    for (NSString *newTag in tags) {
+                        PFObject *tag = [PFObject objectWithClassName:@"Tag"];
+                        tag[@"name"] = newTag;
+                        tag[@"user"] = [[PFUser currentUser] objectForKey:@"username"];
+                        [tag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (!error) {
+                                // Tag saved okay.
+                            } else {
+                                NSLog(@"Tag Save Error: %@", error.localizedDescription);
+                                NSLog(@"Tag Save Error: %@", error.debugDescription);
+                            }
+                        }];
+                    }
                     
                     PFRelation *relation = [[PFUser currentUser] relationForKey:@"flaves"];
                     [relation addObject:newFlave];
@@ -215,7 +216,6 @@
                     NSLog(@"Error: %@", error.debugDescription);
                 }
             }];
-            // Save the new Flave.
         } else {
             NSLog(@"ImageFile Error: %@", error.localizedDescription);
             NSLog(@"ImageFile Error: %@", error.debugDescription);
