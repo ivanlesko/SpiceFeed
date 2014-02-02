@@ -52,6 +52,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+//    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
+//    [flaveQuery whereKey:@"uploader" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
+//    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            self.userFlaves = [NSMutableArray arrayWithArray:objects];
+//            [self.collectionView reloadData];
+//            NSLog(@"%@", self.userFlaves);
+//        } else {
+//            
+//        }
+//    }];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -62,20 +74,26 @@
                                                                          0,
                                                                          50,
                                                                          50)];
-    
-    NSLog(@"3");
-          
-//    bgImage.image = [[self.userFlaves objectAtIndex:indexPath.row] objectForKey:@"image"];
-    
-    cell.backgroundView = bgImage;
+    PFObject *flave = [self.userFlaves objectAtIndex:indexPath.row];
+    PFFile *flaveFile = [flave objectForKey:@"image"];
+    [flaveFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            UIImage *flaveImage = [UIImage imageWithData:data];
+            bgImage.image = flaveImage;
+            cell.backgroundView = bgImage;
+            [self.collectionView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
     
     return cell;
-    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [[[PFUser currentUser] objectForKey:@"flaveCount"] integerValue];
+    return self.userFlaves.count;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

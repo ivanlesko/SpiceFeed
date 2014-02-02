@@ -66,6 +66,7 @@
 {
     self.imagePicker = [[UIImagePickerController alloc] init];
     self.imagePicker.delegate = self;
+    self.tagsTextfield.text = @"";
     
     if (buttonIndex == 0) {
         self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -131,7 +132,10 @@
 
 - (IBAction)spiceItButtonPushed:(id)sender
 {
-    [self saveNewFlaveWIthImageData:self.selectedImageData];
+    self.spiceItButton.enabled = NO;
+    self.tagsTextfield.userInteractionEnabled = NO;
+    
+    [self createNewFlaveWithImageData:self.selectedImageData];
     
     BOOL framePositionCheck = CGRectEqualToRect(self.view.frame, [[self.view superview]frame]);
     
@@ -141,17 +145,8 @@
     }
 }
 
-- (void)saveNewFlaveWIthImageData:(NSData *)imageData
+- (void)saveNewFlaveWithImageFile:(PFFile *)imageFile
 {
-    self.tagsTextfield.text = @"";
-    
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);
-    NSString *uniqueString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID);
-    NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
-    
-    // Create the image file for the flave.
-    PFFile *imageFile = [PFFile fileWithName:uniqueName data:imageData];
-    
     // Save the image file.
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
@@ -163,57 +158,46 @@
             newFlave[@"isTrending"] = @NO;
             newFlave.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
             
+            NSArray *tags = [NSArray array];
+            NSLog(@"textfield: %@", self.tagsTextfield.text);
+            tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
+            newFlave[@"tags"] = tags;
+            
+            self.tagsTextfield.alpha = 0.0f;
+            
             [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
+                
                 if (!error) {
-                    NSArray *tags = [NSArray new];
-                    tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
-                    newFlave[@"tags"] = tags;
-                    
-                    for (NSString *newTag in tags) {
-                        PFObject *tag = [PFObject objectWithClassName:@"Tag"];
-                        tag[@"name"] = newTag;
-                        tag[@"user"] = [[PFUser currentUser] objectForKey:@"username"];
-                        [tag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                            if (!error) {
-                                // Tag saved okay.
-                            } else {
-                                NSLog(@"Tag Save Error: %@", error.localizedDescription);
-                                NSLog(@"Tag Save Error: %@", error.debugDescription);
-                            }
-                        }];
-                    }
-                    
                     PFRelation *relation = [[PFUser currentUser] relationForKey:@"flaves"];
                     [relation addObject:newFlave];
                     
-                    // Update the user's flaveCount to match the current amount.
-                    PFQuery *query = [PFUser query];
-                    
-                    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                         if (!error) {
-                            NSLog(@"%d", objects.count);
-                            [[PFUser currentUser] setObject:@(objects.count) forKey:@"flaveCount"];
-                            NSLog(@"%d", [[[PFUser currentUser] objectForKey:@"flaveCount"] intValue]);
+                            // User Save succeeded
+                            self.tagsTextfield.text = @"";
                             
-                            [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                if (!error) {
-                                    
-                                } else {
-                                    NSLog(@"Update User Error: %@", error.localizedDescription);
-                                    NSLog(@"Update User Error: %@", error.debugDescription);
-                                }
-                                self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
-                                self.spiceItButton.enabled = NO;
-                            }];
+                            for (NSString *newTag in tags) {
+                                PFObject *tag = [PFObject objectWithClassName:@"Tag"];
+                                tag[@"name"] = newTag;
+                                tag[@"user"] = [[PFUser currentUser] objectForKey:@"username"];
+                                [tag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                    if (!error) {
+                                        // Tag saved okay.
+                                    } else {
+                                        NSLog(@"Tag Save Error: %@", error.localizedDescription);
+                                        NSLog(@"Tag Save Error: %@", error.debugDescription);
+                                    }
+                                }];
+                            }
                         } else {
-                            NSLog(@"%@", error.localizedDescription);
-                            NSLog(@"%@", error.debugDescription);
+                            NSLog(@"User Save Error: %@", error.localizedDescription);
+                            NSLog(@"User Save Error: %@", error.debugDescription);
                         }
                     }];
-                }
-                else {
-                    NSLog(@"Error: %@", error.localizedDescription);
-                    NSLog(@"Error: %@", error.debugDescription);
+                } else {
+                    NSLog(@"New Flave Error: %@", error.localizedDescription);
+                    NSLog(@"New Flave Erorr: %@", error.debugDescription);
                 }
             }];
         } else {
@@ -221,6 +205,18 @@
             NSLog(@"ImageFile Error: %@", error.debugDescription);
         }
     }];
+}
+
+- (void)createNewFlaveWithImageData:(NSData *)imageData
+{
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    NSString *uniqueString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID);
+    NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
+    
+    // Create the image file for the flave.
+    PFFile *imageFile = [PFFile fileWithName:uniqueName data:imageData];
+    
+    [self saveNewFlaveWithImageFile:imageFile];
 }
 
 #pragma mark - Textfield Delegate Methods
