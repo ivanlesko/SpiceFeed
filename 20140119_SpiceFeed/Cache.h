@@ -13,6 +13,7 @@
 + (id)sharedCache;
 
 - (void)clear;
+- (void)setAttributesForFlave:(PFObject *)flave reflavers:(NSArray *)reflavers reflavedByCurrentUser:(BOOL)reflavedByCurrentUser;
 - (NSDictionary *)attributesForFlave:(PFObject *)flave;
 - (NSNumber *)reflaveCountForPhoto:(PFObject *)flave;
 - (NSArray *)reflaversForFlave:(PFObject *)flave;
@@ -21,6 +22,7 @@
 - (void)incrementReflaveCountForFlave:(PFObject *)flave;
 - (void)decrementReflaveCountForFlave:(PFObject *)flave;
 
+- (void)setAttributesForUser:(PFUser *)user flaveCount:(NSNumber *)count followedByCurrentUser:(BOOL)following;
 - (NSDictionary *)attributesForUser:(PFUser *)user;
 - (NSNumber *)flaveCountForUser:(PFUser *)user;
 - (BOOL)followStatusForUser:(PFUser *)user;
