@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Cache : NSObject
+@interface SFCache : NSObject
 
 + (id)sharedCache;
 

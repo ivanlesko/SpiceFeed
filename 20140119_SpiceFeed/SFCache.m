@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Ivan Lesko. All rights reserved.
 //
 
-#import "Cache.h"
+#import "SFCache.h"
 
-@interface Cache()
+@interface SFCache()
 
 @property (nonatomic, strong) NSCache *cache;
 
 @end
 
-@implementation Cache
+@implementation SFCache
 
 #pragma mark - Singleton Methods
 

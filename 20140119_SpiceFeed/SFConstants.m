@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Ivan Lesko. All rights reserved.
 //
 
-#import "Constants.h"
+#import "SFConstants.h"
 
 #pragma mark - NSUserDefaults
 NSString *const kSFUserDefaultsActivityFeddViewControllerLastRefreshKey = @"com.Parse.SpiceFeed.userDefaults.activityFeedViewController.lastRefresh";
@@ -109,9 +109,9 @@ NSString *const kSFPushPayloadToUserObjectIDkey      = @"tu";
 NSString *const kSFPushPayloadFlaveObjectIDKey       = @"pid";
 
 
+@implementation SFConstants
 
-
-
+@end
 
 
 

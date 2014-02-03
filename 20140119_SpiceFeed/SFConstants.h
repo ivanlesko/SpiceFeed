@@ -109,6 +109,10 @@ extern NSString *const kSFPushPayloadToUserObjectIDkey;
 extern NSString *const kSFPushPayloadFlaveObjectIDKey;
 
 
+@interface SFConstants : NSObject
+
+@end
+
 
 
 
