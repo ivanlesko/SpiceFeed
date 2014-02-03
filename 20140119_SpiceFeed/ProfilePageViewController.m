@@ -40,7 +40,7 @@
     
     self.userFlaves = [NSMutableArray new];
     
-    [self updateUserFlaves];
+//    [self updateUserFlaves];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,17 +53,18 @@
 {
     [super viewWillAppear:animated];
     
-//    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
-//    [flaveQuery whereKey:@"uploader" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
-//    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            self.userFlaves = [NSMutableArray arrayWithArray:objects];
-//            [self.collectionView reloadData];
-//            NSLog(@"%@", self.userFlaves);
-//        } else {
-//            
-//        }
-//    }];
+    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
+    flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
+    [flaveQuery whereKey:@"uploader" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
+    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.userFlaves = [NSMutableArray arrayWithArray:objects];
+            [self.collectionView reloadData];
+            NSLog(@"%@", self.userFlaves);
+        } else {
+            
+        }
+    }];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -74,6 +75,8 @@
                                                                          0,
                                                                          50,
                                                                          50)];
+    bgImage.contentMode = UIViewContentModeScaleAspectFit;
+    
     PFObject *flave = [self.userFlaves objectAtIndex:indexPath.row];
     PFFile *flaveFile = [flave objectForKey:@"image"];
     [flaveFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -110,7 +113,6 @@
         [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
                 self.userFlaves = [NSMutableArray arrayWithArray:objects];
-                NSLog(@"flaves count: %d", self.userFlaves.count);
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self.collectionView reloadData];

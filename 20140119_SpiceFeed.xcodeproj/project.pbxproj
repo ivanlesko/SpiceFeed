@@ -29,6 +29,8 @@
 		4E31F61E1895D5EF003C1E54 /* Flave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F61D1895D5EF003C1E54 /* Flave.m */; };
 		4E31F6211895D5F0003C1E54 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F6201895D5F0003C1E54 /* Collection.m */; };
 		4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E320D5F189C43FA00933EC8 /* SharedNetworkController.m */; };
+		4E32BE8B189EBD1A00664338 /* Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E32BE8A189EBD1A00664338 /* Cache.m */; };
+		4E32BE8E189EC30700664338 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E32BE8D189EC30700664338 /* Constants.m */; };
 		4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */; };
 		4E38704518946E4E00AC82E2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E38704418946E4E00AC82E2 /* CoreData.framework */; };
 		4E387047189479D500AC82E2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E387046189479D500AC82E2 /* Parse.framework */; };
@@ -120,6 +122,10 @@
 		4E31F6201895D5F0003C1E54 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
 		4E320D5E189C43FA00933EC8 /* SharedNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedNetworkController.h; sourceTree = "<group>"; };
 		4E320D5F189C43FA00933EC8 /* SharedNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedNetworkController.m; sourceTree = "<group>"; };
+		4E32BE89189EBD1A00664338 /* Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cache.h; sourceTree = "<group>"; };
+		4E32BE8A189EBD1A00664338 /* Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cache.m; sourceTree = "<group>"; };
+		4E32BE8C189EC30700664338 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4E32BE8D189EC30700664338 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		4E3870421894515300AC82E2 /* SpiceModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpiceModel.xcdatamodel; sourceTree = "<group>"; };
 		4E38704418946E4E00AC82E2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4E387046189479D500AC82E2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -249,6 +255,17 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		4E32BE88189EBD0500664338 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4E32BE89189EBD1A00664338 /* Cache.h */,
+				4E32BE8A189EBD1A00664338 /* Cache.m */,
+				4E32BE8C189EC30700664338 /* Constants.h */,
+				4E32BE8D189EC30700664338 /* Constants.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		4E42AAAD189DBE1E00331108 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +347,7 @@
 		4EAA7093188CC8ED004CA02A /* 20140119_SpiceFeed */ = {
 			isa = PBXGroup;
 			children = (
+				4E32BE88189EBD0500664338 /* Utilities */,
 				4E42AAAD189DBE1E00331108 /* Categories */,
 				4E31F5F118958744003C1E54 /* Categories */,
 				4E9C85101890D52900729455 /* Images */,
@@ -645,11 +663,13 @@
 				4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */,
 				4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */,
 				4E31F61E1895D5EF003C1E54 /* Flave.m in Sources */,
+				4E32BE8E189EC30700664338 /* Constants.m in Sources */,
 				4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */,
 				4E31F6151895D5EF003C1E54 /* UserList.m in Sources */,
 				4E31F60F1895D5EF003C1E54 /* Followers.m in Sources */,
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,
 				4EAA709A188CC8ED004CA02A /* main.m in Sources */,
+				4E32BE8B189EBD1A00664338 /* Cache.m in Sources */,
 				4E31F6091895D5EE003C1E54 /* FlaveList.m in Sources */,
 				4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */,
 			);
