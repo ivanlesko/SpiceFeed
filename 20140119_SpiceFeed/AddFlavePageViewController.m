@@ -206,6 +206,14 @@
     }];
 }
 
+- (BOOL)shouldUploadImage:(UIImage *)image
+{
+    // Resize the selected Image
+    UIImage *resizedImage;
+    
+    return YES;
+}
+
 - (void)createNewFlaveWithImageData:(NSData *)imageData
 {
     CFUUIDRef theUUID = CFUUIDCreate(NULL);

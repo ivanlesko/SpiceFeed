@@ -23,4 +23,6 @@
 - (IBAction)addFlavePushed:(id)sender;
 - (IBAction)spiceItButtonPushed:(id)sender;
 
+- (BOOL)shouldUploadImage:(UIImage *)image;
+
 @end

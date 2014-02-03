@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */; };
 		4E3026AC189AF560009EE649 /* HelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3026AB189AF560009EE649 /* HelperMethods.m */; };
 		4E3026AE189AF9C2009EE649 /* imagePlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3026AD189AF9C2009EE649 /* imagePlaceholder.png */; };
 		4E31F5F418958774003C1E54 /* NSCharacterSet+CustomSets.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F5F318958774003C1E54 /* NSCharacterSet+CustomSets.m */; };
@@ -89,6 +90,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E176F7918A048CD00C0CDBB /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		4E3026AA189AF560009EE649 /* HelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperMethods.h; sourceTree = "<group>"; };
 		4E3026AB189AF560009EE649 /* HelperMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperMethods.m; sourceTree = "<group>"; };
 		4E3026AD189AF9C2009EE649 /* imagePlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagePlaceholder.png; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 			children = (
 				4E3026AA189AF560009EE649 /* HelperMethods.h */,
 				4E3026AB189AF560009EE649 /* HelperMethods.m */,
+				4E176F7918A048CD00C0CDBB /* UIImage+Resize.h */,
+				4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */,
 			);
 			name = "Helper Files";
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 				4E31F6211895D5F0003C1E54 /* Collection.m in Sources */,
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
 				4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */,
+				4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */,
 				4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */,
 				4EAA7146188CE189004CA02A /* TagResultViewController.m in Sources */,
 				4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */,
