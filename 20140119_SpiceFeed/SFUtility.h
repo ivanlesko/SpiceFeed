@@ -15,7 +15,7 @@
 
 + (BOOL)userHasProfilePicture:(PFUser *)user;
 
-+ (NSString *)displayNameForUser:(PFUser *)user;
++ (NSString *)firstNameForDisplayName:(NSString *)displayName;
 
 + (void)followUserInBackground:(PFUser *)user block:(void (^)(BOOL succeeded, NSError *error))completionBlock;
 + (void)followUserEventually:(PFUser *)user block:(void (^)(BOOL succeeded, NSError *error))completionBlock;

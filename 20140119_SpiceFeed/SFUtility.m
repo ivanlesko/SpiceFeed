@@ -31,7 +31,7 @@
         [likeActivity setObject:kSFActivityTypeReflave               forKey:kSFActivityTypeKey];
         [likeActivity setObject:[PFUser currentUser]                 forKey:kSFActivityFromUserKey];
         [likeActivity setObject:[flave objectForKey:kSFFlaveUserKey] forKey:kSFActivityToUserKey];
-        [likeActivity setObject:flave forKey:kSFActivityFlaveKey];
+        [likeActivity setObject:flave                                forKey:kSFActivityFlaveKey];
         
         PFACL *likeACL = [PFACL ACLWithUser:[PFUser currentUser]];
         [likeACL setPublicReadAccess:YES];
@@ -78,8 +78,8 @@
 
 + (void)unflavedFlaveInBackground:(id)flave block:(void (^)(BOOL succeeded, NSError *error))completionBlock {
     PFQuery *queryExistingReflaves = [PFQuery queryWithClassName:kSFActivityClassKey];
-    [queryExistingReflaves whereKey:kSFActivityFlaveKey equalTo:flave];
-    [queryExistingReflaves whereKey:kSFActivityTypeKey equalTo:kSFActivityTypeReflave];
+    [queryExistingReflaves whereKey:kSFActivityFlaveKey    equalTo:flave];
+    [queryExistingReflaves whereKey:kSFActivityTypeKey     equalTo:kSFActivityTypeReflave];
     [queryExistingReflaves whereKey:kSFActivityFromUserKey equalTo:[PFUser currentUser]];
     [queryExistingReflaves setCachePolicy:kPFCachePolicyNetworkOnly];
     [queryExistingReflaves findObjectsInBackgroundWithBlock:^(NSArray *activities, NSError *error) {
@@ -123,38 +123,114 @@
                                     object:flave
                     userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
                                            forKey:SFFlaveDetailsViewControllerUserReflavedUnflavedFlaveNotificationUserInfoReflavedKey]];
-            
         }];
     }];
 }
 
 + (BOOL)userHasProfilePicture:(PFUser *)user {
-    return YES;
+    PFFile *profilePicMedium = [user objectForKey:kSFUserProfilePicMediumKey];
+    PFFile *profilePicSmall  = [user objectForKey:kSFUserProfilePicSmallKey];
+    
+    return (profilePicMedium && profilePicSmall);
 }
 
-+ (NSString *)displayNameForUser:(PFUser *)user {
-    return @"";
+#pragma mark - Display Name
+
++ (NSString *)firstNameForDisplayName:(NSString *)displayName {
+    if (!displayName || displayName.length == 0) {
+        return @"Someone";
+    }
+    
+    NSArray *displayComponents = [displayName componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *firstName = [displayComponents objectAtIndex:0];
+    if (firstName.length > 100) {
+        // Truncate to 100 so that it fits in a push payload.
+        [firstName substringToIndex:100];
+    }
+    
+    return firstName;
 }
 
 + (void)followUserInBackground:(PFUser *)user block:(void (^)(BOOL succeeded, NSError *error))completionBlock {
+    if ([[user objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
+        return;
+    }
     
+    PFObject *followActivity = [PFObject objectWithClassName:kSFActivityClassKey];
+    [followActivity setObject:[PFUser currentUser] forKey:kSFActivityFromUserKey];
+    [followActivity setObject:user forKey:kSFActivityToUserKey];
+    [followActivity setObject:kSFActivityTypeFollow forKey:kSFActivityTypeKey];
+    
+    PFACL *followACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [followACL setPublicReadAccess:YES];
+    followActivity.ACL = followACL;
+    
+    [followActivity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (completionBlock) {
+            completionBlock(succeeded, error);
+        }
+    }];
+    
+    [[SFCache sharedCache] setFollowStatus:YES user:user];
 }
 
 + (void)followUserEventually:(PFUser *)user block:(void (^)(BOOL succeeded, NSError *error))completionBlock {
+    if ([[user objectId] isEqualToString:[[PFUser currentUser] objectId]]) {
+        return;
+    }
     
+    PFObject *followActivity = [PFObject objectWithClassName:kSFActivityClassKey];
+    [followActivity setObject:[PFUser currentUser] forKey:kSFActivityFromUserKey];
+    [followActivity setObject:user forKey:kSFActivityToUserKey];
+    [followActivity setObject:kSFActivityTypeFollow forKey:kSFActivityTypeKey];
+    
+    PFACL *followACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [followACL setPublicReadAccess:YES];
+    followActivity.ACL = followACL;
+    
+    [followActivity saveEventually:completionBlock];
+    
+    [[SFCache sharedCache] setFollowStatus:YES user:user];
 }
 
 + (void)followUsersEventually:(NSArray *)users block:(void (^)(BOOL succeeded, NSError *error))completionBlock {
-    
+    for (PFUser *user in users) {
+        [SFUtility followUserEventually:user block:completionBlock];
+        [[SFCache sharedCache] setFollowStatus:YES user:user];
+    }
 }
 
 + (void)unfollowUserEventually:(PFUser *)user {
+    PFQuery *query = [PFQuery queryWithClassName:kSFActivityClassKey];
+    [query whereKey:kSFActivityFromUserKey equalTo:[PFUser currentUser]];
+    [query whereKey:kSFActivityToUserKey equalTo:user];
+    [query whereKey:kSFActivityTypeKey equalTo:kSFActivityTypeFollow];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *followActivity in objects) {
+                [followActivity deleteEventually];
+            }
+        }
+    }];
     
+    [[SFCache sharedCache] setFollowStatus:NO user:user];
 }
 
 + (void)unfollowUsersEventually:(NSArray *)users
 {
+    PFQuery *query = [PFQuery queryWithClassName:kSFActivityClassKey];
+    [query whereKey:kSFActivityFromUserKey equalTo:[PFUser currentUser]];
+    [query whereKey:kSFActivityToUserKey containedIn:users];
+    [query whereKey:kSFActivityTypeKey equalTo:kSFActivityTypeFollow];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *activities, NSError *error) {
+        for (PFObject *activity in activities) {
+            [activity deleteEventually];
+        }
+    }];
     
+    for (PFUser *user in users) {
+        [[SFCache sharedCache] setFollowStatus:NO user:user];
+    }
 }
 
 #pragma mark - Activities
