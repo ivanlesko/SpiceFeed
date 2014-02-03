@@ -16,6 +16,8 @@
 
 @implementation Cache
 
+#pragma mark - Singleton Methods
+
 + (id)sharedCache
 {
     static dispatch_once_t pred = 0;
@@ -41,6 +43,8 @@
 {
     [self.cache removeAllObjects];
 }
+
+#pragma mark - Flave Methods
 
 - (void)setAttributesForFlave:(PFObject *)flave reflavers:(NSArray *)reflavers reflavedByCurrentUser:(BOOL)reflavedByCurrentUser
 {
@@ -80,6 +84,24 @@
     return [NSArray array];
 }
 
+- (void)incrementReflaveCountForFlave:(PFObject *)flave
+{
+    NSNumber *reflaverCount = [NSNumber numberWithInteger:[[self reflaveCountForPhoto:flave] intValue] + 1];
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForFlave:flave]];
+    [attributes setObject:reflaverCount forKey:kSFFlaveAttributesReflavesCountKey];
+    [self setAttributes:attributes forFlave:flave];
+}
+
+- (void)decrementReflaveCountForFlave:(PFObject *)flave
+{
+    NSNumber *reflaverCount = [NSNumber numberWithInteger:[[self reflaveCountForPhoto:flave] intValue] - 1];
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForFlave:flave]];
+    [attributes setObject:reflaverCount forKey:kSFFlaveAttributesReflavesCountKey];
+    [self setAttributes:attributes forFlave:flave];
+}
+
+#pragma mark - User Methods
+
 - (void)setFlaveIsReflavedByCurrentUser:(PFObject *)flave reflaved:(BOOL)reflaved
 {
     NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForFlave:flave]];
@@ -95,22 +117,6 @@
     }
     
     return NO;
-}
-
-- (void)incrementReflaveCountForFlave:(PFObject *)flave
-{
-    NSNumber *reflaverCount = [NSNumber numberWithInteger:[[self reflaveCountForPhoto:flave] intValue] + 1];
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForFlave:flave]];
-    [attributes setObject:reflaverCount forKey:kSFFlaveAttributesReflavesCountKey];
-    [self setAttributes:attributes forFlave:flave];
-}
-
-- (void)decrementReflaveCountForFlave:(PFObject *)flave
-{
-    NSNumber *reflaverCount = [NSNumber numberWithInteger:[[self reflaveCountForPhoto:flave] intValue] - 1];
-    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForFlave:flave]];
-    [attributes setObject:reflaverCount forKey:kSFFlaveAttributesReflavesCountKey];
-    [self setAttributes:attributes forFlave:flave];
 }
 
 - (void)setAttributesForUser:(PFUser *)user flaveCount:(NSNumber *)count followedByCurrentUser:(BOOL)following
@@ -164,6 +170,39 @@
     [self setAttributes:attributes forUser:user];
 }
 
+#pragma mark - Tag Methods
+
+- (void)setAttributesForTag:(PFObject *)tag count:(NSNumber *)count userCount:(NSNumber *)userCount {
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                count, kSFTagCountKey,
+                                userCount, kSFTagUserCountKey,
+                                nil];
+    [self setAttributes:attributes forTag:tag];
+}
+
+- (NSDictionary *)attributesForTag:(PFObject *)tag {
+    NSString *key = [self keyForTag:tag];
+    return [self.cache objectForKey:key];
+}
+
+- (NSNumber *)countForTag:(PFObject *)tag {
+    NSDictionary *attributes = [self attributesForTag:tag];
+    if (attributes) {
+        return [attributes objectForKey:kSFTagCountKey];
+    }
+    
+    return [NSNumber numberWithInt:0];
+}
+
+- (NSNumber *)userCountForTag:(PFObject *)tag {
+    NSDictionary *attributes = [self attributesForTag:tag];
+    if (attributes) {
+        return [attributes objectForKey:kSFTagUserCountKey];
+    }
+    
+    return [NSNumber numberWithInt:0];
+}
+
 #pragma mark - ()
 
 - (void)setAttributes:(NSDictionary *)attributes forFlave:(PFObject *)flave
@@ -178,13 +217,21 @@
     [self.cache setObject:attributes forKey:key];
 }
 
+- (void)setAttributes:(NSDictionary *)attributes forTag:(PFObject *)tag {
+    NSString *key = [self keyForTag:tag];
+    [self.cache setObject:attributes forKey:key];
+}
 
-- (NSString *)keyForFlave:(PFObject *)flave{
+- (NSString *)keyForFlave:(PFObject *)flave {
     return [NSString stringWithFormat:@"flave_%@", [flave objectId]];
 }
 
-- (NSString *)keyForUser:(PFUser *)user{
+- (NSString *)keyForUser:(PFUser *)user {
     return [NSString stringWithFormat:@"user_%@", [user objectId]];
+}
+
+- (NSString *)keyForTag:(PFObject *)tag {
+    return [NSString stringWithFormat:@"tag_%@", [tag objectId]];
 }
 
 

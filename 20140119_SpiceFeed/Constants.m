@@ -70,6 +70,16 @@ NSString *const kSFFlaveThumbnailKey   = @"thumbnail";
 NSString *const kSFFlaveUserKey        = @"user"; /** This may need to be username. */
 NSString *const kSFFlaveOpenGraphIDKey = @"fbOpenGraphID";
 
+#pragma mark - PFObject Tags Class
+
+// Class key
+NSString *const kSFTagClassKey  = @"Tag";
+
+// Field keys
+NSString *const kSFTagNameKey      = @"name";
+NSString *const kSFTagCountKey     = @"count";
+NSString *const kSFTagUserCountKey = @"userCount";
+
 #pragma mark - Cached Photo Attributes
 // keys
 NSString *const kSFFlaveAttributesIsReflavedByCurrentUserKey = @"isReflavedByCurrentUser";

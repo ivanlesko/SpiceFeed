@@ -159,7 +159,6 @@
             newFlave.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
             
             NSArray *tags = [NSArray array];
-            NSLog(@"textfield: %@", self.tagsTextfield.text);
             tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
             newFlave[@"tags"] = tags;
             
@@ -179,7 +178,7 @@
                             
                             for (NSString *newTag in tags) {
                                 PFObject *tag = [PFObject objectWithClassName:@"Tag"];
-                                tag[@"name"] = newTag;
+                                tag[@"name"] = [newTag lowercaseString];
                                 tag[@"user"] = [[PFUser currentUser] objectForKey:@"username"];
                                 [tag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                                     if (!error) {

@@ -70,6 +70,16 @@ extern NSString *const kSFFlaveThumbnailKey;
 extern NSString *const kSFFlaveUserKey;
 extern NSString *const kSFFlaveOpenGraphIDKey;
 
+#pragma mark - PFObject Tags Class
+
+// Class key
+extern NSString *const kSFTagClassKey;
+
+// Field keys
+extern NSString *const kSFTagNameKey;
+extern NSString *const kSFTagCountKey;
+extern NSString *const kSFTagUserCountKey;
+
 #pragma mark - Cached Photo Attributes
 // keys
 extern NSString *const kSFFlaveAttributesIsReflavedByCurrentUserKey;
