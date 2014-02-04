@@ -25,6 +25,8 @@
 - (BOOL)isFlaveReflavedByCurrentUser:(PFObject *)flave;
 - (void)incrementReflaveCountForFlave:(PFObject *)flave;
 - (void)decrementReflaveCountForFlave:(PFObject *)flave;
+- (void)incrementTagCountForTag:(PFObject *)tag;
+- (void)incrementTagUserCountForTag:(PFObject *)tag;
 
 // User Info
 - (void)setAttributesForUser:(PFUser *)user flaveCount:(NSNumber *)count followedByCurrentUser:(BOOL)following;

@@ -52,6 +52,7 @@ NSString *const kSFActivityTypeJoined   = @"joined";
 #pragma mark - PFObject User Class
 
 // Field keys
+NSString *const kSFFLaveReflaveCountKey                       = @"reflaveCount";
 NSString *const kSFUserDisplayNameKey                         = @"displayName";
 NSString *const kSFUserFacebookIDKey                          = @"facebookID";
 NSString *const kSFUserPhotoIDKey                             = @"photoID";
@@ -70,6 +71,8 @@ NSString *const kSFFlavePictureKey     = @"image";
 NSString *const kSFFlaveThumbnailKey   = @"thumbnail";
 NSString *const kSFFlaveUserKey        = @"user"; /** This may need to be username. */
 NSString *const kSFFlaveTagsKey        = @"tags";
+NSString *const kSSFFlaveIsTrendingKey = @"isTrending";
+NSString *const kSFFlaveSourceTypeKey  = @"source";
 NSString *const kSFFlaveOpenGraphIDKey = @"fbOpenGraphID";
 
 #pragma mark - PFObject Tags Class

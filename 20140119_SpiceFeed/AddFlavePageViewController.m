@@ -169,12 +169,6 @@
     }
     
     NSArray *tags = [self lowercaseTagsForString:self.tagsTextfield.text];
-    NSMutableArray *tagObjects = [NSMutableArray array];
-    for (NSString *tag in tags) {
-        PFObject *newTag = [PFObject objectWithClassName:kSFTagClassKey];
-        [newTag setObject:tag forKey:kSFTagNameKey];
-        [tagObjects addObject:newTag];
-    }
     
     // Both files have finished uploading.
     
@@ -183,11 +177,16 @@
     [flave setObject:[PFUser currentUser] forKey:kSFFlaveUserKey];
     [flave setObject:self.flaveFile forKey:kSFFlavePictureKey];
     [flave setObject:self.thumbnailFile forKey:kSFFlaveThumbnailKey];
+    [flave setObject:@0 forKey:kSFFLaveReflaveCountKey];
+    
     
     // Flaves are public, but should only be modified by the person who uploaded it.
     PFACL *flaveACL = [PFACL ACLWithUser:[PFUser currentUser]];
     [flaveACL setPublicReadAccess:YES];
     flave.ACL = flaveACL;
+    
+    PFACL *tagACL = [PFACL ACL];
+    [tagACL setPublicReadAccess:YES];
     
     // Request a background execution that allows us to upload even if the app is in the background.
     self.postFlaveBackgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
@@ -204,18 +203,32 @@
                 [query whereKey:kSFTagNameKey equalTo:tagName];
             }
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                
                 for (PFObject *tag in objects) {
+                    
+                    PFRelation *tagsRelation = [tag relationForKey:kSFFlaveTagsKey];
                     // If the current tag is contained in the query
                     if ([objects containsObject:tag]) {
                         [tag setObject:[NSNumber numberWithInt:[[tag objectForKey:kSFTagCountKey] integerValue] + 1] forKey:kSFTagCountKey];
                         [tag saveEventually];
-                    } else {
-                        // If the current tag is NOT contained in the query
                         
+                        [tagsRelation addObject:tag];
+                        
+                        [[SFCache sharedCache] setAttributesForTag:tag count:[tag objectForKey:kSFTagCountKey] userCount:[tag objectForKey:kSFTagUserCountKey]];
+                    } else {
+                        // If the current tag is NOT contained in the query, create a new tag
+                        PFObject *newTag = [PFObject objectWithClassName:kSFTagClassKey];
+                        [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagCountKey];
+                        [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagUserCountKey];
+                        [newTag setACL:tagACL];
+                        [newTag saveEventually];
+                        
+                        [tagsRelation addObject:newTag];
+                        
+                        [[SFCache sharedCache] setAttributesForTag:newTag count:[NSNumber numberWithInteger:1] userCount:[NSNumber numberWithInteger:1]];
                     }
                 }
             }];
-            
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your flave"
                                                             message:nil
@@ -230,8 +243,6 @@
     /**
      * Parse steps end here
      */
-    
-    [self createNewFlaveWithImageData:self.selectedImageData];
     
     BOOL framePositionCheck = CGRectEqualToRect(self.view.frame, [[self.view superview]frame]);
     

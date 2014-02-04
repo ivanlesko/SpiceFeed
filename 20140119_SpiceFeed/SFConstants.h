@@ -66,11 +66,14 @@ extern NSString *const kSFUserAlreadyAutoFollowedFacebookFriendsKey;
 extern NSString *const kSFFlaveClassKey;
 
 // Field keys
+extern NSString *const kSFFLaveReflaveCountKey;
 extern NSString *const kSFFlavePictureKey;
 extern NSString *const kSFFlaveThumbnailKey;
 extern NSString *const kSFFlaveUserKey;
 extern NSString *const kSFFlaveOpenGraphIDKey;
 extern NSString *const kSFFlaveTagsKey;
+extern NSString *const kSSFlaveIsTrendingKey;
+extern NSString *const kSFFlaveSourceTypeKey;
 
 #pragma mark - PFObject Tags Class
 

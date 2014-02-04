@@ -20,15 +20,6 @@
 		4E31F6031895B494003C1E54 /* bg_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E31F6011895B494003C1E54 /* bg_07.png */; };
 		4E31F6041895B494003C1E54 /* bg_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E31F6021895B494003C1E54 /* bg_08.png */; };
 		4E31F6061895B576003C1E54 /* bg_09.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E31F6051895B576003C1E54 /* bg_09.png */; };
-		4E31F6091895D5EE003C1E54 /* FlaveList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F6081895D5EE003C1E54 /* FlaveList.m */; };
-		4E31F60C1895D5EF003C1E54 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F60B1895D5EF003C1E54 /* Tag.m */; };
-		4E31F60F1895D5EF003C1E54 /* Followers.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F60E1895D5EF003C1E54 /* Followers.m */; };
-		4E31F6121895D5EF003C1E54 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F6111895D5EF003C1E54 /* User.m */; };
-		4E31F6151895D5EF003C1E54 /* UserList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F6141895D5EF003C1E54 /* UserList.m */; };
-		4E31F6181895D5EF003C1E54 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F6171895D5EF003C1E54 /* Friends.m */; };
-		4E31F61B1895D5EF003C1E54 /* TagList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F61A1895D5EF003C1E54 /* TagList.m */; };
-		4E31F61E1895D5EF003C1E54 /* Flave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F61D1895D5EF003C1E54 /* Flave.m */; };
-		4E31F6211895D5F0003C1E54 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E31F6201895D5F0003C1E54 /* Collection.m */; };
 		4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E320D5F189C43FA00933EC8 /* SharedNetworkController.m */; };
 		4E32BE8B189EBD1A00664338 /* SFCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E32BE8A189EBD1A00664338 /* SFCache.m */; };
 		4E32BE8E189EC30700664338 /* SFConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E32BE8D189EC30700664338 /* SFConstants.m */; };
@@ -68,7 +59,6 @@
 		4EAA70DC188CD02D004CA02A /* HomeTrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70DB188CD02D004CA02A /* HomeTrendingViewController.m */; };
 		4EAA70DF188CD03D004CA02A /* HomeCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70DE188CD03D004CA02A /* HomeCategoriesViewController.m */; };
 		4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70E5188CD7B5004CA02A /* HomepageModelController.m */; };
-		4EAA7133188CDF31004CA02A /* ACategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA7132188CDF31004CA02A /* ACategory.m */; };
 		4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA7136188CE0CA004CA02A /* SearchPageViewController.m */; };
 		4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA713A188CE105004CA02A /* ProfilePageViewController.m */; };
 		4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA7141188CE15D004CA02A /* SearchResultViewController.m */; };
@@ -107,24 +97,6 @@
 		4E31F6011895B494003C1E54 /* bg_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_07.png; sourceTree = "<group>"; };
 		4E31F6021895B494003C1E54 /* bg_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_08.png; sourceTree = "<group>"; };
 		4E31F6051895B576003C1E54 /* bg_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_09.png; sourceTree = "<group>"; };
-		4E31F6071895D5EE003C1E54 /* FlaveList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlaveList.h; sourceTree = "<group>"; };
-		4E31F6081895D5EE003C1E54 /* FlaveList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlaveList.m; sourceTree = "<group>"; };
-		4E31F60A1895D5EF003C1E54 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
-		4E31F60B1895D5EF003C1E54 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
-		4E31F60D1895D5EF003C1E54 /* Followers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Followers.h; sourceTree = "<group>"; };
-		4E31F60E1895D5EF003C1E54 /* Followers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Followers.m; sourceTree = "<group>"; };
-		4E31F6101895D5EF003C1E54 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		4E31F6111895D5EF003C1E54 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		4E31F6131895D5EF003C1E54 /* UserList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserList.h; sourceTree = "<group>"; };
-		4E31F6141895D5EF003C1E54 /* UserList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserList.m; sourceTree = "<group>"; };
-		4E31F6161895D5EF003C1E54 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
-		4E31F6171895D5EF003C1E54 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
-		4E31F6191895D5EF003C1E54 /* TagList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagList.h; sourceTree = "<group>"; };
-		4E31F61A1895D5EF003C1E54 /* TagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagList.m; sourceTree = "<group>"; };
-		4E31F61C1895D5EF003C1E54 /* Flave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flave.h; sourceTree = "<group>"; };
-		4E31F61D1895D5EF003C1E54 /* Flave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flave.m; sourceTree = "<group>"; };
-		4E31F61F1895D5F0003C1E54 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
-		4E31F6201895D5F0003C1E54 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
 		4E320D5E189C43FA00933EC8 /* SharedNetworkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedNetworkController.h; sourceTree = "<group>"; };
 		4E320D5F189C43FA00933EC8 /* SharedNetworkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedNetworkController.m; sourceTree = "<group>"; };
 		4E32BE89189EBD1A00664338 /* SFCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFCache.h; sourceTree = "<group>"; };
@@ -180,8 +152,6 @@
 		4EAA70DE188CD03D004CA02A /* HomeCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCategoriesViewController.m; sourceTree = "<group>"; };
 		4EAA70E4188CD7B5004CA02A /* HomepageModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageModelController.h; sourceTree = "<group>"; };
 		4EAA70E5188CD7B5004CA02A /* HomepageModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageModelController.m; sourceTree = "<group>"; };
-		4EAA7131188CDF31004CA02A /* ACategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACategory.h; sourceTree = "<group>"; };
-		4EAA7132188CDF31004CA02A /* ACategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACategory.m; sourceTree = "<group>"; };
 		4EAA7135188CE0CA004CA02A /* SearchPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPageViewController.h; sourceTree = "<group>"; };
 		4EAA7136188CE0CA004CA02A /* SearchPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPageViewController.m; sourceTree = "<group>"; };
 		4EAA7139188CE105004CA02A /* ProfilePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePageViewController.h; sourceTree = "<group>"; };
@@ -413,27 +383,7 @@
 		4EAA70C2188CCC82004CA02A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4EAA7131188CDF31004CA02A /* ACategory.h */,
-				4EAA7132188CDF31004CA02A /* ACategory.m */,
 				4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */,
-				4E31F60A1895D5EF003C1E54 /* Tag.h */,
-				4E31F60B1895D5EF003C1E54 /* Tag.m */,
-				4E31F61C1895D5EF003C1E54 /* Flave.h */,
-				4E31F61D1895D5EF003C1E54 /* Flave.m */,
-				4E31F61F1895D5F0003C1E54 /* Collection.h */,
-				4E31F6201895D5F0003C1E54 /* Collection.m */,
-				4E31F6191895D5EF003C1E54 /* TagList.h */,
-				4E31F61A1895D5EF003C1E54 /* TagList.m */,
-				4E31F6161895D5EF003C1E54 /* Friends.h */,
-				4E31F6171895D5EF003C1E54 /* Friends.m */,
-				4E31F6131895D5EF003C1E54 /* UserList.h */,
-				4E31F6141895D5EF003C1E54 /* UserList.m */,
-				4E31F6101895D5EF003C1E54 /* User.h */,
-				4E31F6111895D5EF003C1E54 /* User.m */,
-				4E31F60D1895D5EF003C1E54 /* Followers.h */,
-				4E31F60E1895D5EF003C1E54 /* Followers.m */,
-				4E31F6071895D5EE003C1E54 /* FlaveList.h */,
-				4E31F6081895D5EE003C1E54 /* FlaveList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -654,8 +604,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3026AC189AF560009EE649 /* HelperMethods.m in Sources */,
-				4E31F6121895D5EF003C1E54 /* User.m in Sources */,
-				4E31F6211895D5F0003C1E54 /* Collection.m in Sources */,
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
 				4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */,
 				4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */,
@@ -663,14 +611,10 @@
 				4EAA7146188CE189004CA02A /* TagResultViewController.m in Sources */,
 				4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */,
 				4E31F5F418958774003C1E54 /* NSCharacterSet+CustomSets.m in Sources */,
-				4EAA7133188CDF31004CA02A /* ACategory.m in Sources */,
 				4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */,
 				4EAA70D9188CD01A004CA02A /* HomeNetworkViewController.m in Sources */,
-				4E31F60C1895D5EF003C1E54 /* Tag.m in Sources */,
 				4EAA70DC188CD02D004CA02A /* HomeTrendingViewController.m in Sources */,
 				4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */,
-				4E31F61B1895D5EF003C1E54 /* TagList.m in Sources */,
-				4E31F6181895D5EF003C1E54 /* Friends.m in Sources */,
 				4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */,
 				4EAA70A4188CC8ED004CA02A /* ViewController.m in Sources */,
 				4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */,
@@ -679,16 +623,12 @@
 				4EAA709E188CC8ED004CA02A /* AppDelegate.m in Sources */,
 				4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */,
 				4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */,
-				4E31F61E1895D5EF003C1E54 /* Flave.m in Sources */,
 				4E32BE8E189EC30700664338 /* SFConstants.m in Sources */,
 				4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */,
-				4E31F6151895D5EF003C1E54 /* UserList.m in Sources */,
-				4E31F60F1895D5EF003C1E54 /* Followers.m in Sources */,
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,
 				4EAA709A188CC8ED004CA02A /* main.m in Sources */,
 				4E32BE8B189EBD1A00664338 /* SFCache.m in Sources */,
 				4E3AE35718A01A350005997D /* SFUtility.m in Sources */,
-				4E31F6091895D5EE003C1E54 /* FlaveList.m in Sources */,
 				4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

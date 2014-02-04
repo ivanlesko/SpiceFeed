@@ -199,6 +199,20 @@
     [self setAttributes:attributes forTag:tag];
 }
 
+- (void)incrementTagCountForTag:(PFObject *)tag {
+    NSNumber *tagCount = [NSNumber numberWithInteger:[[self tagCountForPhoto:tag] intValue] + 1];
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForTag:tag]];
+    [attributes setObject:tagCount forKey:kSFTagUserCountKey];
+    [self setAttributes:attributes forTag:tag];
+}
+
+- (void)incrementTagUserCountForTag:(PFObject *)tag {
+    NSNumber *tagUserCount = [NSNumber numberWithInteger:[[self tagCountForPhoto:tag] intValue] + 1];
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForTag:tag]];
+    [attributes setObject:tagUserCount forKey:kSFTagUserCountKey];
+    [self setAttributes:attributes forTag:tag];
+}
+
 - (NSDictionary *)attributesForTag:(PFObject *)tag {
     NSString *key = [self keyForTag:tag];
     return [self.cache objectForKey:key];
