@@ -77,7 +77,7 @@
 		4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA714D188CE481004CA02A /* FlavePageViewController.m */; };
 		4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */; };
 		4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */; };
-		4EF43BAE18A15401005675B5 /* ParseUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF43BAD18A15401005675B5 /* ParseUtilities.m */; };
+		4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF43BB018A15648005675B5 /* ParseUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,8 +198,8 @@
 		4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupPageViewController.m; sourceTree = "<group>"; };
 		4EE5719A1899BEAE00ED4E1A /* AddFlavePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFlavePageViewController.h; sourceTree = "<group>"; };
 		4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFlavePageViewController.m; sourceTree = "<group>"; };
-		4EF43BAC18A15401005675B5 /* ParseUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseUtilities.h; sourceTree = "<group>"; };
-		4EF43BAD18A15401005675B5 /* ParseUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseUtilities.m; sourceTree = "<group>"; };
+		4EF43BAF18A15648005675B5 /* ParseUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseUtilities.h; path = ../../ParseUtilities.h; sourceTree = "<group>"; };
+		4EF43BB018A15648005675B5 /* ParseUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParseUtilities.m; path = ../../ParseUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,8 +275,8 @@
 				4E32BE8D189EC30700664338 /* SFConstants.m */,
 				4E3AE35518A01A350005997D /* SFUtility.h */,
 				4E3AE35618A01A350005997D /* SFUtility.m */,
-				4EF43BAC18A15401005675B5 /* ParseUtilities.h */,
-				4EF43BAD18A15401005675B5 /* ParseUtilities.m */,
+				4EF43BAF18A15648005675B5 /* ParseUtilities.h */,
+				4EF43BB018A15648005675B5 /* ParseUtilities.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -671,7 +671,7 @@
 				4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */,
 				4E31F61B1895D5EF003C1E54 /* TagList.m in Sources */,
 				4E31F6181895D5EF003C1E54 /* Friends.m in Sources */,
-				4EF43BAE18A15401005675B5 /* ParseUtilities.m in Sources */,
+				4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */,
 				4EAA70A4188CC8ED004CA02A /* ViewController.m in Sources */,
 				4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */,
 				4EAA70DF188CD03D004CA02A /* HomeCategoriesViewController.m in Sources */,
