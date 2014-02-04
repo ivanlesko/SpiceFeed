@@ -15,10 +15,12 @@
 - (void)clear;
 
 // Flave Info
-- (void)setAttributesForFlave:(PFObject *)flave reflavers:(NSArray *)reflavers reflavedByCurrentUser:(BOOL)reflavedByCurrentUser;
+- (void)setAttributesForFlave:(PFObject *)flave reflavers:(NSArray *)reflavers tags:(NSArray *)tags reflavedByCurrentUser:(BOOL)reflavedByCurrentUser;
 - (NSDictionary *)attributesForFlave:(PFObject *)flave;
 - (NSNumber *)reflaveCountForPhoto:(PFObject *)flave;
 - (NSArray *)reflaversForFlave:(PFObject *)flave;
+- (NSNumber *)tagCountForPhoto:(PFObject *)flave;
+- (NSArray *)tagsForFlave:(PFObject *)flave;
 - (void)setFlaveIsReflavedByCurrentUser:(PFObject *)flave reflaved:(BOOL)reflaved;
 - (BOOL)isFlaveReflavedByCurrentUser:(PFObject *)flave;
 - (void)incrementReflaveCountForFlave:(PFObject *)flave;

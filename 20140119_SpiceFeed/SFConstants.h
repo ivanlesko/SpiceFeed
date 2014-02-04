@@ -26,6 +26,7 @@ extern NSString *const SFFlaveDetailsViewControllerUserReflavedUnflavedFlaveNoti
 
 #pragma mark - User Info Keys
 extern NSString *const SFFlaveDetailsViewControllerUserReflavedUnflavedFlaveNotificationUserInfoReflavedKey;
+extern NSString *const SFEditPhotoViewControllerUserInfoTagsKey;
 
 #pragma mark - Installation Class
 
@@ -69,6 +70,7 @@ extern NSString *const kSFFlavePictureKey;
 extern NSString *const kSFFlaveThumbnailKey;
 extern NSString *const kSFFlaveUserKey;
 extern NSString *const kSFFlaveOpenGraphIDKey;
+extern NSString *const kSFFlaveTagsKey;
 
 #pragma mark - PFObject Tags Class
 
@@ -85,6 +87,8 @@ extern NSString *const kSFTagUserCountKey;
 extern NSString *const kSFFlaveAttributesIsReflavedByCurrentUserKey;
 extern NSString *const kSFFlaveAttributesReflavesCountKey;
 extern NSString *const kSFFlaveAttributesReflaversKey;
+extern NSString *const kSFFlaveAttributesTagsKey;
+extern NSString *const kSFFlaveAttributesTagCountKey;
 
 #pragma mark - Cached User Attributes
 // keys

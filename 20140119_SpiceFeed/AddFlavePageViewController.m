@@ -8,6 +8,8 @@
 
 #import "AddFlavePageViewController.h"
 
+#import "UIImage+Resize.h"
+
 #define SLIDE_TIMER 0.15
 
 @interface AddFlavePageViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
@@ -37,6 +39,12 @@
     self.tagsTextfield.alpha = 0.0f;
     self.tagsTextfield.userInteractionEnabled = NO;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.fileUploadBackgroundTaskID = UIBackgroundTaskInvalid;
+    self.postFlaveBackgroundTaskID  = UIBackgroundTaskInvalid;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -87,40 +95,17 @@
     [self.imagePicker dismissViewControllerAnimated:YES completion:^{
         
         UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        CGSize dimensions = image.size;
-        
-        if (dimensions.height > dimensions.width) {
-            
-            /**
-             * FIX THESE CONTEXT SIZES.
-             * THEY ARE JUST PLACEHOLDERS
-             * IMAGE CONTEXT SHOULD REFLECT THE ASPECT
-             * RATIO OF THE SELECTED IMAGE
-             **/
-            
-            // If the image is portrait.
-            UIGraphicsBeginImageContext(CGSizeMake(640, 960));
-            [image drawInRect:CGRectMake(0, 0, 640, 960)];
-        } else if (dimensions.width > dimensions.height) {
-            // If the image is landscape.
-            UIGraphicsBeginImageContext(CGSizeMake(960, 640));
-            [image drawInRect:CGRectMake(0, 0, 960, 640)];
-        } else {
-            // If the image is square.
-            UIGraphicsBeginImageContext(CGSizeMake(640, 640));
-            [image drawInRect:CGRectMake(0, 0, 640, 640)];
-        }
+        UIImage *resizedImage = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit
+                                                            bounds:CGSizeMake(560.0f, 560.0f)
+                                              interpolationQuality:kCGInterpolationDefault];
+        [self shouldUploadImage:image];
         
         // Resize Image
-        UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        UIGraphicsBeginImageContext(CGSizeMake(560.0f, 560.0f));
         
         // Place compressed image onto the screen.
-        self.selectedImage.image = smallImage;
-        NSData *imageData = UIImageJPEGRepresentation(smallImage, 0.7f);
-        self.selectedImageData = imageData;
+        self.selectedImage.image = resizedImage;
         
-        self.selectedImage.alpha = 0.0f;
         [UIView animateWithDuration:0.4
                          animations:^{
                              self.selectedImage.alpha = 1.0f;
@@ -130,10 +115,121 @@
     }];
 }
 
+- (BOOL)shouldUploadImage:(UIImage *)image
+{
+    // Resize the selected Image
+    UIImage *resizedImage   = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit
+                                                          bounds:CGSizeMake(560.0f, 560.0f)
+                                            interpolationQuality:kCGInterpolationHigh];
+    UIImage *thumbnailImage = [image thumbnailImage:86.0f interpolationQuality:kCGInterpolationDefault];
+    
+    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
+    NSData *thumbnailData = UIImagePNGRepresentation(thumbnailImage);
+    
+    if (!imageData || !thumbnailData) {
+        return NO;
+    }
+    
+    self.flaveFile = [PFFile fileWithData:imageData];
+    self.thumbnailFile = [PFFile fileWithData:thumbnailData];
+    
+    self.fileUploadBackgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskID];
+    }];
+    
+    [self.flaveFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self.thumbnailFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskID];
+            }];
+        } else {
+            [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskID];
+        }
+    }];
+    
+    return YES;
+}
+
 - (IBAction)spiceItButtonPushed:(id)sender
 {
     self.spiceItButton.enabled = NO;
     self.tagsTextfield.userInteractionEnabled = NO;
+    
+    /**
+     * Parse Tutorial Save File Steps
+     */
+    if (!self.flaveFile || !self.thumbnailFile) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your flave"
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Dismiss", nil];
+        [alert show];
+        return;
+    }
+    
+    NSArray *tags = [self lowercaseTagsForString:self.tagsTextfield.text];
+    NSMutableArray *tagObjects = [NSMutableArray array];
+    for (NSString *tag in tags) {
+        PFObject *newTag = [PFObject objectWithClassName:kSFTagClassKey];
+        [newTag setObject:tag forKey:kSFTagNameKey];
+        [tagObjects addObject:newTag];
+    }
+    
+    // Both files have finished uploading.
+    
+    // Create a flave object
+    PFObject *flave = [PFObject objectWithClassName:kSFFlaveClassKey];
+    [flave setObject:[PFUser currentUser] forKey:kSFFlaveUserKey];
+    [flave setObject:self.flaveFile forKey:kSFFlavePictureKey];
+    [flave setObject:self.thumbnailFile forKey:kSFFlaveThumbnailKey];
+    
+    // Flaves are public, but should only be modified by the person who uploaded it.
+    PFACL *flaveACL = [PFACL ACLWithUser:[PFUser currentUser]];
+    [flaveACL setPublicReadAccess:YES];
+    flave.ACL = flaveACL;
+    
+    // Request a background execution that allows us to upload even if the app is in the background.
+    self.postFlaveBackgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.postFlaveBackgroundTaskID];
+    }];
+    
+    [flave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [[SFCache sharedCache] setAttributesForFlave:flave reflavers:[NSArray array] tags:tags reflavedByCurrentUser:NO];
+            
+            // Check the Tags Table for existing or non-existing tags
+            PFQuery *query = [PFQuery queryWithClassName:kSFTagClassKey];
+            for (NSString *tagName in tags) {
+                [query whereKey:kSFTagNameKey equalTo:tagName];
+            }
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                for (PFObject *tag in objects) {
+                    // If the current tag is contained in the query
+                    if ([objects containsObject:tag]) {
+                        [tag setObject:[NSNumber numberWithInt:[[tag objectForKey:kSFTagCountKey] integerValue] + 1] forKey:kSFTagCountKey];
+                        [tag saveEventually];
+                    } else {
+                        // If the current tag is NOT contained in the query
+                        
+                    }
+                }
+            }];
+            
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your flave"
+                                                            message:nil
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+            return;
+        }
+    }];
+    
+    /**
+     * Parse steps end here
+     */
     
     [self createNewFlaveWithImageData:self.selectedImageData];
     
@@ -158,9 +254,7 @@
             newFlave[@"isTrending"] = @NO;
             newFlave.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
             
-            NSArray *tags = [NSArray array];
-            tags = [self.tagsTextfield.text componentsSeparatedByString:@","];
-            newFlave[@"tags"] = tags;
+            
             
             self.tagsTextfield.alpha = 0.0f;
             
@@ -176,19 +270,6 @@
                             // User Save succeeded
                             self.tagsTextfield.text = @"";
                             
-                            for (NSString *newTag in tags) {
-                                PFObject *tag = [PFObject objectWithClassName:@"Tag"];
-                                tag[@"name"] = [newTag lowercaseString];
-                                tag[@"user"] = [[PFUser currentUser] objectForKey:@"username"];
-                                [tag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                                    if (!error) {
-                                        // Tag saved okay.
-                                    } else {
-                                        NSLog(@"Tag Save Error: %@", error.localizedDescription);
-                                        NSLog(@"Tag Save Error: %@", error.debugDescription);
-                                    }
-                                }];
-                            }
                         } else {
                             NSLog(@"User Save Error: %@", error.localizedDescription);
                             NSLog(@"User Save Error: %@", error.debugDescription);
@@ -206,13 +287,7 @@
     }];
 }
 
-- (BOOL)shouldUploadImage:(UIImage *)image
-{
-    // Resize the selected Image
-    UIImage *resizedImage;
-    
-    return YES;
-}
+
 
 - (void)createNewFlaveWithImageData:(NSData *)imageData
 {
@@ -265,6 +340,21 @@
                      completion:nil];
 }
 
+- (NSArray *)lowercaseTagsForString:(NSString *)string {
+    NSMutableArray *lowercaseTags = [NSMutableArray array];
+    NSArray *tags = [NSArray array];
+    
+    tags = [string componentsSeparatedByString:@","];
+    
+    for (NSString *tag in tags) {
+        NSString *aTag = [tag lowercaseString];
+        [lowercaseTags addObject:aTag];
+    }
+    
+    tags = [NSArray arrayWithArray:lowercaseTags];
+    
+    return tags;
+}
 
 @end
 

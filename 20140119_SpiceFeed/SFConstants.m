@@ -26,15 +26,16 @@ NSString *const SFFlaveDetailsViewControllerUserReflavedUnflavedFlaveNotificatio
 
 #pragma mark - User Info Keys
 NSString *const SFFlaveDetailsViewControllerUserReflavedUnflavedFlaveNotificationUserInfoReflavedKey = @"reflaved";
+NSString *const SFEditPhotoViewControllerUserInfoTagsKey = @"tags";
 
 #pragma mark - Installation Class
 
 // Field Keys
-NSString *const kSFInstallationUserKey = @"user"; /** May cause issues.  Might have to use user or username for key */
+NSString *const kSFInstallationUserKey  = @"user"; /** May cause issues.  Might have to use user or username for key */
 
 #pragma mark - PFObject Activity Class
 // Class key
-NSString *const kSFActivityClassKey = @"Activity";
+NSString *const kSFActivityClassKey     = @"Activity";
 
 // Field keys
 NSString *const kSFActivityTypeKey      = @"type";
@@ -68,6 +69,7 @@ NSString *const kSFFlaveClassKey = @"Flave";
 NSString *const kSFFlavePictureKey     = @"image";
 NSString *const kSFFlaveThumbnailKey   = @"thumbnail";
 NSString *const kSFFlaveUserKey        = @"user"; /** This may need to be username. */
+NSString *const kSFFlaveTagsKey        = @"tags";
 NSString *const kSFFlaveOpenGraphIDKey = @"fbOpenGraphID";
 
 #pragma mark - PFObject Tags Class
@@ -85,6 +87,8 @@ NSString *const kSFTagUserCountKey = @"userCount";
 NSString *const kSFFlaveAttributesIsReflavedByCurrentUserKey = @"isReflavedByCurrentUser";
 NSString *const kSFFlaveAttributesReflavesCountKey           = @"reflaveCount";
 NSString *const kSFFlaveAttributesReflaversKey               = @"reflavers";
+NSString *const kSFFlaveAttributesTagsKey                    = @"tags";
+NSString *const kSFFlaveAttributesTagCountKey                = @"tagCount";
 
 #pragma mark - Cached User Attributes
 // keys

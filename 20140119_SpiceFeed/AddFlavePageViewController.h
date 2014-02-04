@@ -20,6 +20,11 @@
 @property (nonatomic, strong) NSString *selectedImageSource;
 @property (nonatomic, strong) NSData *selectedImageData;
 
+@property (nonatomic, strong) PFFile *flaveFile;
+@property (nonatomic, strong) PFFile *thumbnailFile;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskID;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier postFlaveBackgroundTaskID;
+
 - (IBAction)addFlavePushed:(id)sender;
 - (IBAction)spiceItButtonPushed:(id)sender;
 

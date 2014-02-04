@@ -46,11 +46,12 @@
 
 #pragma mark - Flave Methods
 
-- (void)setAttributesForFlave:(PFObject *)flave reflavers:(NSArray *)reflavers reflavedByCurrentUser:(BOOL)reflavedByCurrentUser
+- (void)setAttributesForFlave:(PFObject *)flave reflavers:(NSArray *)reflavers tags:(NSArray *)tags reflavedByCurrentUser:(BOOL)reflavedByCurrentUser
 {
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [NSNumber numberWithBool:reflavedByCurrentUser], kSFFlaveAttributesIsReflavedByCurrentUserKey,
                                 @([reflavers count]), kSFFlaveAttributesReflavesCountKey,
+                                tags, kSFFlaveTagsKey,
                                 reflavers, kSFFlaveAttributesReflaversKey,
                                 nil];
     
@@ -79,6 +80,24 @@
     NSDictionary *attributes = [self attributesForFlave:flave];
     if (attributes) {
         return [attributes objectForKey:kSFFlaveAttributesReflaversKey];
+    }
+    
+    return [NSArray array];
+}
+
+- (NSNumber *)tagCountForPhoto:(PFObject *)flave {
+    NSDictionary *attributes = [self attributesForFlave:flave];
+    if (attributes) {
+        return [attributes objectForKey:kSFFlaveAttributesTagCountKey];
+    }
+    
+    return [NSNumber numberWithInt:0];
+}
+
+- (NSArray *)tagsForFlave:(PFObject *)flave {
+    NSDictionary *attributes = [self attributesForFlave:flave];
+    if (attributes) {
+        return [attributes objectForKey:kSFFlaveAttributesTagsKey];
     }
     
     return [NSArray array];

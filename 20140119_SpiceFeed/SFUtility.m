@@ -49,6 +49,7 @@
                 if (!error) {
                     
                     NSMutableArray *reflavers = [NSMutableArray array];
+                    NSMutableArray *tags = [NSMutableArray array];
                     
                     BOOL isReflavedByCurrentUser = NO;
                     
@@ -64,7 +65,8 @@
                         }
                     }
                     
-                    [[SFCache sharedCache] setAttributesForFlave:flave reflavers:reflavers reflavedByCurrentUser:isReflavedByCurrentUser];
+                    /** Lack of tags may cause issue */
+                    [[SFCache sharedCache] setAttributesForFlave:flave reflavers:reflavers tags:tags reflavedByCurrentUser:isReflavedByCurrentUser];
                 }
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:SFUtilityUserReflavedUnflavedFlaveCallbackFinishedNotification
@@ -99,6 +101,7 @@
             if (!error) {
                 
                 NSMutableArray *reflavers = [NSMutableArray array];
+                NSMutableArray *tags = [NSMutableArray array];
                 
                 BOOL isReflavedByCurrentUser = NO;
                 
@@ -115,7 +118,8 @@
                     }
                 }
                 
-                [[SFCache sharedCache] setAttributesForFlave:flave reflavers:reflavers reflavedByCurrentUser:isReflavedByCurrentUser];
+                /** Lack of tags may cause issue */
+                [[SFCache sharedCache] setAttributesForFlave:flave reflavers:reflavers tags:tags reflavedByCurrentUser:isReflavedByCurrentUser];
                 
             }
             
