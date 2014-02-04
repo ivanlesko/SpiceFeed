@@ -8,6 +8,7 @@
 
 // Credit: Parse, AnyPic App
 // Link  : https://github.com/ParsePlatform/Anypic/blob/master/Anypic-iOS/Anypic/UIImage%2BResizeAdditions.m
+// Originally posted on: http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/
 
 #import "UIImage+Resize.h"
 

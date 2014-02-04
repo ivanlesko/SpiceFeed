@@ -150,7 +150,7 @@
     NSDictionary *attributes = [self attributesForUser:user];
     if (attributes) {
         NSNumber *followerStatus = [attributes objectForKey:kSFUserAttributesIsFollowedByCurrentUserKey];
-        return followerStatus;
+        return [followerStatus boolValue];
     }
     
     return NO;
@@ -159,7 +159,7 @@
 - (void)setFlaveCount:(NSNumber *)count user:(PFUser *)user
 {
     NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesForUser:user]];
-    [attributes setObject:[NSNumber numberWithBool:count] forKey:kSFUserAttributesFlaveCountKey];
+    [attributes setObject:count forKey:kSFUserAttributesFlaveCountKey];
     [self setAttributes:attributes forUser:user];
 }
 

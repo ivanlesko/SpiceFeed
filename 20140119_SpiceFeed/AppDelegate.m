@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ParseUtilities.h"
 
 @implementation AppDelegate
 
@@ -14,8 +15,7 @@
 {
     // Override point for customization after application launch.
     
-    [Parse setApplicationId:@"4EQeSriecIvi5kYcRRk0cTEsjOj8aNtI115HOoNe"
-                  clientKey:@"LESHLEU9pyjg4u5mZDUIAWguDTCSlhxIuiqKHpIA"];
+    [[ParseUtilities sharedInstance] setupAPIkeys];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
