@@ -52,7 +52,9 @@ extern NSString *const kSFActivityTypeJoined;
 #pragma mark - PFObject User Class
 
 // Field keys
+extern NSString *const kSFUserFlaveCount;
 extern NSString *const kSFUserDisplayNameKey;
+extern NSString *const kSFUserFlavesRelationKey;
 extern NSString *const kSFUserFacebookIDKey;
 extern NSString *const kSFUserPhotoIDKey;
 extern NSString *const kSFUserProfilePicSmallKey;

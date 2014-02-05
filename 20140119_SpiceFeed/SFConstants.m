@@ -52,8 +52,10 @@ NSString *const kSFActivityTypeJoined   = @"joined";
 #pragma mark - PFObject User Class
 
 // Field keys
+NSString *const kSFUserFlaveCount                             = @"flaveCount";
 NSString *const kSFFLaveReflaveCountKey                       = @"reflaveCount";
 NSString *const kSFUserDisplayNameKey                         = @"displayName";
+NSString *const kSFUserFlavesRelationKey                      = @"flaves";
 NSString *const kSFUserFacebookIDKey                          = @"facebookID";
 NSString *const kSFUserPhotoIDKey                             = @"photoID";
 NSString *const kSFUserProfilePicSmallKey                     = @"profilePictureSmall";
