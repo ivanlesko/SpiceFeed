@@ -152,12 +152,6 @@
 
 - (IBAction)spiceItButtonPushed:(id)sender
 {
-    self.spiceItButton.enabled = NO;
-    self.tagsTextfield.userInteractionEnabled = NO;
-    
-    /**
-     * Parse Tutorial Save File Steps
-     */
     if (!self.flaveFile || !self.thumbnailFile) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your flave"
                                                         message:nil
@@ -177,7 +171,9 @@
     [flave setObject:[PFUser currentUser] forKey:kSFFlaveUserKey];
     [flave setObject:self.flaveFile forKey:kSFFlavePictureKey];
     [flave setObject:self.thumbnailFile forKey:kSFFlaveThumbnailKey];
+    [flave setObject:self.selectedImageSource forKey:kSFFlaveSourceTypeKey];
     [flave setObject:@0 forKey:kSFFLaveReflaveCountKey];
+    [flave setObject:@NO forKey:kSFFlaveIsTrendingKey];
     
     
     // Flaves are public, but should only be modified by the person who uploaded it.
@@ -195,37 +191,50 @@
     
     [flave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
+            self.tagsTextfield.text = @"";
+            self.tagsTextfield.alpha = 0.0f;
+            self.tagsTextfield.userInteractionEnabled = NO;
+            
+            self.spiceItButton.enabled = NO;
+            
             [[SFCache sharedCache] setAttributesForFlave:flave reflavers:[NSArray array] tags:tags reflavedByCurrentUser:NO];
             
             // Check the Tags Table for existing or non-existing tags
             PFQuery *query = [PFQuery queryWithClassName:kSFTagClassKey];
-            for (NSString *tagName in tags) {
-                [query whereKey:kSFTagNameKey equalTo:tagName];
-            }
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                NSLog(@"%@", objects);
                 
-                for (PFObject *tag in objects) {
-                    
-                    PFRelation *tagsRelation = [tag relationForKey:kSFFlaveTagsKey];
-                    // If the current tag is contained in the query
-                    if ([objects containsObject:tag]) {
-                        [tag setObject:[NSNumber numberWithInt:[[tag objectForKey:kSFTagCountKey] integerValue] + 1] forKey:kSFTagCountKey];
-                        [tag saveEventually];
-                        
-                        [tagsRelation addObject:tag];
-                        
-                        [[SFCache sharedCache] setAttributesForTag:tag count:[tag objectForKey:kSFTagCountKey] userCount:[tag objectForKey:kSFTagUserCountKey]];
+                NSMutableArray *tagNames = [NSMutableArray new];
+                for (NSDictionary *currentTag in objects) {
+                    [tagNames addObject:[currentTag objectForKey:kSFTagNameKey]];
+                }
+                
+                PFRelation *tagsRelation = [[PFObject objectWithClassName:kSFTagClassKey] relationForKey:kSFFlaveTagsKey];
+                
+                for (int i = 0; i < tags.count; i++) {
+                    if ([tagNames containsObject:[tags objectAtIndex:i]]) {
+                        // If the tag already exists.
+                        for (PFObject *existingTag in objects) {
+                            if ([[existingTag objectForKey:kSFTagNameKey] isEqualToString:[tags objectAtIndex:i]]) {
+                                [existingTag setObject:[NSNumber numberWithInt:[[existingTag objectForKey:kSFTagCountKey] integerValue] + 1] forKey:kSFTagCountKey];
+                                [existingTag saveEventually];
+                                
+                                [tagsRelation addObject:existingTag];
+                                
+                                [[SFCache sharedCache] setAttributesForTag:existingTag count:[existingTag objectForKey:kSFTagCountKey] userCount:[existingTag objectForKey:kSFTagUserCountKey]];
+                            }
+                        }
                     } else {
-                        // If the current tag is NOT contained in the query, create a new tag
+                        // If the tag does not yet exist.
                         PFObject *newTag = [PFObject objectWithClassName:kSFTagClassKey];
                         [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagCountKey];
                         [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagUserCountKey];
                         [newTag setACL:tagACL];
-                        [newTag saveEventually];
-                        
-                        [tagsRelation addObject:newTag];
-                        
-                        [[SFCache sharedCache] setAttributesForTag:newTag count:[NSNumber numberWithInteger:1] userCount:[NSNumber numberWithInteger:1]];
+                        [newTag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                [tagsRelation addObject:newTag];
+                            }
+                        }];
                     }
                 }
             }];
@@ -252,52 +261,6 @@
     }
 }
 
-- (void)saveNewFlaveWithImageFile:(PFFile *)imageFile
-{
-    // Save the image file.
-    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            PFObject *newFlave = [PFObject objectWithClassName:@"Flave"];
-            newFlave[@"uploader"] = [[PFUser currentUser] objectForKey:@"username"];
-            newFlave[@"image"] = imageFile;
-            newFlave[@"source"] = self.selectedImageSource;
-            newFlave[@"reflaveCount"] = @0;
-            newFlave[@"isTrending"] = @NO;
-            newFlave.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
-            
-            
-            
-            self.tagsTextfield.alpha = 0.0f;
-            
-            [newFlave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
-                
-                if (!error) {
-                    PFRelation *relation = [[PFUser currentUser] relationForKey:@"flaves"];
-                    [relation addObject:newFlave];
-                    
-                    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                        if (!error) {
-                            // User Save succeeded
-                            self.tagsTextfield.text = @"";
-                            
-                        } else {
-                            NSLog(@"User Save Error: %@", error.localizedDescription);
-                            NSLog(@"User Save Error: %@", error.debugDescription);
-                        }
-                    }];
-                } else {
-                    NSLog(@"New Flave Error: %@", error.localizedDescription);
-                    NSLog(@"New Flave Erorr: %@", error.debugDescription);
-                }
-            }];
-        } else {
-            NSLog(@"ImageFile Error: %@", error.localizedDescription);
-            NSLog(@"ImageFile Error: %@", error.debugDescription);
-        }
-    }];
-}
-
 
 
 - (void)createNewFlaveWithImageData:(NSData *)imageData
@@ -308,8 +271,6 @@
     
     // Create the image file for the flave.
     PFFile *imageFile = [PFFile fileWithName:uniqueName data:imageData];
-    
-    [self saveNewFlaveWithImageFile:imageFile];
 }
 
 #pragma mark - Textfield Delegate Methods

@@ -72,7 +72,7 @@ extern NSString *const kSFFlaveThumbnailKey;
 extern NSString *const kSFFlaveUserKey;
 extern NSString *const kSFFlaveOpenGraphIDKey;
 extern NSString *const kSFFlaveTagsKey;
-extern NSString *const kSSFlaveIsTrendingKey;
+extern NSString *const kSFFlaveIsTrendingKey;
 extern NSString *const kSFFlaveSourceTypeKey;
 
 #pragma mark - PFObject Tags Class
