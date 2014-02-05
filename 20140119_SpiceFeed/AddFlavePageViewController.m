@@ -191,6 +191,7 @@
     
     [flave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
+            self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
             self.tagsTextfield.text = @"";
             self.tagsTextfield.alpha = 0.0f;
             self.tagsTextfield.userInteractionEnabled = NO;
@@ -201,25 +202,37 @@
             
             // Check the Tags Table for existing or non-existing tags
             PFQuery *query = [PFQuery queryWithClassName:kSFTagClassKey];
+            [query setCachePolicy:kPFCachePolicyNetworkOnly];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                NSLog(@"%@", objects);
-                
-                NSMutableArray *tagNames = [NSMutableArray new];
+                NSMutableArray *tagNames = [NSMutableArray array];
                 for (NSDictionary *currentTag in objects) {
+                    // Parse objects for the tag name strings.
                     [tagNames addObject:[currentTag objectForKey:kSFTagNameKey]];
                 }
                 
-                PFRelation *tagsRelation = [[PFObject objectWithClassName:kSFTagClassKey] relationForKey:kSFFlaveTagsKey];
+                PFRelation *tagsRelation = [[PFUser currentUser] relationForKey:kSFTagClassKey];
+                PFRelation *userFlaveRelation = [[PFUser currentUser] relationForKey:@"flaves"];
                 
                 for (int i = 0; i < tags.count; i++) {
                     if ([tagNames containsObject:[tags objectAtIndex:i]]) {
                         // If the tag already exists.
                         for (PFObject *existingTag in objects) {
+                            NSLog(@"%@", [existingTag objectForKey:kSFTagNameKey]);
+                            NSLog(@"%@", [tags objectAtIndex:i]);
                             if ([[existingTag objectForKey:kSFTagNameKey] isEqualToString:[tags objectAtIndex:i]]) {
+                                NSLog(@"setting existing tag: %@", [tags objectAtIndex:i]);
                                 [existingTag setObject:[NSNumber numberWithInt:[[existingTag objectForKey:kSFTagCountKey] integerValue] + 1] forKey:kSFTagCountKey];
-                                [existingTag saveEventually];
+                                [existingTag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                    if (succeeded) {
+                                        NSLog(@"adding existing tag to user");
+                                        [tagsRelation addObject:existingTag];
+                                    }
+                                    
+                                    if (!error) {
+                                        NSLog(@"no error found on adding existing tag to user");
+                                    }
+                                }];
                                 
-                                [tagsRelation addObject:existingTag];
                                 
                                 [[SFCache sharedCache] setAttributesForTag:existingTag count:[existingTag objectForKey:kSFTagCountKey] userCount:[existingTag objectForKey:kSFTagUserCountKey]];
                             }
@@ -227,12 +240,22 @@
                     } else {
                         // If the tag does not yet exist.
                         PFObject *newTag = [PFObject objectWithClassName:kSFTagClassKey];
+                        NSLog(@"newTag:%@", [tags objectAtIndex:i]);
+                        [newTag setObject:[tags objectAtIndex:i] forKey:kSFTagNameKey];
                         [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagCountKey];
                         [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagUserCountKey];
                         [newTag setACL:tagACL];
+                        
+                        [[SFCache sharedCache] setAttributesForTag:newTag count:[NSNumber numberWithInteger:1] userCount:[NSNumber numberWithInteger:1]];
+                        
                         [newTag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                             if (succeeded) {
+                                NSLog(@"adding new tag to user");
                                 [tagsRelation addObject:newTag];
+                            }
+                            
+                            if (!error) {
+                                NSLog(@"no error found on adding new tag");
                             }
                         }];
                     }
@@ -249,10 +272,6 @@
         }
     }];
     
-    /**
-     * Parse steps end here
-     */
-    
     BOOL framePositionCheck = CGRectEqualToRect(self.view.frame, [[self.view superview]frame]);
     
     if (!framePositionCheck) {
@@ -268,9 +287,6 @@
     CFUUIDRef theUUID = CFUUIDCreate(NULL);
     NSString *uniqueString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID);
     NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
-    
-    // Create the image file for the flave.
-    PFFile *imageFile = [PFFile fileWithName:uniqueName data:imageData];
 }
 
 #pragma mark - Textfield Delegate Methods
@@ -320,6 +336,7 @@
     
     for (NSString *tag in tags) {
         NSString *aTag = [tag lowercaseString];
+        aTag = [aTag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         [lowercaseTags addObject:aTag];
     }
     
