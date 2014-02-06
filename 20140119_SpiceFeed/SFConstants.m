@@ -86,6 +86,7 @@ NSString *const kSFTagClassKey  = @"Tag";
 NSString *const kSFTagNameKey      = @"name";
 NSString *const kSFTagCountKey     = @"count";
 NSString *const kSFTagUserCountKey = @"userCount";
+NSString *const kSFTagFlavesKey    = @"flaves";
 
 #pragma mark - Cached Photo Attributes
 // keys

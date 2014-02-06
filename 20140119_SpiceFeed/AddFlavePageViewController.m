@@ -150,110 +150,6 @@
     return YES;
 }
 
-- (void)updateExistingTag:(PFObject *)existingTag
-{
-    [existingTag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            [[SFCache sharedCache] setAttributesForTag:existingTag count:[existingTag objectForKey:kSFTagCountKey] userCount:[existingTag objectForKey:kSFTagUserCountKey]];
-        }
-    }];
-}
-
-- (void)saveNewTag:(PFObject *)newTag
-{
-    [newTag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            [[SFCache sharedCache] setAttributesForTag:newTag count:[NSNumber numberWithInteger:1] userCount:[NSNumber numberWithInteger:1]];
-        }
-    }];
-}
-
-- (void)queryForExistingTags:(PFACL *)tagACL tags:(NSArray *)tags query:(PFQuery *)query
-{
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSMutableArray *tagNames = [NSMutableArray array];
-        for (NSDictionary *currentTag in objects) {
-            // Create an array of tag strings that already exist.
-            [tagNames addObject:[currentTag objectForKey:kSFTagNameKey]];
-        }
-        
-        // Run a check for every tag being sent to the new flave.
-        for (int i = 0; i < tags.count; i++) {
-            if ([tagNames containsObject:[tags objectAtIndex:i]]) {
-                // If the tag already exists.
-                for (PFObject *existingTag in objects) {
-                    if ([[existingTag objectForKey:kSFTagNameKey] isEqualToString:[tags objectAtIndex:i]]) {
-                        NSLog(@"setting existing tag: %@", [tags objectAtIndex:i]);
-                        [existingTag incrementKey:kSFTagCountKey];
-                        [self updateExistingTag:existingTag];
-                    }
-                }
-            } else {
-                // If the tag does not yet exist.
-                PFObject *newTag = [PFObject objectWithClassName:kSFTagClassKey];
-                NSLog(@"newTag:%@", [tags objectAtIndex:i]);
-                [newTag setObject:[tags objectAtIndex:i] forKey:kSFTagNameKey];
-                [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagCountKey];
-                [newTag setObject:[NSNumber numberWithInt:1] forKey:kSFTagUserCountKey];
-                [newTag setACL:tagACL];
-                
-                [self saveNewTag:newTag];
-            }
-        }
-    }];
-}
-
-- (void)updateUser:(PFACL *)tagACL tags:(NSArray *)tags flave:(PFObject *)flave
-{
-    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded && !error) {
-            self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
-            self.tagsTextfield.text = @"";
-            self.tagsTextfield.alpha = 0.0f;
-            self.tagsTextfield.userInteractionEnabled = NO;
-            
-            self.spiceItButton.enabled = NO;
-            
-            [[SFCache sharedCache] setAttributesForFlave:flave reflavers:[NSArray array] tags:tags reflavedByCurrentUser:NO];
-            
-            // Check the Tags Table for existing or non-existing tags
-            PFQuery *query = [PFQuery queryWithClassName:kSFTagClassKey];
-            [query setCachePolicy:kPFCachePolicyNetworkOnly];
-            [self queryForExistingTags:tagACL tags:tags query:query];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not update user relation."
-                                                            message:nil
-                                                           delegate:nil
-                                                  cancelButtonTitle:nil
-                                                  otherButtonTitles:@"Dismiss", nil];
-            [alert show];
-            return;
-        }
-    }];
-}
-
-- (void)postNewFlave:(PFACL *)tagACL tags:(NSArray *)tags flave:(PFObject *)flave
-{
-    [flave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded && !error) {
-            [[[PFUser currentUser] relationForKey:kSFUserFlavesRelationKey] addObject:flave];
-            [[PFUser currentUser] incrementKey:kSFUserFlaveCount];
-            [self updateUser:tagACL tags:tags flave:flave];
-            
-            
-            
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your flave"
-                                                            message:nil
-                                                           delegate:nil
-                                                  cancelButtonTitle:nil
-                                                  otherButtonTitles:@"Dismiss", nil];
-            [alert show];
-            return;
-        }
-    }];
-}
-
 - (IBAction)spiceItButtonPushed:(id)sender
 {
     if (!self.flaveFile || !self.thumbnailFile) {
@@ -303,7 +199,117 @@
     }
 }
 
+- (void)postNewFlave:(PFACL *)tagACL tags:(NSArray *)tags flave:(PFObject *)flave
+{
+    [flave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded && !error) {
+            [[[PFUser currentUser] relationForKey:kSFUserFlavesRelationKey] addObject:flave];
+            [[PFUser currentUser] incrementKey:kSFUserFlaveCount];
+            [self updateUser:tagACL tags:tags flave:flave];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Couldn't post your flave"
+                                                            message:nil
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+            return;
+        }
+    }];
+}
 
+- (void)updateUser:(PFACL *)tagACL tags:(NSArray *)tags flave:(PFObject *)flave
+{
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded && !error) {
+            self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
+            self.tagsTextfield.text = @"";
+            self.tagsTextfield.alpha = 0.0f;
+            self.tagsTextfield.userInteractionEnabled = NO;
+            
+            self.spiceItButton.enabled = NO;
+            
+            [[SFCache sharedCache] setAttributesForFlave:flave reflavers:[NSArray array] tags:tags reflavedByCurrentUser:NO];
+            
+            // Check the Tags Table for existing or non-existing tags
+            PFQuery *query = [PFQuery queryWithClassName:kSFTagClassKey];
+            [query setCachePolicy:kPFCachePolicyIgnoreCache];
+            for (NSString *tag in tags) {
+                [query whereKey:kSFTagNameKey equalTo:tag];
+            }
+            [self queryForExistingTags:tagACL tags:tags query:query flave:flave];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Could not update user relation."
+                                                            message:nil
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"Dismiss", nil];
+            [alert show];
+            return;
+        }
+    }];
+}
+
+- (void)queryForExistingTags:(PFACL *)tagACL tags:(NSArray *)tags query:(PFQuery *)query flave:(PFObject *)flave;
+{
+    // Find existing Tags.
+    [query findObjectsInBackgroundWithBlock:^(NSArray *foundTags, NSError *error) {
+        if (!error) {
+            NSMutableArray *existingTagNames = [NSMutableArray array];
+            
+            for (PFObject *existingTag in foundTags) {
+                [existingTagNames addObject:[existingTag objectForKey:kSFTagNameKey]];
+                NSLog(@"existing Tag Objects:\n%@", existingTag);
+            }
+            
+            for (NSString *newTag in tags) {
+                if ([existingTagNames containsObject:newTag]) {
+                    // Update existing Tags.
+                    for (PFObject *existingTag in foundTags) {
+                        if ([[existingTag objectForKey:kSFTagNameKey] isEqualToString:newTag]) {
+                            [self saveTag:existingTag toFlave:flave];
+                        }
+                    }
+                } else {
+                    // Create new Tags.
+                    NSLog(@"new tag:%@", newTag);
+                    PFObject *newNonExistingTag = [PFObject objectWithClassName:kSFTagClassKey];
+                    [newNonExistingTag setObject:newTag forKey:kSFTagNameKey];
+                    [self saveTag:newNonExistingTag toFlave:flave];
+                }
+            }
+        }
+    }];
+}
+
+- (void)saveTag:(PFObject *)tag toFlave:(PFObject *)flave
+{
+    [[tag relationForKey:kSFTagFlavesKey] addObject:flave];
+    [tag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded && !error) {
+            [[flave relationForKey:kSFFlaveTagsKey] addObject:tag];
+            [flave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded && !error) {
+                    NSLog(@"successfully saved flave: %@", flave);
+                }
+            }];
+        }
+    }];
+}
+
+- (void)addTag:(PFObject *)tag toFlave:(PFObject *)flave
+{
+    PFQuery *flaveQuery = [PFQuery queryWithClassName:kSFFlaveClassKey];
+    [flaveQuery whereKey:@"objectID" equalTo:[flave objectId]];
+    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            PFObject *flaveToUpdate = [objects firstObject];
+            [[flaveToUpdate relationForKey:kSFFlaveTagsKey] addObject:tag];
+            NSLog(@"adding tag: %@", tag);
+            NSLog(@"adding tag to flave: %@", flaveToUpdate);
+        }
+    }];
+}
 
 - (void)createNewFlaveWithImageData:(NSData *)imageData
 {

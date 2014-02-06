@@ -86,6 +86,7 @@ extern NSString *const kSFTagClassKey;
 extern NSString *const kSFTagNameKey;
 extern NSString *const kSFTagCountKey;
 extern NSString *const kSFTagUserCountKey;
+extern NSString *const kSFTagFlavesKey;
 
 #pragma mark - Cached Photo Attributes
 // keys
