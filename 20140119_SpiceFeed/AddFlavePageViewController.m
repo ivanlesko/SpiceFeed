@@ -121,7 +121,7 @@
     UIImage *resizedImage   = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit
                                                           bounds:CGSizeMake(560.0f, 560.0f)
                                             interpolationQuality:kCGInterpolationHigh];
-    UIImage *thumbnailImage = [image thumbnailImage:86.0f interpolationQuality:kCGInterpolationDefault];
+    UIImage *thumbnailImage = [image thumbnailImage:150.0f interpolationQuality:kCGInterpolationDefault];
     
     NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
     NSData *thumbnailData = UIImagePNGRepresentation(thumbnailImage);
@@ -259,7 +259,6 @@
             
             for (PFObject *existingTag in foundTags) {
                 [existingTagNames addObject:[existingTag objectForKey:kSFTagNameKey]];
-                NSLog(@"existing Tag Objects:\n%@", existingTag);
             }
             
             for (NSString *newTag in tags) {
@@ -267,46 +266,32 @@
                     // Update existing Tags.
                     for (PFObject *existingTag in foundTags) {
                         if ([[existingTag objectForKey:kSFTagNameKey] isEqualToString:newTag]) {
-                            [self saveTag:existingTag toFlave:flave];
+                            [self saveTag:existingTag toFlave:flave withACL:tagACL];
                         }
                     }
                 } else {
                     // Create new Tags.
-                    NSLog(@"new tag:%@", newTag);
                     PFObject *newNonExistingTag = [PFObject objectWithClassName:kSFTagClassKey];
                     [newNonExistingTag setObject:newTag forKey:kSFTagNameKey];
-                    [self saveTag:newNonExistingTag toFlave:flave];
+                    [self saveTag:newNonExistingTag toFlave:flave withACL:tagACL];
                 }
             }
         }
     }];
 }
 
-- (void)saveTag:(PFObject *)tag toFlave:(PFObject *)flave
+- (void)saveTag:(PFObject *)tag toFlave:(PFObject *)flave withACL:(PFACL *)ACL
 {
+    tag.ACL = ACL;
     [[tag relationForKey:kSFTagFlavesKey] addObject:flave];
     [tag saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded && !error) {
             [[flave relationForKey:kSFFlaveTagsKey] addObject:tag];
             [flave saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded && !error) {
-                    NSLog(@"successfully saved flave: %@", flave);
+                    // Successfully saved flave and tags.
                 }
             }];
-        }
-    }];
-}
-
-- (void)addTag:(PFObject *)tag toFlave:(PFObject *)flave
-{
-    PFQuery *flaveQuery = [PFQuery queryWithClassName:kSFFlaveClassKey];
-    [flaveQuery whereKey:@"objectID" equalTo:[flave objectId]];
-    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            PFObject *flaveToUpdate = [objects firstObject];
-            [[flaveToUpdate relationForKey:kSFFlaveTagsKey] addObject:tag];
-            NSLog(@"adding tag: %@", tag);
-            NSLog(@"adding tag to flave: %@", flaveToUpdate);
         }
     }];
 }

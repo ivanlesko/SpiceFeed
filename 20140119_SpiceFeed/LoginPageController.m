@@ -63,9 +63,13 @@
 
 - (IBAction)performLoginSuccessSegueIfValid:(id)sender
 {
-    [PFUser logInWithUsernameInBackground:self.emailField.text password:self.passwordField.text block:^(PFUser *user, NSError *error) {
+    [PFUser logInWithUsernameInBackground:self.emailField.text
+                                 password:self.passwordField.text
+                                    block:^(PFUser *user, NSError *error)
+    {
+        NSLog(@"login error");
         // If there was no error, login.
-        if (user) {
+        if (!error) {
             [self performSegueWithIdentifier:@"login" sender:self];
         }
     }];

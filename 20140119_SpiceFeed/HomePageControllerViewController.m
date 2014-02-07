@@ -41,4 +41,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)startAgain:(id)sender {
+}
+- (IBAction)startWalkthrough:(id)sender {
+}
 @end
