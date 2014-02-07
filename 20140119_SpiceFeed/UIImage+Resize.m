@@ -31,7 +31,7 @@
 - (UIImage *)thumbnailImage:(NSInteger)thumbnailSize
        interpolationQuality:(CGInterpolationQuality)quality {
     UIImage *resizedImage = [self resizedImageWithContentMode:UIViewContentModeScaleAspectFill
-                                                       bounds:CGSizeMake(thumbnailSize, thumbnailSize)
+                                                       bounds:CGSizeMake(self.size.width, self.size.height)
                                          interpolationQuality:quality];
     
     // Crop out any part of the image that larger than the thumbnail size

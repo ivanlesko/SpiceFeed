@@ -54,6 +54,7 @@ extern NSString *const kSFActivityTypeJoined;
 // Field keys
 extern NSString *const kSFUserFlaveCount;
 extern NSString *const kSFUserDisplayNameKey;
+extern NSString *const kSFUserUserNameKey;
 extern NSString *const kSFUserFlavesRelationKey;
 extern NSString *const kSFUserFacebookIDKey;
 extern NSString *const kSFUserPhotoIDKey;
@@ -69,7 +70,7 @@ extern NSString *const kSFFlaveClassKey;
 
 // Field keys
 extern NSString *const kSFFLaveReflaveCountKey;
-extern NSString *const kSFFlavePictureKey;
+extern NSString *const kSFFlaveImageKey;
 extern NSString *const kSFFlaveThumbnailKey;
 extern NSString *const kSFFlaveUserKey;
 extern NSString *const kSFFlaveOpenGraphIDKey;

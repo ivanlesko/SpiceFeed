@@ -55,6 +55,7 @@ NSString *const kSFActivityTypeJoined   = @"joined";
 NSString *const kSFUserFlaveCount                             = @"flaveCount";
 NSString *const kSFFLaveReflaveCountKey                       = @"reflaveCount";
 NSString *const kSFUserDisplayNameKey                         = @"displayName";
+NSString *const kSFUserUserNameKey                            = @"username";
 NSString *const kSFUserFlavesRelationKey                      = @"flaves";
 NSString *const kSFUserFacebookIDKey                          = @"facebookID";
 NSString *const kSFUserPhotoIDKey                             = @"photoID";
@@ -69,7 +70,7 @@ NSString *const kSFUserAlreadyAutoFollowedFacebookFriendsKey  = @"userAlreadyAut
 NSString *const kSFFlaveClassKey = @"Flave";
 
 // Field keys
-NSString *const kSFFlavePictureKey     = @"image";
+NSString *const kSFFlaveImageKey       = @"image";
 NSString *const kSFFlaveThumbnailKey   = @"thumbnail";
 NSString *const kSFFlaveUserKey        = @"user"; /** This may need to be username. */
 NSString *const kSFFlaveTagsKey        = @"tags";

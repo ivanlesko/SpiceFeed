@@ -169,7 +169,7 @@
     // Create a flave object
     PFObject *flave = [PFObject objectWithClassName:kSFFlaveClassKey];
     [flave setObject:[PFUser currentUser] forKey:kSFFlaveUserKey];
-    [flave setObject:self.flaveFile forKey:kSFFlavePictureKey];
+    [flave setObject:self.flaveFile forKey:kSFFlaveImageKey];
     [flave setObject:self.thumbnailFile forKey:kSFFlaveThumbnailKey];
     [flave setObject:self.selectedImageSource forKey:kSFFlaveSourceTypeKey];
     [flave setObject:@0 forKey:kSFFLaveReflaveCountKey];
@@ -222,7 +222,7 @@
 {
     [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded && !error) {
-            self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholder.png"];
+            self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholderInverted.png"];
             self.tagsTextfield.text = @"";
             self.tagsTextfield.alpha = 0.0f;
             self.tagsTextfield.userInteractionEnabled = NO;
@@ -300,7 +300,7 @@
 {
     CFUUIDRef theUUID = CFUUIDCreate(NULL);
     NSString *uniqueString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID);
-    NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
+//    NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
 }
 
 #pragma mark - Textfield Delegate Methods

@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 @property (nonatomic, strong) NSMutableArray *userFlaves;
+@property (weak, nonatomic) IBOutlet UIView *profileInfoView;
 
 @end

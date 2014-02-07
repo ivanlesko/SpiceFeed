@@ -36,9 +36,14 @@
     
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"sampleImage"];
     
-    self.usernameLabel.text = [PFUser currentUser][@"username"];
+    self.usernameLabel.text = [[PFUser currentUser] objectForKey:kSFUserUserNameKey];
     
     self.userFlaves = [NSMutableArray new];
+    
+    self.profileInfoView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.profileInfoView.layer.shadowOffset = CGSizeMake(0, 5);
+    self.profileInfoView.layer.shadowRadius = 5;
+    self.profileInfoView.layer.shadowOpacity = 0.8;
     
 //    [self updateUserFlaves];
 }
@@ -53,18 +58,21 @@
 {
     [super viewWillAppear:animated];
     
-    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
-    flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
-    [flaveQuery whereKey:@"uploader" equalTo:[[PFUser currentUser] objectForKey:@"username"]];
-    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            self.userFlaves = [NSMutableArray arrayWithArray:objects];
-            [self.collectionView reloadData];
-            NSLog(@"%@", self.userFlaves);
-        } else {
-            
-        }
-    }];
+    if (!self.userFlaves.count) {
+        PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
+        flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
+        [flaveQuery whereKey:kSFFlaveUserKey equalTo:[PFUser currentUser]];
+        [flaveQuery orderByDescending:@"createdAt"];
+        [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                self.userFlaves = [NSMutableArray arrayWithArray:objects];
+                [self.collectionView reloadData];
+                NSLog(@"%@", self.userFlaves);
+            } else {
+                
+            }
+        }];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -77,19 +85,20 @@
                                                                          50)];
     bgImage.contentMode = UIViewContentModeScaleAspectFit;
     
-    PFObject *flave = [self.userFlaves objectAtIndex:indexPath.row];
-    PFFile *flaveFile = [flave objectForKey:@"image"];
+    PFObject *flaveThumbnail = [self.userFlaves objectAtIndex:indexPath.row];
+    PFFile *flaveFile = [flaveThumbnail objectForKey:kSFFlaveThumbnailKey];
     [flaveFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             UIImage *flaveImage = [UIImage imageWithData:data];
             bgImage.image = flaveImage;
             cell.backgroundView = bgImage;
-            [self.collectionView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
             NSLog(@"%@", error.debugDescription);
         }
     }];
+    
+    NSLog(@"reloading collectionViewCell");
     
     return cell;
 }
