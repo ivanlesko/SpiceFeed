@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */; };
+		4E20EC3E18A6BD0E00460355 /* FlaveProfilePageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E20EC3D18A6BD0E00460355 /* FlaveProfilePageCollectionViewCell.m */; };
+		4E20EC4118A6C5DE00460355 /* SFFlave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E20EC4018A6C5DE00460355 /* SFFlave.m */; };
 		4E2A000618A49FC500BB972E /* profilePlaceholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A000518A49FC500BB972E /* profilePlaceholder.jpg */; };
 		4E2A000A18A4A16D00BB972E /* imagePlaceholderInverted.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A000918A4A16D00BB972E /* imagePlaceholderInverted.png */; };
 		4E2A000C18A4A53C00BB972E /* user-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A000B18A4A53C00BB972E /* user-60.png */; };
@@ -91,6 +93,10 @@
 /* Begin PBXFileReference section */
 		4E176F7918A048CD00C0CDBB /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		4E20EC3C18A6BD0E00460355 /* FlaveProfilePageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlaveProfilePageCollectionViewCell.h; sourceTree = "<group>"; };
+		4E20EC3D18A6BD0E00460355 /* FlaveProfilePageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlaveProfilePageCollectionViewCell.m; sourceTree = "<group>"; };
+		4E20EC3F18A6C5DE00460355 /* SFFlave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFFlave.h; sourceTree = "<group>"; };
+		4E20EC4018A6C5DE00460355 /* SFFlave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFFlave.m; sourceTree = "<group>"; };
 		4E2A000518A49FC500BB972E /* profilePlaceholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilePlaceholder.jpg; sourceTree = "<group>"; };
 		4E2A000918A4A16D00BB972E /* imagePlaceholderInverted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagePlaceholderInverted.png; sourceTree = "<group>"; };
 		4E2A000B18A4A53C00BB972E /* user-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-60.png"; sourceTree = "<group>"; };
@@ -408,6 +414,8 @@
 			isa = PBXGroup;
 			children = (
 				4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */,
+				4E20EC3F18A6C5DE00460355 /* SFFlave.h */,
+				4E20EC4018A6C5DE00460355 /* SFFlave.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -415,6 +423,8 @@
 		4EAA70C3188CCC87004CA02A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4E20EC3C18A6BD0E00460355 /* FlaveProfilePageCollectionViewCell.h */,
+				4E20EC3D18A6BD0E00460355 /* FlaveProfilePageCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -639,9 +649,11 @@
 				4E3026AC189AF560009EE649 /* HelperMethods.m in Sources */,
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
 				4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */,
+				4E20EC4118A6C5DE00460355 /* SFFlave.m in Sources */,
 				4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */,
 				4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */,
 				4EAA7146188CE189004CA02A /* TagResultViewController.m in Sources */,
+				4E20EC3E18A6BD0E00460355 /* FlaveProfilePageCollectionViewCell.m in Sources */,
 				4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */,
 				4E31F5F418958774003C1E54 /* NSCharacterSet+CustomSets.m in Sources */,
 				4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */,

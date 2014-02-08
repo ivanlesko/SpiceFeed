@@ -45,7 +45,7 @@
     self.profileInfoView.layer.shadowRadius = 5;
     self.profileInfoView.layer.shadowOpacity = 0.8;
     
-//    [self updateUserFlaves];
+    self.backgroundQueue = [[NSOperationQueue alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,21 +58,18 @@
 {
     [super viewWillAppear:animated];
     
-    if (!self.userFlaves.count) {
-        PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
-        flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
-        [flaveQuery whereKey:kSFFlaveUserKey equalTo:[PFUser currentUser]];
-        [flaveQuery orderByDescending:@"createdAt"];
-        [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                self.userFlaves = [NSMutableArray arrayWithArray:objects];
-                [self.collectionView reloadData];
-                NSLog(@"%@", self.userFlaves);
-            } else {
-                
-            }
-        }];
-    }
+    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
+    flaveQuery.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [flaveQuery whereKey:kSFFlaveUserKey equalTo:[PFUser currentUser]];
+    [flaveQuery orderByDescending:@"createdAt"];
+    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.userFlaves = [NSMutableArray arrayWithArray:objects];
+            [self.collectionView reloadData];
+        } else {
+            
+        }
+    }];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -89,9 +86,11 @@
     PFFile *flaveFile = [flaveThumbnail objectForKey:kSFFlaveThumbnailKey];
     [flaveFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
-            UIImage *flaveImage = [UIImage imageWithData:data];
-            bgImage.image = flaveImage;
-            cell.backgroundView = bgImage;
+            [self.backgroundQueue addOperationWithBlock:^{
+                UIImage *flaveImage = [UIImage imageWithData:data];
+                bgImage.image = flaveImage;
+                cell.backgroundView = bgImage;                
+            }];
         } else {
             NSLog(@"%@", error.localizedDescription);
             NSLog(@"%@", error.debugDescription);
@@ -111,28 +110,6 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
-}
-
-- (void)updateUserFlaves
-{
-    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
-    flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [flaveQuery whereKey:@"uploader" equalTo:[PFUser currentUser][@"username"]];
-        [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                self.userFlaves = [NSMutableArray arrayWithArray:objects];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.collectionView reloadData];
-                });
-            } else {
-                NSLog(@"ProfilePage Error: %@", error.debugDescription);
-                NSLog(@"ProfilePage Error: %@", error.localizedDescription);
-            }
-        }];
-    }];
-    NSLog(@"2");
 }
 
 @end

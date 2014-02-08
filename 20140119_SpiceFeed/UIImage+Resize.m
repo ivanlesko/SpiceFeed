@@ -1,13 +1,13 @@
 //
-//  UIImage+Resize.m
-//  20140119_SpiceFeed
+// UIImage+Resize.m
+// 20140119_SpiceFeed
 //
-//  Created by Ivan Lesko on 2/3/14.
-//  Copyright (c) 2014 Ivan Lesko. All rights reserved.
+// Created by Ivan Lesko on 2/3/14.
+// Copyright (c) 2014 Ivan Lesko. All rights reserved.
 //
 
 // Credit: Parse, AnyPic App
-// Link  : https://github.com/ParsePlatform/Anypic/blob/master/Anypic-iOS/Anypic/UIImage%2BResizeAdditions.m
+// Link : https://github.com/ParsePlatform/Anypic/blob/master/Anypic-iOS/Anypic/UIImage%2BResizeAdditions.m
 // Originally posted on: http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/
 
 #import "UIImage+Resize.h"
@@ -31,15 +31,15 @@
 - (UIImage *)thumbnailImage:(NSInteger)thumbnailSize
        interpolationQuality:(CGInterpolationQuality)quality {
     UIImage *resizedImage = [self resizedImageWithContentMode:UIViewContentModeScaleAspectFill
-                                                       bounds:CGSizeMake(self.size.width, self.size.height)
+                                                       bounds:CGSizeMake(thumbnailSize, thumbnailSize)
                                          interpolationQuality:quality];
     
     // Crop out any part of the image that larger than the thumbnail size
     // The cropped rect must be centered on the cropped image.
-    CGRect cropRect = CGRectMake(resizedImage.size.width  - thumbnailSize / 2.0,
-                                 resizedImage.size.height - thumbnailSize / 2.0,
-                                 thumbnailSize,
-                                 thumbnailSize);
+    CGRect cropRect = CGRectMake(resizedImage.size.width - thumbnailSize,
+                                 resizedImage.size.height - thumbnailSize,
+                                 self.size.width,
+                                 self.size.height);
     
     return[resizedImage croppedImage:cropRect];
 }
@@ -74,8 +74,8 @@
 - (UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode
                                   bounds:(CGSize)bounds
                     interpolationQuality:(CGInterpolationQuality)quality {
-    CGFloat horizontalRatio = bounds.width  / self.size.width;
-    CGFloat verticalRatio   = bounds.height / self.size.height;
+    CGFloat horizontalRatio = bounds.width / self.size.width;
+    CGFloat verticalRatio = bounds.height / self.size.height;
     CGFloat ratio;
     
     switch (contentMode) {
@@ -96,7 +96,7 @@
     return [self resizedImage:newSize interpolationQuality:quality];
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - Private helper methods
 
 // Returns a copy of the image that has been transformed using the given affine transform and scaled to the new size
@@ -153,19 +153,19 @@
     CGAffineTransform transform = CGAffineTransformIdentity;
     
     switch (self.imageOrientation) {
-        case UIImageOrientationDown:          // Exif = 3
-        case UIImageOrientationDownMirrored:  // Exif = 4
+        case UIImageOrientationDown: // Exif = 3
+        case UIImageOrientationDownMirrored: // Exif = 4
             transform = CGAffineTransformTranslate(transform, newSize.width, newSize.height);
             transform = CGAffineTransformRotate(transform, M_PI);
             break;
             
-        case UIImageOrientationLeft:          // Exif =  6
-        case UIImageOrientationLeftMirrored:  // Exif =  5
+        case UIImageOrientationLeft: // Exif = 6
+        case UIImageOrientationLeftMirrored: // Exif = 5
             transform = CGAffineTransformTranslate(transform, newSize.width, 0);
             transform = CGAffineTransformRotate(transform, M_PI_2);
             break;
             
-        case UIImageOrientationRight:         // Exif = 8
+        case UIImageOrientationRight: // Exif = 8
         case UIImageOrientationRightMirrored: // Exif = 7
             transform = CGAffineTransformTranslate(transform, 0, newSize.height);
             transform = CGAffineTransformRotate(transform, -M_PI_2);
@@ -176,13 +176,13 @@
     }
     
     switch (self.imageOrientation) {
-        case UIImageOrientationUpMirrored:    // Exif = 2
-        case UIImageOrientationDownMirrored:  // Exif = 4
+        case UIImageOrientationUpMirrored: // Exif = 2
+        case UIImageOrientationDownMirrored: // Exif = 4
             transform = CGAffineTransformTranslate(transform, newSize.width, 0);
             transform = CGAffineTransformScale(transform, -1, 1);
             break;
             
-        case UIImageOrientationLeftMirrored:  // Exif = 5
+        case UIImageOrientationLeftMirrored: // Exif = 5
         case UIImageOrientationRightMirrored: // Exif = 7
             transform = CGAffineTransformTranslate(transform, newSize.height, 0);
             transform = CGAffineTransformScale(transform, -1, 1);
@@ -196,13 +196,3 @@
 
 
 @end
-
-
-
-
-
-
-
-
-
-

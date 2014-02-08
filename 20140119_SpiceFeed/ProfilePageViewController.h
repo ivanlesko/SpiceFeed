@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FlaveProfilePageCollectionViewCell.h"
+
 @interface ProfilePageViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -17,5 +19,7 @@
 
 @property (nonatomic, strong) NSMutableArray *userFlaves;
 @property (weak, nonatomic) IBOutlet UIView *profileInfoView;
+
+@property (nonatomic, strong) NSOperationQueue *backgroundQueue;
 
 @end
