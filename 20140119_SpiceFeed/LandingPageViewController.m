@@ -27,6 +27,29 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.trendingVC   = [self.storyboard instantiateViewControllerWithIdentifier:@"trendingVC"];
+    self.categoriesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"categoriesVC"];
+    self.networkVC    = [self.storyboard instantiateViewControllerWithIdentifier:@"networkVC"];
+    
+    self.dataSource = self;
+    
+    NSArray *viewControllers = @[self.trendingVC];
+    [self setViewControllers:viewControllers
+                                  direction:UIPageViewControllerNavigationDirectionForward
+                                   animated:NO
+                                 completion:nil];
+    self.view.backgroundColor = [UIColor purpleColor];
+    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor orangeColor];
+    
+    pageControl.frame = CGRectMake(pageControl.frame.origin.x,
+                                   pageControl.frame.origin.y - 75,
+                                   pageControl.frame.size.width,
+                                   pageControl.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,11 +61,18 @@
 #pragma mark - Page View Controller Delegate Methods
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSUInteger *index =  [(TrendingPageViewController *)viewController index];
-    if (index == 0) {
+    NSInteger index = 0;
+    if (viewController == self.trendingVC) {
+        index = self.trendingVC.index;
+    } else if (viewController == self.categoriesVC) {
+        index = self.categoriesVC.index;
+    } else if (viewController == self.networkVC) {
+        index =self.networkVC.index;
+    } else {
         return nil;
     }
     
+//    NSLog(@"current index: %d", index);
     index --;
     
     return [self viewControllerAtIndex:index];
@@ -50,32 +80,50 @@
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    return nil;
+    
+    NSInteger index = 0;
+    if (viewController == self.trendingVC) {
+        index = self.trendingVC.index;
+    } else if (viewController == self.categoriesVC) {
+        index = self.categoriesVC.index;
+    } else if (viewController == self.networkVC) {
+        index =self.networkVC.index;
+    } else {
+        return nil;
+    }
+    
+//    NSLog(@"current index: %d", index);
+    index ++;
+    
+    return [self viewControllerAtIndex:index];
+}
+
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return 3;
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return 0;
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSInteger)index {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    TrendingPageViewController *trendingVC = [sb instantiateViewControllerWithIdentifier:@"trendingVC"];
-    
-    CategoriesPageViewController *categoriesVC = [sb instantiateViewControllerWithIdentifier:@"categoriesVC"];
-    
-    NetworkPageViewController *networkVC = [sb instantiateViewControllerWithIdentifier:@"networkVC"];
-    
     switch (index) {
         case 0:
             NSLog(@"case 1");
-            return trendingVC;
+            self.trendingVC.index = index;
+            return self.trendingVC;
             break;
             
         case 1:
             NSLog(@"case 2");
-            return categoriesVC;
+            self.categoriesVC.index = index;
+            return self.categoriesVC;
             break;
             
         case 2:
             NSLog(@"case 3");
-            return networkVC;
+            self.networkVC.index = index;
+            return self.networkVC;
             break;
             
         default:

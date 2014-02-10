@@ -259,6 +259,16 @@
             </objects>
             <point key="canvasLocation" x="89" y="1273"/>
         </scene>
+        <!--Landing Page View Controller-->
+        <scene sceneID="uYp-Lu-eOa">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="UzC-Ks-yHi" customClass="LandingPageViewController" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="BjN-rB-RF2"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAM-cv-hwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1081" y="-611"/>
+        </scene>
         <!--Trending Page View Controller-->
         <scene sceneID="LFG-Mz-hIx">
             <objects>
@@ -279,7 +289,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="gjz-14-UnB" id="ghF-O4-Obs"/>
@@ -308,7 +318,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="27v-rF-j5E" id="6WU-qF-Qh9"/>
@@ -337,7 +347,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="titleLabel" destination="K0Z-Rk-Gsl" id="exO-Lc-gjq"/>
@@ -346,44 +356,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEk-nx-bRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1557" y="-1371"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="9r9-UB-mpE">
-            <objects>
-                <viewController id="AX2-0j-NYf" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="T5R-6j-MsU"/>
-                        <viewControllerLayoutGuide type="bottom" id="tC2-LA-6z6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kyw-D3-b16">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKl-n0-0lH">
-                                <rect key="frame" x="139" y="273" width="46" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WR-ag-QE2">
-                                <rect key="frame" x="92" y="444" width="137" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start Again">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startWalkthrough:" destination="AX2-0j-NYf" eventType="touchUpInside" id="EuB-BH-r2a"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.23921570181846619" green="0.23921570181846619" blue="0.24705883860588074" alpha="1" colorSpace="deviceRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="Kdj-wt-D7C"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ta-ak-f8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1072" y="-544"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lTI-mK-632">
@@ -398,7 +370,7 @@
                         <color key="tintColor" red="0.0" green="0.74117648601531982" blue="0.69019609689712524" alpha="1" colorSpace="deviceRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="AX2-0j-NYf" kind="relationship" relationship="viewControllers" id="QsM-fo-KLE"/>
+                        <segue destination="UzC-Ks-yHi" kind="relationship" relationship="viewControllers" id="66M-RV-0Lp"/>
                         <segue destination="H99-Dh-eTn" kind="relationship" relationship="viewControllers" id="erb-fE-8cS"/>
                         <segue destination="RLq-gW-HgA" kind="relationship" relationship="viewControllers" id="hKB-Ya-lFT"/>
                         <segue destination="rLN-yc-9CN" kind="relationship" relationship="viewControllers" id="ncB-LZ-823"/>

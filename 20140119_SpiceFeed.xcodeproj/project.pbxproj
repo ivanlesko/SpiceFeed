@@ -75,6 +75,7 @@
 		4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */; };
 		4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */; };
 		4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF43BB018A15648005675B5 /* ParseUtilities.m */; };
+		4EF4A3B718A95B9A001A0BE8 /* spiceFeedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4A3B618A95B9A001A0BE8 /* spiceFeedIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +185,7 @@
 		4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFlavePageViewController.m; sourceTree = "<group>"; };
 		4EF43BAF18A15648005675B5 /* ParseUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseUtilities.h; path = ../../ParseUtilities.h; sourceTree = "<group>"; };
 		4EF43BB018A15648005675B5 /* ParseUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParseUtilities.m; path = ../../ParseUtilities.m; sourceTree = "<group>"; };
+		4EF4A3B618A95B9A001A0BE8 /* spiceFeedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spiceFeedIcon.png; path = ../spiceFeedIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 		4E9C85101890D52900729455 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4EF4A3B618A95B9A001A0BE8 /* spiceFeedIcon.png */,
 				4E2A000518A49FC500BB972E /* profilePlaceholder.jpg */,
 				4E31F5F51895A261003C1E54 /* bg_01.png */,
 				4E31F5F71895A8A8003C1E54 /* bg_04.png */,
@@ -595,6 +598,7 @@
 				4E31F6001895A8A8003C1E54 /* bg_03.png in Resources */,
 				4E9C85121890DF7700729455 /* profileAvatar.png in Resources */,
 				4E31F6031895B494003C1E54 /* bg_07.png in Resources */,
+				4EF4A3B718A95B9A001A0BE8 /* spiceFeedIcon.png in Resources */,
 				4EAA70A6188CC8ED004CA02A /* Images.xcassets in Resources */,
 				4E31F5FF1895A8A8003C1E54 /* bg_05.png in Resources */,
 				4EAA7098188CC8ED004CA02A /* InfoPlist.strings in Resources */,
@@ -782,7 +786,6 @@
 		4EAA70BD188CC8ED004CA02A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -800,7 +803,6 @@
 		4EAA70BE188CC8ED004CA02A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

@@ -11,6 +11,6 @@
 @interface NetworkPageViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (nonatomic) NSUInteger *index;
+@property (nonatomic, assign) NSInteger index;
 
 @end

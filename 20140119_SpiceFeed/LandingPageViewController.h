@@ -12,8 +12,10 @@
 #import "CategoriesPageViewController.h"
 #import "NetworkPageViewController.h"
 
-@interface LandingPageViewController : UIViewController <UIPageViewControllerDataSource>
+@interface LandingPageViewController : UIPageViewController <UIPageViewControllerDataSource>
 
-@property (strong, nonatomic) UIPageViewController *pageController;
+@property (nonatomic, strong) TrendingPageViewController   *trendingVC;
+@property (nonatomic, strong) CategoriesPageViewController *categoriesVC;
+@property (nonatomic, strong) NetworkPageViewController    *networkVC;
 
 @end
