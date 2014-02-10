@@ -34,11 +34,9 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"sampleImage"];
-    
     self.usernameLabel.text = [[PFUser currentUser] objectForKey:kSFUserUserNameKey];
     
-    self.userFlaves = [NSMutableArray new];
+    self.userFlaves = [[SharedNetworkController sharedInstance] fetchFlavesForUser:[PFUser currentUser]];
     
     self.profileInfoView.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.profileInfoView.layer.shadowOffset = CGSizeMake(0, 5);
@@ -58,46 +56,14 @@
 {
     [super viewWillAppear:animated];
     
-    PFQuery *flaveQuery = [PFQuery queryWithClassName:@"Flave"];
-    flaveQuery.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [flaveQuery whereKey:kSFFlaveUserKey equalTo:[PFUser currentUser]];
-    [flaveQuery orderByDescending:@"createdAt"];
-    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            self.userFlaves = [NSMutableArray arrayWithArray:objects];
-            [self.collectionView reloadData];
-        } else {
-            
-        }
-    }];
+    [self.collectionView reloadData];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"userFlaveThumbnail" forIndexPath:indexPath];
+    ProfilePageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,
-                                                                         0,
-                                                                         50,
-                                                                         50)];
-    bgImage.contentMode = UIViewContentModeScaleAspectFit;
-    
-    PFObject *flaveThumbnail = [self.userFlaves objectAtIndex:indexPath.row];
-    PFFile *flaveFile = [flaveThumbnail objectForKey:kSFFlaveThumbnailKey];
-    [flaveFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        if (!error) {
-            [self.backgroundQueue addOperationWithBlock:^{
-                UIImage *flaveImage = [UIImage imageWithData:data];
-                bgImage.image = flaveImage;
-                cell.backgroundView = bgImage;                
-            }];
-        } else {
-            NSLog(@"%@", error.localizedDescription);
-            NSLog(@"%@", error.debugDescription);
-        }
-    }];
-    
-    NSLog(@"reloading collectionViewCell");
+    cell.flave = [self.userFlaves objectAtIndex:indexPath.row];
     
     return cell;
 }

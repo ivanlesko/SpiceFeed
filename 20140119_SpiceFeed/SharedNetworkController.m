@@ -21,4 +21,13 @@
     return shared;
 }
 
+- (NSMutableArray *)fetchFlavesForUser:(PFUser *)user {
+    PFQuery *flaveQuery = [PFQuery queryWithClassName:kSFFlaveClassKey];
+    flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
+    [flaveQuery whereKey:kSFFlaveUserKey equalTo:[PFUser currentUser]];
+    [flaveQuery orderByDescending:kSFCreatedAt];
+    
+    return [NSMutableArray arrayWithArray:[flaveQuery findObjects]];
+}
+
 @end

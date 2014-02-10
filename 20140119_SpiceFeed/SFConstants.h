@@ -32,6 +32,8 @@ extern NSString *const SFEditPhotoViewControllerUserInfoTagsKey;
 
 // Field Keys
 extern NSString *const kSFInstallationUserKey;
+extern NSString *const kSFCreatedAt;
+extern NSString *const kSFUpdatedAt;
 
 #pragma mark - PFObject Activity Class
 // Class key

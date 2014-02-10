@@ -18,6 +18,7 @@
     #import "SFCache.h"
     #import "SFConstants.h"
     #import "SFUtility.h"
+    #import "SharedNetworkController.h"
 #endif
 
 #import <Parse/Parse.h>

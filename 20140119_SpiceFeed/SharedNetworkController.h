@@ -12,6 +12,6 @@
 
 + (SharedNetworkController *)sharedInstance;
 
-
+- (NSMutableArray *)fetchFlavesForUser:(PFUser *)user;
 
 @end

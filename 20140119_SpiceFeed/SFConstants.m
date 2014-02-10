@@ -31,7 +31,9 @@ NSString *const SFEditPhotoViewControllerUserInfoTagsKey = @"tags";
 #pragma mark - Installation Class
 
 // Field Keys
-NSString *const kSFInstallationUserKey  = @"user"; /** May cause issues.  Might have to use user or username for key */
+NSString *const kSFInstallationUserKey  = @"username";
+NSString *const kSFCreatedAt            = @"createdAt";
+NSString *const kSFUpdatedAt            = @"updatedAt";
 
 #pragma mark - PFObject Activity Class
 // Class key

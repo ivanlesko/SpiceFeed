@@ -19,6 +19,8 @@
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    [PFImageView class];
+    
     return YES;
 }
 							
