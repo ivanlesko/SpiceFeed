@@ -174,6 +174,7 @@
     [flave setObject:self.selectedImageSource forKey:kSFFlaveSourceTypeKey];
     [flave setObject:@0 forKey:kSFFLaveReflaveCountKey];
     [flave setObject:@NO forKey:kSFFlaveIsTrendingKey];
+    [flave setObject:[[PFUser currentUser] objectForKey:kSFUserUserNameKey] forKey:kSFFlaveOriginalUploaderKey];
     
     
     // Flaves are public, but should only be modified by the person who uploaded it.

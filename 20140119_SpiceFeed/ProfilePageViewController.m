@@ -56,6 +56,8 @@
 {
     [super viewWillAppear:animated];
     
+    self.userFlaves = [[SharedNetworkController sharedInstance] fetchFlavesForUser:[PFUser currentUser]];
+    
     [self.collectionView reloadData];
 }
 

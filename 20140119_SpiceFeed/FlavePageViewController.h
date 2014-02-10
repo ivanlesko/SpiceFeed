@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *reflaveLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
 
+- (IBAction)closePage:(id)sender;
+
 @end

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4E1125E118A84A970071B39A /* ProfilePageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125E018A84A970071B39A /* ProfilePageCollectionViewCell.m */; };
+		4E1125E418A882980071B39A /* LandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125E318A882980071B39A /* LandingPageViewController.m */; };
+		4E1125E718A882B10071B39A /* TrendingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125E618A882B10071B39A /* TrendingPageViewController.m */; };
+		4E1125EA18A882C00071B39A /* CategoriesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125E918A882C00071B39A /* CategoriesPageViewController.m */; };
+		4E1125ED18A882CE0071B39A /* NetworkPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125EC18A882CE0071B39A /* NetworkPageViewController.m */; };
 		4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */; };
 		4E2A000618A49FC500BB972E /* profilePlaceholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A000518A49FC500BB972E /* profilePlaceholder.jpg */; };
 		4E2A000A18A4A16D00BB972E /* imagePlaceholderInverted.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A000918A4A16D00BB972E /* imagePlaceholderInverted.png */; };
@@ -46,7 +50,6 @@
 		4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38705C1894870E00AC82E2 /* spiceIcon.png */; };
 		4E3AE35718A01A350005997D /* SFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AE35618A01A350005997D /* SFUtility.m */; };
 		4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */; };
-		4E81B8E618A444C600F36201 /* HomePageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E81B8E518A444C600F36201 /* HomePageContentViewController.m */; };
 		4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */; };
 		4E9C85121890DF7700729455 /* profileAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C85111890DF7700729455 /* profileAvatar.png */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
@@ -63,11 +66,6 @@
 		4EAA70AF188CC8ED004CA02A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA7091188CC8ED004CA02A /* UIKit.framework */; };
 		4EAA70B7188CC8ED004CA02A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EAA70B5188CC8ED004CA02A /* InfoPlist.strings */; };
 		4EAA70B9188CC8ED004CA02A /* _0140119_SpiceFeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70B8188CC8ED004CA02A /* _0140119_SpiceFeedTests.m */; };
-		4EAA70D0188CCE06004CA02A /* HomePageControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70CF188CCE06004CA02A /* HomePageControllerViewController.m */; };
-		4EAA70D9188CD01A004CA02A /* HomeNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70D8188CD01A004CA02A /* HomeNetworkViewController.m */; };
-		4EAA70DC188CD02D004CA02A /* HomeTrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70DB188CD02D004CA02A /* HomeTrendingViewController.m */; };
-		4EAA70DF188CD03D004CA02A /* HomeCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70DE188CD03D004CA02A /* HomeCategoriesViewController.m */; };
-		4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA70E5188CD7B5004CA02A /* HomepageModelController.m */; };
 		4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA7136188CE0CA004CA02A /* SearchPageViewController.m */; };
 		4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA713A188CE105004CA02A /* ProfilePageViewController.m */; };
 		4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA7141188CE15D004CA02A /* SearchResultViewController.m */; };
@@ -92,6 +90,14 @@
 /* Begin PBXFileReference section */
 		4E1125DF18A84A970071B39A /* ProfilePageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfilePageCollectionViewCell.h; path = ../ProfilePageCollectionViewCell.h; sourceTree = "<group>"; };
 		4E1125E018A84A970071B39A /* ProfilePageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfilePageCollectionViewCell.m; path = ../ProfilePageCollectionViewCell.m; sourceTree = "<group>"; };
+		4E1125E218A882980071B39A /* LandingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingPageViewController.h; sourceTree = "<group>"; };
+		4E1125E318A882980071B39A /* LandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageViewController.m; sourceTree = "<group>"; };
+		4E1125E518A882B10071B39A /* TrendingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingPageViewController.h; sourceTree = "<group>"; };
+		4E1125E618A882B10071B39A /* TrendingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingPageViewController.m; sourceTree = "<group>"; };
+		4E1125E818A882C00071B39A /* CategoriesPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesPageViewController.h; sourceTree = "<group>"; };
+		4E1125E918A882C00071B39A /* CategoriesPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesPageViewController.m; sourceTree = "<group>"; };
+		4E1125EB18A882CE0071B39A /* NetworkPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPageViewController.h; sourceTree = "<group>"; };
+		4E1125EC18A882CE0071B39A /* NetworkPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPageViewController.m; sourceTree = "<group>"; };
 		4E176F7918A048CD00C0CDBB /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		4E2A000518A49FC500BB972E /* profilePlaceholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = profilePlaceholder.jpg; sourceTree = "<group>"; };
@@ -138,8 +144,6 @@
 		4E3AE35618A01A350005997D /* SFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFUtility.m; sourceTree = "<group>"; };
 		4E42AAAA189DBE1600331108 /* UIView+ViewAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewAnimations.h"; sourceTree = "<group>"; };
 		4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewAnimations.m"; sourceTree = "<group>"; };
-		4E81B8E418A444C600F36201 /* HomePageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageContentViewController.h; sourceTree = "<group>"; };
-		4E81B8E518A444C600F36201 /* HomePageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageContentViewController.m; sourceTree = "<group>"; };
 		4E9C850D1890D34400729455 /* EmailResendConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailResendConfirmationViewController.h; sourceTree = "<group>"; };
 		4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailResendConfirmationViewController.m; sourceTree = "<group>"; };
 		4E9C85111890DF7700729455 /* profileAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileAvatar.png; sourceTree = "<group>"; };
@@ -162,16 +166,6 @@
 		4EAA70B4188CC8ED004CA02A /* 20140119_SpiceFeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "20140119_SpiceFeedTests-Info.plist"; sourceTree = "<group>"; };
 		4EAA70B6188CC8ED004CA02A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4EAA70B8188CC8ED004CA02A /* _0140119_SpiceFeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _0140119_SpiceFeedTests.m; sourceTree = "<group>"; };
-		4EAA70CE188CCE06004CA02A /* HomePageControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageControllerViewController.h; sourceTree = "<group>"; };
-		4EAA70CF188CCE06004CA02A /* HomePageControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageControllerViewController.m; sourceTree = "<group>"; };
-		4EAA70D7188CD01A004CA02A /* HomeNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNetworkViewController.h; sourceTree = "<group>"; };
-		4EAA70D8188CD01A004CA02A /* HomeNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNetworkViewController.m; sourceTree = "<group>"; };
-		4EAA70DA188CD02D004CA02A /* HomeTrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTrendingViewController.h; sourceTree = "<group>"; };
-		4EAA70DB188CD02D004CA02A /* HomeTrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTrendingViewController.m; sourceTree = "<group>"; };
-		4EAA70DD188CD03C004CA02A /* HomeCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCategoriesViewController.h; sourceTree = "<group>"; };
-		4EAA70DE188CD03D004CA02A /* HomeCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCategoriesViewController.m; sourceTree = "<group>"; };
-		4EAA70E4188CD7B5004CA02A /* HomepageModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomepageModelController.h; sourceTree = "<group>"; };
-		4EAA70E5188CD7B5004CA02A /* HomepageModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageModelController.m; sourceTree = "<group>"; };
 		4EAA7135188CE0CA004CA02A /* SearchPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPageViewController.h; sourceTree = "<group>"; };
 		4EAA7136188CE0CA004CA02A /* SearchPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPageViewController.m; sourceTree = "<group>"; };
 		4EAA7139188CE105004CA02A /* ProfilePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePageViewController.h; sourceTree = "<group>"; };
@@ -444,18 +438,14 @@
 		4EAA70E3188CD213004CA02A /* Landing Page */ = {
 			isa = PBXGroup;
 			children = (
-				4E81B8E418A444C600F36201 /* HomePageContentViewController.h */,
-				4E81B8E518A444C600F36201 /* HomePageContentViewController.m */,
-				4EAA70CE188CCE06004CA02A /* HomePageControllerViewController.h */,
-				4EAA70CF188CCE06004CA02A /* HomePageControllerViewController.m */,
-				4EAA70D7188CD01A004CA02A /* HomeNetworkViewController.h */,
-				4EAA70D8188CD01A004CA02A /* HomeNetworkViewController.m */,
-				4EAA70DA188CD02D004CA02A /* HomeTrendingViewController.h */,
-				4EAA70DB188CD02D004CA02A /* HomeTrendingViewController.m */,
-				4EAA70DD188CD03C004CA02A /* HomeCategoriesViewController.h */,
-				4EAA70DE188CD03D004CA02A /* HomeCategoriesViewController.m */,
-				4EAA70E4188CD7B5004CA02A /* HomepageModelController.h */,
-				4EAA70E5188CD7B5004CA02A /* HomepageModelController.m */,
+				4E1125E218A882980071B39A /* LandingPageViewController.h */,
+				4E1125E318A882980071B39A /* LandingPageViewController.m */,
+				4E1125E518A882B10071B39A /* TrendingPageViewController.h */,
+				4E1125E618A882B10071B39A /* TrendingPageViewController.m */,
+				4E1125E818A882C00071B39A /* CategoriesPageViewController.h */,
+				4E1125E918A882C00071B39A /* CategoriesPageViewController.m */,
+				4E1125EB18A882CE0071B39A /* NetworkPageViewController.h */,
+				4E1125EC18A882CE0071B39A /* NetworkPageViewController.m */,
 			);
 			name = "Landing Page";
 			sourceTree = "<group>";
@@ -642,23 +632,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E3026AC189AF560009EE649 /* HelperMethods.m in Sources */,
+				4E1125E718A882B10071B39A /* TrendingPageViewController.m in Sources */,
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
 				4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */,
 				4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */,
+				4E1125EA18A882C00071B39A /* CategoriesPageViewController.m in Sources */,
 				4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */,
 				4EAA7146188CE189004CA02A /* TagResultViewController.m in Sources */,
-				4EAA70E6188CD7B5004CA02A /* HomepageModelController.m in Sources */,
 				4E31F5F418958774003C1E54 /* NSCharacterSet+CustomSets.m in Sources */,
+				4E1125E418A882980071B39A /* LandingPageViewController.m in Sources */,
 				4E1125E118A84A970071B39A /* ProfilePageCollectionViewCell.m in Sources */,
 				4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */,
-				4EAA70D9188CD01A004CA02A /* HomeNetworkViewController.m in Sources */,
-				4EAA70DC188CD02D004CA02A /* HomeTrendingViewController.m in Sources */,
 				4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */,
 				4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */,
 				4EAA70A4188CC8ED004CA02A /* ViewController.m in Sources */,
 				4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */,
-				4EAA70DF188CD03D004CA02A /* HomeCategoriesViewController.m in Sources */,
-				4EAA70D0188CCE06004CA02A /* HomePageControllerViewController.m in Sources */,
 				4EAA709E188CC8ED004CA02A /* AppDelegate.m in Sources */,
 				4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */,
 				4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */,
@@ -666,9 +654,9 @@
 				4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */,
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,
 				4EAA709A188CC8ED004CA02A /* main.m in Sources */,
+				4E1125ED18A882CE0071B39A /* NetworkPageViewController.m in Sources */,
 				4E32BE8B189EBD1A00664338 /* SFCache.m in Sources */,
 				4E3AE35718A01A350005997D /* SFUtility.m in Sources */,
-				4E81B8E618A444C600F36201 /* HomePageContentViewController.m in Sources */,
 				4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

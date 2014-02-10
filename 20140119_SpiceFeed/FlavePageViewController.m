@@ -38,13 +38,8 @@
         }
     }];
     
-    PFUser *uploader = [self.flave objectForKey:kSFFlaveUserKey];
-    NSLog(@"uploader: %@", uploader);
-//    NSString *username = [uploader objectForKey:kSFUserUserNameKey];
-//    NSLog(@"username: %@", username);
-    
-//    self.userLabel.text = [self.flave objectForKey:kSFFlaveUserKey];
-//    self.reflaveLabel.text = [self.flave objectForKey:kSFFLaveReflaveCountKey];
+    self.userLabel.text = [NSString stringWithFormat:@"flaved by %@", [self.flave objectForKey:kSFFlaveOriginalUploaderKey]];
+    self.reflaveLabel.text = [NSString stringWithFormat:@"%@ reflaves", [self.flave objectForKey:kSFFLaveReflaveCountKey]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,4 +48,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)closePage:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
+
+
+
+
+

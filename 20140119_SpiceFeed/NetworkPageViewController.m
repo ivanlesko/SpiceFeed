@@ -1,18 +1,18 @@
 //
-//  HomeTrendingViewController.m
+//  NetworkPageViewController.m
 //  20140119_SpiceFeed
 //
-//  Created by Ivan Lesko on 1/19/14.
+//  Created by Ivan Lesko on 2/9/14.
 //  Copyright (c) 2014 Ivan Lesko. All rights reserved.
 //
 
-#import "HomeTrendingViewController.h"
+#import "NetworkPageViewController.h"
 
-@interface HomeTrendingViewController ()
+@interface NetworkPageViewController ()
 
 @end
 
-@implementation HomeTrendingViewController
+@implementation NetworkPageViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
