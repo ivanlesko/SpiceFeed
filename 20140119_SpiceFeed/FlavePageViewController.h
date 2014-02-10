@@ -10,4 +10,12 @@
 
 @interface FlavePageViewController : UIViewController
 
+@property (nonatomic, strong) PFObject *flave;
+
+@property (weak, nonatomic) IBOutlet PFImageView *image;
+
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UILabel *reflaveLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tagsLabel;
+
 @end

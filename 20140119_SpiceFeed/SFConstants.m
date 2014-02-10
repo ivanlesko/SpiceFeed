@@ -79,6 +79,7 @@ NSString *const kSFFlaveTagsKey        = @"tags";
 NSString *const kSFFlaveIsTrendingKey  = @"isTrending";
 NSString *const kSFFlaveSourceTypeKey  = @"source";
 NSString *const kSFFlaveOpenGraphIDKey = @"fbOpenGraphID";
+NSString *const kSFFlaveOriginalUploaderKey = @"originalUploader";
 
 #pragma mark - PFObject Tags Class
 

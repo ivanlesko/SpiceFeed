@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "ProfilePageCollectionViewCell.h"
+#import "FlavePageViewController.h"
 
 @interface ProfilePageViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 

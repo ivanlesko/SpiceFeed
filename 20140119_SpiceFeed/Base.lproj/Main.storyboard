@@ -355,7 +355,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-22.png" translatesAutoresizingMaskIntoConstraints="NO" id="ukv-ZY-510" customClass="PFImageView">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ukv-ZY-510" customClass="PFImageView">
                                                             <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
@@ -364,6 +364,7 @@
                                                 </view>
                                                 <connections>
                                                     <outlet property="thumbnail" destination="ukv-ZY-510" id="hUZ-6K-vDy"/>
+                                                    <segue destination="K2U-pw-Srs" kind="modal" identifier="flaveSegue" id="t6D-Te-LGf"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -476,18 +477,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vR7-7S-hch">
-                                <rect key="frame" x="40" y="75" width="240" height="339"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vR7-7S-hch" customClass="PFImageView">
+                                <rect key="frame" x="0.0" y="64" width="320" height="380"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="flaved by user" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FC-v2-6e7">
+                                <rect key="frame" x="20" y="452" width="134" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tags:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-en-FEf">
+                                <rect key="frame" x="20" y="481" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="# reflaves" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBt-hU-f7n">
+                                <rect key="frame" x="166" y="452" width="134" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.18039216101169586" green="0.18039216101169586" blue="0.18823531270027161" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="avn-Mm-9A9"/>
+                    <connections>
+                        <outlet property="image" destination="vR7-7S-hch" id="BMR-hn-dMl"/>
+                        <outlet property="reflaveLabel" destination="mBt-hU-f7n" id="RWe-dg-ytU"/>
+                        <outlet property="tagsLabel" destination="pUL-en-FEf" id="CD7-F9-YZE"/>
+                        <outlet property="userLabel" destination="1FC-v2-6e7" id="Rv7-OJ-vxS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJi-Ym-18g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2142" y="109"/>
+            <point key="canvasLocation" x="1619" y="109"/>
         </scene>
         <!--Email Resend Confirmation View Controller-->
         <scene sceneID="RGR-cF-Syl">
@@ -626,25 +654,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WYK-qx-QiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1619" y="-544"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fJC-El-b67">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m0w-st-zpf" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="xPb-Uh-Nrm"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ihD-DY-3A5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="K2U-pw-Srs" kind="relationship" relationship="rootViewController" id="9AR-BY-frI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aA2-Oy-wbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1616" y="109"/>
         </scene>
     </scenes>
     <resources>

@@ -78,6 +78,20 @@
     return 1;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"flaveSegue"]) {
+        NSArray *indexPath = [self.collectionView indexPathsForSelectedItems];
+        NSIndexPath *selectedItemIndexPath = [indexPath firstObject];
+        
+        FlavePageViewController *flaveVC = [segue destinationViewController];
+        flaveVC.flave = [self.userFlaves objectAtIndex:selectedItemIndexPath.row];
+    }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"flaveSegue" sender:nil];
+}
+
 @end
 
 
