@@ -27,6 +27,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.scrollView.delegate = self;
+    
+    PFQuery *flavesQuery = [PFQuery queryWithClassName:kSFFlaveClassKey];
+    flavesQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    self.trendingFlaves = [NSMutableArray arrayWithArray:[flavesQuery findObjects]];
+    NSLog(@"trending flaves: %@", self.trendingFlaves);
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +44,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Collection View Data Source
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.trendingFlaves.count;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    TrendingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"trendingCell" forIndexPath:indexPath];
+    
+    cell.flave = [self.trendingFlaves objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//}
+
+
+
 @end
+
+
+
+
+
+
+
+
+
+

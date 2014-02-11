@@ -14,6 +14,8 @@
 
 @interface LandingPageViewController : UIPageViewController <UIPageViewControllerDataSource>
 
+@property (nonatomic, strong) UIPageControl *pageControl;
+
 @property (nonatomic, strong) TrendingPageViewController   *trendingVC;
 @property (nonatomic, strong) CategoriesPageViewController *categoriesVC;
 @property (nonatomic, strong) NetworkPageViewController    *networkVC;

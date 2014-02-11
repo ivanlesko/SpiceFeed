@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NetworkPageViewController : UIViewController
+@interface NetworkPageViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, assign) NSInteger index;
 
 @end

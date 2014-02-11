@@ -28,28 +28,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.dataSource = self;
+    
     self.trendingVC   = [self.storyboard instantiateViewControllerWithIdentifier:@"trendingVC"];
     self.categoriesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"categoriesVC"];
     self.networkVC    = [self.storyboard instantiateViewControllerWithIdentifier:@"networkVC"];
-    
-    self.dataSource = self;
     
     NSArray *viewControllers = @[self.trendingVC];
     [self setViewControllers:viewControllers
                                   direction:UIPageViewControllerNavigationDirectionForward
                                    animated:NO
                                  completion:nil];
-    self.view.backgroundColor = [UIColor purpleColor];
+    self.view.backgroundColor = [UIColor spicerGrey];
     
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    pageControl.backgroundColor = [UIColor orangeColor];
-    
-    pageControl.frame = CGRectMake(pageControl.frame.origin.x,
-                                   pageControl.frame.origin.y - 75,
-                                   pageControl.frame.size.width,
-                                   pageControl.frame.size.height);
+    [self setupPageControl];
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,20 +101,20 @@
 - (UIViewController *)viewControllerAtIndex:(NSInteger)index {
     switch (index) {
         case 0:
-            NSLog(@"case 1");
             self.trendingVC.index = index;
+            self.pageControl.currentPage = 0;
             return self.trendingVC;
             break;
             
         case 1:
-            NSLog(@"case 2");
             self.categoriesVC.index = index;
+            self.pageControl.currentPage = 1;
             return self.categoriesVC;
             break;
             
         case 2:
-            NSLog(@"case 3");
             self.networkVC.index = index;
+            self.pageControl.currentPage = 2;
             return self.networkVC;
             break;
             
@@ -131,6 +123,25 @@
     }
     
     return nil;
+}
+
+- (void)setupPageControl {
+    UIView *tabBar = [[self.parentViewController.view subviews] objectAtIndex:1];
+    CGFloat pageControlHeight = 20;
+    CGRect pageControlRect = CGRectMake(self.view.frame.origin.x,
+                                        tabBar.frame.origin.y - pageControlHeight,
+                                        self.view.frame.size.width,
+                                        pageControlHeight);
+    
+    self.pageControl = [[UIPageControl alloc] initWithFrame:pageControlRect];
+    self.pageControl.numberOfPages = 3;
+    self.pageControl.currentPage = 0;
+    self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    self.pageControl.backgroundColor = [UIColor clearColor];
+    
+    [self.view addSubview:self.pageControl];
+    [self.view bringSubviewToFront:self.pageControl];
 }
 
 

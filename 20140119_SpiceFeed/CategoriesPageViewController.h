@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoriesPageViewController : UIViewController
+@interface CategoriesPageViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 

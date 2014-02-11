@@ -50,6 +50,7 @@
 		4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38705C1894870E00AC82E2 /* spiceIcon.png */; };
 		4E3AE35718A01A350005997D /* SFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AE35618A01A350005997D /* SFUtility.m */; };
 		4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */; };
+		4E52CDD118A9E23F00D5B9EE /* TrendingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */; };
 		4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */; };
 		4E9C85121890DF7700729455 /* profileAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C85111890DF7700729455 /* profileAvatar.png */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
@@ -74,6 +75,7 @@
 		4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAA714D188CE481004CA02A /* FlavePageViewController.m */; };
 		4EAE296E1894D0DF00DB7FBE /* SignupPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */; };
 		4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */; };
+		4EE8016418A982FF008F9B3C /* UIColor+SpiceFeedColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8016318A982FF008F9B3C /* UIColor+SpiceFeedColors.m */; };
 		4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF43BB018A15648005675B5 /* ParseUtilities.m */; };
 		4EF4A3B718A95B9A001A0BE8 /* spiceFeedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4A3B618A95B9A001A0BE8 /* spiceFeedIcon.png */; };
 /* End PBXBuildFile section */
@@ -145,6 +147,8 @@
 		4E3AE35618A01A350005997D /* SFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFUtility.m; sourceTree = "<group>"; };
 		4E42AAAA189DBE1600331108 /* UIView+ViewAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewAnimations.h"; sourceTree = "<group>"; };
 		4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewAnimations.m"; sourceTree = "<group>"; };
+		4E52CDCF18A9E23F00D5B9EE /* TrendingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingCollectionViewCell.h; sourceTree = "<group>"; };
+		4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingCollectionViewCell.m; sourceTree = "<group>"; };
 		4E9C850D1890D34400729455 /* EmailResendConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailResendConfirmationViewController.h; sourceTree = "<group>"; };
 		4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailResendConfirmationViewController.m; sourceTree = "<group>"; };
 		4E9C85111890DF7700729455 /* profileAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileAvatar.png; sourceTree = "<group>"; };
@@ -183,6 +187,8 @@
 		4EAE296D1894D0DF00DB7FBE /* SignupPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupPageViewController.m; sourceTree = "<group>"; };
 		4EE5719A1899BEAE00ED4E1A /* AddFlavePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFlavePageViewController.h; sourceTree = "<group>"; };
 		4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFlavePageViewController.m; sourceTree = "<group>"; };
+		4EE8016218A982FF008F9B3C /* UIColor+SpiceFeedColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SpiceFeedColors.h"; sourceTree = "<group>"; };
+		4EE8016318A982FF008F9B3C /* UIColor+SpiceFeedColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SpiceFeedColors.m"; sourceTree = "<group>"; };
 		4EF43BAF18A15648005675B5 /* ParseUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseUtilities.h; path = ../../ParseUtilities.h; sourceTree = "<group>"; };
 		4EF43BB018A15648005675B5 /* ParseUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParseUtilities.m; path = ../../ParseUtilities.m; sourceTree = "<group>"; };
 		4EF4A3B618A95B9A001A0BE8 /* spiceFeedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spiceFeedIcon.png; path = ../spiceFeedIcon.png; sourceTree = "<group>"; };
@@ -230,6 +236,8 @@
 				4E3026AB189AF560009EE649 /* HelperMethods.m */,
 				4E176F7918A048CD00C0CDBB /* UIImage+Resize.h */,
 				4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */,
+				4EE8016218A982FF008F9B3C /* UIColor+SpiceFeedColors.h */,
+				4EE8016318A982FF008F9B3C /* UIColor+SpiceFeedColors.m */,
 			);
 			name = "Helper Files";
 			sourceTree = "<group>";
@@ -417,6 +425,8 @@
 			children = (
 				4E1125DF18A84A970071B39A /* ProfilePageCollectionViewCell.h */,
 				4E1125E018A84A970071B39A /* ProfilePageCollectionViewCell.m */,
+				4E52CDCF18A9E23F00D5B9EE /* TrendingCollectionViewCell.h */,
+				4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -657,10 +667,12 @@
 				4E32BE8E189EC30700664338 /* SFConstants.m in Sources */,
 				4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */,
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,
+				4E52CDD118A9E23F00D5B9EE /* TrendingCollectionViewCell.m in Sources */,
 				4EAA709A188CC8ED004CA02A /* main.m in Sources */,
 				4E1125ED18A882CE0071B39A /* NetworkPageViewController.m in Sources */,
 				4E32BE8B189EBD1A00664338 /* SFCache.m in Sources */,
 				4E3AE35718A01A350005997D /* SFUtility.m in Sources */,
+				4EE8016418A982FF008F9B3C /* UIColor+SpiceFeedColors.m in Sources */,
 				4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,6 +19,7 @@
     #import "SFConstants.h"
     #import "SFUtility.h"
     #import "SharedNetworkController.h"
+    #import "UIColor+SpiceFeedColors.h"
 #endif
 
 #import <Parse/Parse.h>
