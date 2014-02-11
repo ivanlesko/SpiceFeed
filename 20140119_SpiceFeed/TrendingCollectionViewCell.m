@@ -23,12 +23,18 @@
     _flave = flave;
     
     self.image = [[PFImageView alloc] initWithFrame:self.frame];
+    [self addSubview:self.image];
+    
     self.image.contentMode = UIViewContentModeScaleAspectFill;
+    self.image.backgroundColor = [UIColor greenColor];
     
     self.image.file = _flave[kSFFlaveImageKey];
-    [self.image loadInBackground];
+    [self.image loadInBackground:^(UIImage *image, NSError *error) {
+        if (!error) {
+            
+        }
+    }];
     
-    [self addSubview:self.image];
 }
 
 /*

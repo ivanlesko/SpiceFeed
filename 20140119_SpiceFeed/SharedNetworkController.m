@@ -21,13 +21,18 @@
     return shared;
 }
 
-- (NSMutableArray *)fetchFlavesForUser:(PFUser *)user {
+- (void)fetchFlavesForUser:(PFUser *)user withCompletion:(void(^)(NSArray *flaves))completionBlock {
     PFQuery *flaveQuery = [PFQuery queryWithClassName:kSFFlaveClassKey];
-    flaveQuery.cachePolicy = kPFCachePolicyNetworkElseCache;
+    flaveQuery.cachePolicy = kPFCachePolicyCacheThenNetwork;
     [flaveQuery whereKey:kSFFlaveUserKey equalTo:[PFUser currentUser]];
     [flaveQuery orderByDescending:kSFCreatedAt];
-    
-    return [NSMutableArray arrayWithArray:[flaveQuery findObjects]];
+    [flaveQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            completionBlock(objects);
+        }
+    }];
 }
+
+
 
 @end

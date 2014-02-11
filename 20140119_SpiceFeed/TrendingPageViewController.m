@@ -35,7 +35,8 @@
     PFQuery *flavesQuery = [PFQuery queryWithClassName:kSFFlaveClassKey];
     flavesQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
     self.trendingFlaves = [NSMutableArray arrayWithArray:[flavesQuery findObjects]];
-    NSLog(@"trending flaves: %@", self.trendingFlaves);
+    
+    self.collectionView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,7 +62,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TrendingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"trendingCell" forIndexPath:indexPath];
     
-    cell.flave = [self.trendingFlaves objectAtIndex:indexPath.row];
+    if (!cell.flave) {
+        cell.flave = [self.trendingFlaves objectAtIndex:indexPath.row];
+    }
     
     return cell;
 }

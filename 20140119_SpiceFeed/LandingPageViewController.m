@@ -56,15 +56,17 @@
     NSInteger index = 0;
     if (viewController == self.trendingVC) {
         index = self.trendingVC.index;
+        self.pageControl.currentPage = index;
     } else if (viewController == self.categoriesVC) {
         index = self.categoriesVC.index;
+        self.pageControl.currentPage = index;
     } else if (viewController == self.networkVC) {
         index =self.networkVC.index;
+        self.pageControl.currentPage = index;
     } else {
         return nil;
     }
     
-//    NSLog(@"current index: %d", index);
     index --;
     
     return [self viewControllerAtIndex:index];
@@ -76,15 +78,17 @@
     NSInteger index = 0;
     if (viewController == self.trendingVC) {
         index = self.trendingVC.index;
+        self.pageControl.currentPage = index;
     } else if (viewController == self.categoriesVC) {
         index = self.categoriesVC.index;
+        self.pageControl.currentPage = index;
     } else if (viewController == self.networkVC) {
         index =self.networkVC.index;
+        self.pageControl.currentPage = index;
     } else {
         return nil;
     }
     
-//    NSLog(@"current index: %d", index);
     index ++;
     
     return [self viewControllerAtIndex:index];
@@ -99,22 +103,20 @@
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSInteger)index {
+    
     switch (index) {
         case 0:
             self.trendingVC.index = index;
-            self.pageControl.currentPage = 0;
             return self.trendingVC;
             break;
             
         case 1:
             self.categoriesVC.index = index;
-            self.pageControl.currentPage = 1;
             return self.categoriesVC;
             break;
             
         case 2:
             self.networkVC.index = index;
-            self.pageControl.currentPage = 2;
             return self.networkVC;
             break;
             
@@ -137,7 +139,7 @@
     self.pageControl.numberOfPages = 3;
     self.pageControl.currentPage = 0;
     self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    self.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor spicerRed];
     self.pageControl.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:self.pageControl];

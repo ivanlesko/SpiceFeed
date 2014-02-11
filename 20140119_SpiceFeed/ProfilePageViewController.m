@@ -36,7 +36,11 @@
     
     self.usernameLabel.text = [[PFUser currentUser] objectForKey:kSFUserUserNameKey];
     
-    self.userFlaves = [[SharedNetworkController sharedInstance] fetchFlavesForUser:[PFUser currentUser]];
+    [[SharedNetworkController sharedInstance] fetchFlavesForUser:[PFUser currentUser] withCompletion:^(NSArray *flaves) {
+        if (flaves) {
+            self.userFlaves = [NSMutableArray arrayWithArray:flaves];
+        }
+    }];
     
     self.profileInfoView.layer.shadowColor = [[UIColor blackColor] CGColor];
     self.profileInfoView.layer.shadowOffset = CGSizeMake(0, 5);
@@ -56,9 +60,12 @@
 {
     [super viewWillAppear:animated];
     
-    self.userFlaves = [[SharedNetworkController sharedInstance] fetchFlavesForUser:[PFUser currentUser]];
-    
-    [self.collectionView reloadData];
+    [[SharedNetworkController sharedInstance] fetchFlavesForUser:[PFUser currentUser] withCompletion:^(NSArray *flaves) {
+        if (flaves) {
+            self.userFlaves = [NSMutableArray arrayWithArray:flaves];
+            [self.collectionView reloadData];
+        }
+    }];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
