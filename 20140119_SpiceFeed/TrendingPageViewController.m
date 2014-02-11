@@ -70,7 +70,9 @@
 }
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    
+//    NSLog(@"calling cell size");
+//    return CGSizeMake(self.view.frame.size.width,
+//                      300);
 //}
 
 
