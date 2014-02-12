@@ -10,8 +10,9 @@
 
 @interface CategoriesPageViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
 @property (nonatomic, assign) NSInteger index;
+
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

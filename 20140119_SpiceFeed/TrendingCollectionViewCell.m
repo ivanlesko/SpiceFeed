@@ -22,16 +22,14 @@
 - (void)setFlave:(PFObject *)flave {
     _flave = flave;
     
-    self.image = [[PFImageView alloc] initWithFrame:self.frame];
-    [self addSubview:self.image];
-    
-    self.image.contentMode = UIViewContentModeScaleAspectFill;
-    self.image.backgroundColor = [UIColor greenColor];
-    
-    self.image.file = _flave[kSFFlaveImageKey];
-    [self.image loadInBackground:^(UIImage *image, NSError *error) {
-        if (!error) {
-            
+    self.imageView.file = _flave[kSFFlaveImageKey];
+    [self.imageView loadInBackground:^(UIImage *image, NSError *error) {
+        if (error) {
+            NSLog(@"Error Loading Image: %@", error);
+        } else {
+            _image = image;
+            //            [_collectionView reloadItemsAtIndexPaths:@[[_collectionView indexPathForCell:self]]];
+            NSLog(@"Loading Image: %@", self.imageView.file);
         }
     }];
     

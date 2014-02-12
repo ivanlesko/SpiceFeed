@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ParseUtilities.h"
+#import "Flave.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,7 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     [PFImageView class];
+    [Flave registerSubclass];
     
     return YES;
 }

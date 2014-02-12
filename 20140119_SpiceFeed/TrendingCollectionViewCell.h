@@ -11,6 +11,8 @@
 @interface TrendingCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) PFObject *flave;
-@property (nonatomic, strong) PFImageView *image;
+@property (nonatomic, weak) IBOutlet PFImageView *imageView;
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 @end

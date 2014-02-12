@@ -50,7 +50,10 @@
 		4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38705C1894870E00AC82E2 /* spiceIcon.png */; };
 		4E3AE35718A01A350005997D /* SFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AE35618A01A350005997D /* SFUtility.m */; };
 		4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */; };
+		4E51947218AB17C800F1B12C /* Flave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E51947118AB17C800F1B12C /* Flave.m */; };
 		4E52CDD118A9E23F00D5B9EE /* TrendingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */; };
+		4E6E20B818AA861F0037E845 /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E20B718AA861F0037E845 /* CategoryCollectionViewCell.m */; };
+		4E6E20BB18AA863C0037E845 /* NetworkCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E20BA18AA863C0037E845 /* NetworkCollectionViewCell.m */; };
 		4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */; };
 		4E9C85121890DF7700729455 /* profileAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C85111890DF7700729455 /* profileAvatar.png */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
@@ -147,8 +150,14 @@
 		4E3AE35618A01A350005997D /* SFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFUtility.m; sourceTree = "<group>"; };
 		4E42AAAA189DBE1600331108 /* UIView+ViewAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewAnimations.h"; sourceTree = "<group>"; };
 		4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewAnimations.m"; sourceTree = "<group>"; };
+		4E51947018AB17C800F1B12C /* Flave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flave.h; sourceTree = "<group>"; };
+		4E51947118AB17C800F1B12C /* Flave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flave.m; sourceTree = "<group>"; };
 		4E52CDCF18A9E23F00D5B9EE /* TrendingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingCollectionViewCell.h; sourceTree = "<group>"; };
 		4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingCollectionViewCell.m; sourceTree = "<group>"; };
+		4E6E20B618AA861F0037E845 /* CategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		4E6E20B718AA861F0037E845 /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		4E6E20B918AA863C0037E845 /* NetworkCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCollectionViewCell.h; sourceTree = "<group>"; };
+		4E6E20BA18AA863C0037E845 /* NetworkCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkCollectionViewCell.m; sourceTree = "<group>"; };
 		4E9C850D1890D34400729455 /* EmailResendConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailResendConfirmationViewController.h; sourceTree = "<group>"; };
 		4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailResendConfirmationViewController.m; sourceTree = "<group>"; };
 		4E9C85111890DF7700729455 /* profileAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileAvatar.png; sourceTree = "<group>"; };
@@ -284,6 +293,39 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		4E6E20BC18AA87510037E845 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				4E1125E518A882B10071B39A /* TrendingPageViewController.h */,
+				4E1125E618A882B10071B39A /* TrendingPageViewController.m */,
+				4E52CDCF18A9E23F00D5B9EE /* TrendingCollectionViewCell.h */,
+				4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */,
+			);
+			name = Trending;
+			sourceTree = "<group>";
+		};
+		4E6E20BD18AA87560037E845 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4E1125E818A882C00071B39A /* CategoriesPageViewController.h */,
+				4E1125E918A882C00071B39A /* CategoriesPageViewController.m */,
+				4E6E20B618AA861F0037E845 /* CategoryCollectionViewCell.h */,
+				4E6E20B718AA861F0037E845 /* CategoryCollectionViewCell.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		4E6E20BE18AA875C0037E845 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4E1125EB18A882CE0071B39A /* NetworkPageViewController.h */,
+				4E1125EC18A882CE0071B39A /* NetworkPageViewController.m */,
+				4E6E20B918AA863C0037E845 /* NetworkCollectionViewCell.h */,
+				4E6E20BA18AA863C0037E845 /* NetworkCollectionViewCell.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		4E9C850C1890D2FB00729455 /* Email Resend Confirmation Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +458,8 @@
 			isa = PBXGroup;
 			children = (
 				4E3870411894515300AC82E2 /* SpiceModel.xcdatamodeld */,
+				4E51947018AB17C800F1B12C /* Flave.h */,
+				4E51947118AB17C800F1B12C /* Flave.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -425,8 +469,6 @@
 			children = (
 				4E1125DF18A84A970071B39A /* ProfilePageCollectionViewCell.h */,
 				4E1125E018A84A970071B39A /* ProfilePageCollectionViewCell.m */,
-				4E52CDCF18A9E23F00D5B9EE /* TrendingCollectionViewCell.h */,
-				4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -453,12 +495,9 @@
 			children = (
 				4E1125E218A882980071B39A /* LandingPageViewController.h */,
 				4E1125E318A882980071B39A /* LandingPageViewController.m */,
-				4E1125E518A882B10071B39A /* TrendingPageViewController.h */,
-				4E1125E618A882B10071B39A /* TrendingPageViewController.m */,
-				4E1125E818A882C00071B39A /* CategoriesPageViewController.h */,
-				4E1125E918A882C00071B39A /* CategoriesPageViewController.m */,
-				4E1125EB18A882CE0071B39A /* NetworkPageViewController.h */,
-				4E1125EC18A882CE0071B39A /* NetworkPageViewController.m */,
+				4E6E20BE18AA875C0037E845 /* Network */,
+				4E6E20BD18AA87560037E845 /* Categories */,
+				4E6E20BC18AA87510037E845 /* Trending */,
 			);
 			name = "Landing Page";
 			sourceTree = "<group>";
@@ -645,6 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E6E20B818AA861F0037E845 /* CategoryCollectionViewCell.m in Sources */,
 				4E3026AC189AF560009EE649 /* HelperMethods.m in Sources */,
 				4E1125E718A882B10071B39A /* TrendingPageViewController.m in Sources */,
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
@@ -657,8 +697,10 @@
 				4E1125E418A882980071B39A /* LandingPageViewController.m in Sources */,
 				4E1125E118A84A970071B39A /* ProfilePageCollectionViewCell.m in Sources */,
 				4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */,
+				4E6E20BB18AA863C0037E845 /* NetworkCollectionViewCell.m in Sources */,
 				4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */,
 				4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */,
+				4E51947218AB17C800F1B12C /* Flave.m in Sources */,
 				4EAA70A4188CC8ED004CA02A /* ViewController.m in Sources */,
 				4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */,
 				4EAA709E188CC8ED004CA02A /* AppDelegate.m in Sources */,

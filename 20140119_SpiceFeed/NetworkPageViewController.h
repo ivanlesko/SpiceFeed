@@ -10,6 +10,10 @@
 
 @interface NetworkPageViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (nonatomic, assign) NSInteger index;
 
 @end

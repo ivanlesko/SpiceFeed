@@ -32,11 +32,12 @@
     self.collectionView.dataSource = self;
     self.scrollView.delegate = self;
     
-    PFQuery *flavesQuery = [PFQuery queryWithClassName:kSFFlaveClassKey];
-    flavesQuery.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    PFQuery *flavesQuery = [Flave query];
+    flavesQuery.cachePolicy = kPFCachePolicyNetworkOnly;
     self.trendingFlaves = [NSMutableArray arrayWithArray:[flavesQuery findObjects]];
     
     self.collectionView.backgroundColor = [UIColor clearColor];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,18 +63,24 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TrendingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"trendingCell" forIndexPath:indexPath];
     
-    if (!cell.flave) {
-        cell.flave = [self.trendingFlaves objectAtIndex:indexPath.row];
-    }
+    NSLog(@"Creating Cell For Index: %ld", (long)indexPath.row);
+    
+    cell.flave = [self.trendingFlaves objectAtIndex:indexPath.row];
     
     return cell;
 }
 
-//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"calling cell size");
-//    return CGSizeMake(self.view.frame.size.width,
-//                      300);
-//}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PFImageView *imageView = [(TrendingCollectionViewCell * )[collectionView cellForItemAtIndexPath:indexPath] imageView];
+    
+    NSLog(@"Image Size Is: %.0f x %.0f", imageView.image.size.width, imageView.image.size.height);
+
+    CGFloat ratio = self.view.frame.size.width / imageView.image.size.width;
+    
+    
+    return CGSizeMake(self.view.frame.size.width, MAX(80.f, imageView.image.size.height * ratio));
+}
 
 
 

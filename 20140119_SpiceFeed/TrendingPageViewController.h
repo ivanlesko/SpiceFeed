@@ -10,6 +10,8 @@
 
 #import "TrendingCollectionViewCell.h"
 
+#import "Flave.h"
+
 @interface TrendingPageViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, assign) NSInteger index;
