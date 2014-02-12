@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TrendingCollectionViewCell.h"
+#import "TrendingTableViewCell.h"
 
 #import "Flave.h"
 
-@interface TrendingPageViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface TrendingPageViewController : PFQueryTableViewController
+
+@property (nonatomic, strong) NSString *parseClassName;
 
 @property (nonatomic, assign) NSInteger index;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
-@property (nonatomic, strong) NSMutableArray *trendingFlaves;
 
 @end

@@ -51,7 +51,7 @@
 		4E3AE35718A01A350005997D /* SFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AE35618A01A350005997D /* SFUtility.m */; };
 		4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */; };
 		4E51947218AB17C800F1B12C /* Flave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E51947118AB17C800F1B12C /* Flave.m */; };
-		4E52CDD118A9E23F00D5B9EE /* TrendingCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */; };
+		4E52CDD118A9E23F00D5B9EE /* TrendingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E52CDD018A9E23F00D5B9EE /* TrendingTableViewCell.m */; };
 		4E6E20B818AA861F0037E845 /* CategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E20B718AA861F0037E845 /* CategoryCollectionViewCell.m */; };
 		4E6E20BB18AA863C0037E845 /* NetworkCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E20BA18AA863C0037E845 /* NetworkCollectionViewCell.m */; };
 		4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */; };
@@ -152,8 +152,8 @@
 		4E42AAAB189DBE1600331108 /* UIView+ViewAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewAnimations.m"; sourceTree = "<group>"; };
 		4E51947018AB17C800F1B12C /* Flave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flave.h; sourceTree = "<group>"; };
 		4E51947118AB17C800F1B12C /* Flave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flave.m; sourceTree = "<group>"; };
-		4E52CDCF18A9E23F00D5B9EE /* TrendingCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingCollectionViewCell.h; sourceTree = "<group>"; };
-		4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingCollectionViewCell.m; sourceTree = "<group>"; };
+		4E52CDCF18A9E23F00D5B9EE /* TrendingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingTableViewCell.h; sourceTree = "<group>"; };
+		4E52CDD018A9E23F00D5B9EE /* TrendingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingTableViewCell.m; sourceTree = "<group>"; };
 		4E6E20B618AA861F0037E845 /* CategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCollectionViewCell.h; sourceTree = "<group>"; };
 		4E6E20B718AA861F0037E845 /* CategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		4E6E20B918AA863C0037E845 /* NetworkCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkCollectionViewCell.h; sourceTree = "<group>"; };
@@ -298,8 +298,8 @@
 			children = (
 				4E1125E518A882B10071B39A /* TrendingPageViewController.h */,
 				4E1125E618A882B10071B39A /* TrendingPageViewController.m */,
-				4E52CDCF18A9E23F00D5B9EE /* TrendingCollectionViewCell.h */,
-				4E52CDD018A9E23F00D5B9EE /* TrendingCollectionViewCell.m */,
+				4E52CDCF18A9E23F00D5B9EE /* TrendingTableViewCell.h */,
+				4E52CDD018A9E23F00D5B9EE /* TrendingTableViewCell.m */,
 			);
 			name = Trending;
 			sourceTree = "<group>";
@@ -709,7 +709,7 @@
 				4E32BE8E189EC30700664338 /* SFConstants.m in Sources */,
 				4E320D60189C43FA00933EC8 /* SharedNetworkController.m in Sources */,
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,
-				4E52CDD118A9E23F00D5B9EE /* TrendingCollectionViewCell.m in Sources */,
+				4E52CDD118A9E23F00D5B9EE /* TrendingTableViewCell.m in Sources */,
 				4EAA709A188CC8ED004CA02A /* main.m in Sources */,
 				4E1125ED18A882CE0071B39A /* NetworkPageViewController.m in Sources */,
 				4E32BE8B189EBD1A00664338 /* SFCache.m in Sources */,

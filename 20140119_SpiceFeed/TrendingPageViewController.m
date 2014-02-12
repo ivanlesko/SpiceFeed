@@ -14,79 +14,202 @@
 
 @implementation TrendingPageViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)initWithStyle:(UITableViewStyle)style {
+    self = [super initWithStyle:style];
     if (self) {
+        // Custom the table
+        // The className to query on
+        self.parseClassName = kSFFlaveClassKey;
+        // The key of the PFObject to display in the label of the default cell style
+        self.textKey = @"text";
+        // Uncomment the following line to specify the key of a PFFile on the PFObject to display in the imageView of the default cell style
+        self.imageKey = kSFFlaveImageKey;
+        // Whether the built-in pull-to-refresh is enabled
+        self.pullToRefreshEnabled = YES;
+        // Whether the built-in pagination is enabled
+        self.paginationEnabled = YES;
+        // The number of objects to show per page
+        self.objectsPerPage = 25;
+        
         self.index = 0;
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
+}
+
+
+#pragma mark - UIViewController
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+#pragma mark - PFQueryTableViewController
+
+- (void)objectsWillLoad {
+    [super objectsWillLoad];
+    // This method is called before a PFQuery is fired to get more objects
+}
+
+- (void)objectsDidLoad:(NSError *)error {
+    [super objectsDidLoad:error];
+    // This method is called every time objects are loaded from Parse via the PFQuery
+}
+
+
+// Override to customize what kind of query to perform on the class. The default is to query for
+// all objects ordered by createdAt descending.
+- (PFQuery *)queryForTable {
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    // If Pull To Refresh is enabled, query against the network by default.
+    if (self.pullToRefreshEnabled) {
+    query.cachePolicy = kPFCachePolicyNetworkOnly;
+    }
+
+    // If no objects are loaded in memory, we look to the cache first to fill the table
+    // and then subsequently do a query against the network.
+    if (self.objects.count == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    [query orderByDescending:@"createdAt"];
+    return query;
+}
+
+
+
+// Override to customize the look of a cell representing an object. The default is to display
+// a UITableViewCellStyleDefault style cell with the label being the textKey in the object,
+// and the imageView being the imageKey in the object.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object {
+    static NSString *CellIdentifier = @"trendingCell";
+    TrendingTableViewCell *cell = (TrendingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[TrendingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.contentView.backgroundColor = [UIColor clearColor];
+    }
     
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    self.scrollView.delegate = self;
-    
-    PFQuery *flavesQuery = [Flave query];
-    [flavesQuery whereKey:kSFFlaveIsTrendingKey equalTo:[NSNumber numberWithBool:1]];
-    flavesQuery.cachePolicy = kPFCachePolicyNetworkOnly;
-    [flavesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    // Configure the cell
+    cell.flaveImageView.file = [object objectForKey:kSFFlaveImageKey];
+    cell.flaveImageView.alpha = 0.0f;
+    [cell.flaveImageView loadInBackground:^(UIImage *image, NSError *error) {
         if (!error) {
-            for (Flave *aFlave in objects) {
-                [self.trendingFlaves addObject:aFlave];
-            }
+            [UIView animateWithDuration:.25
+                             animations:^{
+                                 cell.flaveImageView.alpha = 1.0f;
+                             }
+                             completion:nil];
         }
     }];
-    
-    self.collectionView.backgroundColor = [UIColor clearColor];
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Collection View Data Source
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.trendingFlaves.count;
-}
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    TrendingCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"trendingCell" forIndexPath:indexPath];
-    
-    NSLog(@"Creating Cell For Index: %ld", (long)indexPath.row);
-    
-    cell.flave = [self.trendingFlaves objectAtIndex:indexPath.row];
     
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    PFImageView *imageView = [(TrendingCollectionViewCell * )[collectionView cellForItemAtIndexPath:indexPath] imageView];
-    
-    NSLog(@"Image Size Is: %.0f x %.0f", imageView.image.size.width, imageView.image.size.height);
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
 
-    CGFloat ratio = self.view.frame.size.width / imageView.image.size.width;
+
+/*
+// Override if you need to change the ordering of objects in the table.
+- (PFObject *)objectAtIndex:(NSIndexPath *)indexPath {
+    return [self.objects objectAtIndex:indexPath.row];
+}
+*/
+
+
+// Override to customize the look of the cell that allows the user to load the next page of objects.
+// The default implementation is a UITableViewCellStyleDefault cell with simple labels.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"loadMore";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = @"Load more...";
     
+    return cell;
+}
+
+
+#pragma mark - UITableViewDataSource
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the object from Parse and reload the table view
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, and save it to Parse
+ }
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
-    return CGSizeMake(self.view.frame.size.width, MAX(80.f, imageView.image.size.height * ratio));
 }
 
 
