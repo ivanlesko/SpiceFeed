@@ -33,8 +33,15 @@
     self.scrollView.delegate = self;
     
     PFQuery *flavesQuery = [Flave query];
+    [flavesQuery whereKey:kSFFlaveIsTrendingKey equalTo:[NSNumber numberWithBool:1]];
     flavesQuery.cachePolicy = kPFCachePolicyNetworkOnly;
-    self.trendingFlaves = [NSMutableArray arrayWithArray:[flavesQuery findObjects]];
+    [flavesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (Flave *aFlave in objects) {
+                [self.trendingFlaves addObject:aFlave];
+            }
+        }
+    }];
     
     self.collectionView.backgroundColor = [UIColor clearColor];
     

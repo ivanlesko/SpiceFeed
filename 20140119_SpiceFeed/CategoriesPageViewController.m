@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.collectionView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning
