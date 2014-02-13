@@ -48,6 +48,7 @@
     self.profileInfoView.layer.shadowOpacity = 0.8;
     
     self.backgroundQueue = [[NSOperationQueue alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning

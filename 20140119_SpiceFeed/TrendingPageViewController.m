@@ -100,6 +100,7 @@
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
 //    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
