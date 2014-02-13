@@ -80,6 +80,8 @@ extern NSString *const kSFFlaveTagsKey;
 extern NSString *const kSFFlaveIsTrendingKey;
 extern NSString *const kSFFlaveSourceTypeKey;
 extern NSString *const kSFFlaveOriginalUploaderKey;
+extern NSString *const kSFFlaveImageWidthKey;
+extern NSString *const kSFFlaveImageHeightKey;
 
 #pragma mark - PFObject Tags Class
 

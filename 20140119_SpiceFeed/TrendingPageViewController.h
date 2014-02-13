@@ -13,9 +13,12 @@
 #import "Flave.h"
 
 @interface TrendingPageViewController : PFQueryTableViewController
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSString *parseClassName;
 
 @property (nonatomic, assign) NSInteger index;
+
+@property (nonatomic, strong) NSMutableArray *trendingFlaves;
 
 @end

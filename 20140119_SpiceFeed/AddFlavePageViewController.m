@@ -119,12 +119,16 @@
 {
     // Resize the selected Image
     UIImage *resizedImage   = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit
-                                                          bounds:CGSizeMake(560.0f, 560.0f)
+                                                          bounds:CGSizeMake(360.0f, 360.0f)
                                             interpolationQuality:kCGInterpolationHigh];
     UIImage *thumbnailImage = [image thumbnailImage:150.0f interpolationQuality:kCGInterpolationDefault];
     
     NSData *imageData = UIImageJPEGRepresentation(resizedImage, 0.8f);
     NSData *thumbnailData = UIImagePNGRepresentation(thumbnailImage);
+    
+    self.imageSize = CGSizeMake(resizedImage.size.width,
+                                resizedImage.size.height);
+    NSLog(@"imageSize: %@", NSStringFromCGSize(self.imageSize));
     
     if (!imageData || !thumbnailData) {
         return NO;
@@ -175,6 +179,8 @@
     [flave setObject:@0 forKey:kSFFLaveReflaveCountKey];
     [flave setObject:@NO forKey:kSFFlaveIsTrendingKey];
     [flave setObject:[[PFUser currentUser] objectForKey:kSFUserUserNameKey] forKey:kSFFlaveOriginalUploaderKey];
+    [flave setObject:@(self.imageSize.width) forKey:kSFFlaveImageWidthKey];
+    [flave setObject:@(self.imageSize.height) forKey:kSFFlaveImageHeightKey];
     
     
     // Flaves are public, but should only be modified by the person who uploaded it.

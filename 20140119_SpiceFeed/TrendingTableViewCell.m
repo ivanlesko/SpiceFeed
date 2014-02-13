@@ -14,10 +14,17 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        NSLog(@"initing cell");
     }
     return self;
 }
+
+- (void)setFlaveImageView:(PFImageView *)flaveImageView {
+    _flaveImageView = flaveImageView;
+    NSLog(@"setting flave image view");
+}
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

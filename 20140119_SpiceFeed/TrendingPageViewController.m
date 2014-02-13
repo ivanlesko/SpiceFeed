@@ -91,6 +91,8 @@
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
     // This method is called every time objects are loaded from Parse via the PFQuery
+//    NSLog(@"objects loaded");
+//    NSLog(@"objects: %@", self.objects);
 }
 
 
@@ -98,6 +100,7 @@
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+//    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
     query.cachePolicy = kPFCachePolicyNetworkOnly;
@@ -108,7 +111,7 @@
     if (self.objects.count == 0) {
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
-    [query orderByDescending:@"createdAt"];
+    [query orderByDescending:kSFCreatedAt];
     return query;
 }
 
@@ -127,11 +130,21 @@
     }
     
     // Configure the cell
-    cell.flaveImageView.file = [object objectForKey:kSFFlaveImageKey];
     cell.flaveImageView.alpha = 0.0f;
+    cell.flaveImageView.file = [object objectForKey:kSFFlaveImageKey];
+    
     [cell.flaveImageView loadInBackground:^(UIImage *image, NSError *error) {
         if (!error) {
-            [UIView animateWithDuration:.25
+            
+//            Flave *flave = [self.objects objectAtIndex:indexPath.row];
+//            CGFloat flaveHeight = [[flave objectForKey:kSFFlaveImageHeightKey] floatValue];
+//            CGFloat flaveWidth  = [[flave objectForKey:kSFFlaveImageWidthKey]  floatValue];
+//            CGFloat ratio = self.view.frame.size.width / flaveHeight;
+//            
+//            image.size = CGSizeMake(flaveWidth  * ratio,
+//                                    flaveHeight * ratio);
+            
+            [UIView animateWithDuration:.15
                              animations:^{
                                  cell.flaveImageView.alpha = 1.0f;
                              }
@@ -143,9 +156,23 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
-}
+    
+    Flave *flave = [self.objects objectAtIndex:indexPath.row];
+    CGFloat flaveHeight = [[flave objectForKey:kSFFlaveImageHeightKey] floatValue];
+    CGFloat flaveWidth  = [[flave objectForKey:kSFFlaveImageWidthKey]  floatValue];
+    CGFloat ratio = self.view.frame.size.width / flaveHeight;
+    
+    NSLog(@"%.2f, %.2f", flaveHeight, flaveWidth);
+    NSLog(@"ratio: %.2f", ratio);
 
+//    if (flaveWidth >= self.view.frame.size.width) {
+//        NSLog(@"returning flave height");
+//        return flaveHeight;
+//    }
+    
+    return flaveHeight * ratio;
+    
+}
 
 /*
 // Override if you need to change the ordering of objects in the table.
@@ -208,8 +235,22 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-    
+//    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+//    
+//    
+//    [self.tableView beginUpdates];
+//    NSString *index = [NSString stringWithFormat:@"%d",indexPath.row];
+//    BOOL selectedFlag = NO;
+//    for (NSString *thisIndex in self.selectedIndices) {
+//        if ([thisIndex isEqualToString:index]) {
+//            [self.selectedIndices removeObject:thisIndex];
+//            selectedFlag = YES;
+//        }
+//    }
+//    if (!selectedFlag) {
+//        [self.selectedIndices addObject:index];
+//    }
+//    [self.tableView endUpdates];
 }
 
 

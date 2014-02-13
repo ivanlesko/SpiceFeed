@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) PFFile *flaveFile;
 @property (nonatomic, strong) PFFile *thumbnailFile;
+@property (nonatomic) CGSize imageSize;
 @property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskID;
 @property (nonatomic, assign) UIBackgroundTaskIdentifier postFlaveBackgroundTaskID;
 
