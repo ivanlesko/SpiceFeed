@@ -12,6 +12,8 @@
 
 #define SLIDE_TIMER 0.15
 
+#define SCREEN_WIDTH 640.0f
+
 @interface AddFlavePageViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @end
@@ -96,7 +98,7 @@
         
         UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
         UIImage *resizedImage = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit
-                                                            bounds:CGSizeMake(560.0f, 560.0f)
+                                                            bounds:CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH)
                                               interpolationQuality:kCGInterpolationDefault];
         [self shouldUploadImage:image];
         
@@ -119,7 +121,7 @@
 {
     // Resize the selected Image
     UIImage *resizedImage   = [image resizedImageWithContentMode:UIViewContentModeScaleAspectFit
-                                                          bounds:CGSizeMake(360.0f, 360.0f)
+                                                          bounds:CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH)
                                             interpolationQuality:kCGInterpolationHigh];
     UIImage *thumbnailImage = [image thumbnailImage:150.0f interpolationQuality:kCGInterpolationDefault];
     

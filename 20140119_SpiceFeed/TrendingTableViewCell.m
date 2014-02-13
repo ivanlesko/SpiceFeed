@@ -19,11 +19,6 @@
     return self;
 }
 
-- (void)setFlaveImageView:(PFImageView *)flaveImageView {
-    _flaveImageView = flaveImageView;
-    NSLog(@"setting flave image view");
-}
-
 
 
 /*

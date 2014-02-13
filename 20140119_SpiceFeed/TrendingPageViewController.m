@@ -160,18 +160,9 @@
     Flave *flave = [self.objects objectAtIndex:indexPath.row];
     CGFloat flaveHeight = [[flave objectForKey:kSFFlaveImageHeightKey] floatValue];
     CGFloat flaveWidth  = [[flave objectForKey:kSFFlaveImageWidthKey]  floatValue];
-    CGFloat ratio = self.view.frame.size.width / flaveHeight;
-    
-    NSLog(@"%.2f, %.2f", flaveHeight, flaveWidth);
-    NSLog(@"ratio: %.2f", ratio);
-
-//    if (flaveWidth >= self.view.frame.size.width) {
-//        NSLog(@"returning flave height");
-//        return flaveHeight;
-//    }
+    CGFloat ratio = self.view.frame.size.width / flaveWidth;
     
     return flaveHeight * ratio;
-    
 }
 
 /*
