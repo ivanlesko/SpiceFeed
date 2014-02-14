@@ -94,6 +94,14 @@ NSString *const kSFTagCountKey     = @"count";
 NSString *const kSFTagUserCountKey = @"userCount";
 NSString *const kSFTagFlavesKey    = @"flaves";
 
+#pragma mark - Category Attributes
+
+NSString *const kSFCategoryClassKey      = @"Category";
+NSString *const kSFCategoryNameKey       = @"name";
+NSString *const kSFCategoryUsersKey      = @"users";
+NSString *const kSFCategoryFlavesKey     = @"flaves";
+NSString *const kSFCategoryCoverImageKey = @"coverImage";
+
 #pragma mark - Cached Photo Attributes
 // keys
 NSString *const kSFFlaveAttributesIsReflavedByCurrentUserKey = @"isReflavedByCurrentUser";

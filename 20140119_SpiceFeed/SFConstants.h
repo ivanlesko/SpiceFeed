@@ -102,6 +102,14 @@ extern NSString *const kSFFlaveAttributesReflaversKey;
 extern NSString *const kSFFlaveAttributesTagsKey;
 extern NSString *const kSFFlaveAttributesTagCountKey;
 
+#pragma mark - Category Attributes
+
+extern NSString *const kSFCategoryNameKey;
+extern NSString *const kSFCategoryClassKey;
+extern NSString *const kSFCategoryUsersKey;
+extern NSString *const kSFCategoryFlavesKey;
+extern NSString *const kSFCategoryCoverImageKey;
+
 #pragma mark - Cached User Attributes
 // keys
 extern NSString *const kSFUserAttributesFlaveCountKey;

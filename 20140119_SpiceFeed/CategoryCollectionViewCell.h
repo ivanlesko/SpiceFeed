@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoryCollectionViewCell : UICollectionViewCell
+@interface CategoryCollectionViewCell : PFTableViewCell
+@property (weak, nonatomic) IBOutlet PFImageView *categoryImageView;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
+
+
 
 @end

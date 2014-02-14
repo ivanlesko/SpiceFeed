@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoriesPageViewController : UIViewController <UIScrollViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+#import "CategoryCollectionViewCell.h"
+
+@interface CategoriesPageViewController : PFQueryTableViewController
 
 @property (nonatomic, assign) NSInteger index;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 
 @end
