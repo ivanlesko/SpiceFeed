@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ParseUtilities.h"
 #import "Flave.h"
+#import "SFCategory.h"
 
 @implementation AppDelegate
 
@@ -22,6 +23,7 @@
     
     [PFImageView class];
     [Flave registerSubclass];
+    [SFCategory registerSubclass];
     
     return YES;
 }

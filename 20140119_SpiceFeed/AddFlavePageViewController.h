@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFlavePageViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
+@interface AddFlavePageViewController : SFViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *tagsTextfield;
 @property (weak, nonatomic) IBOutlet UIButton *spiceItButton;

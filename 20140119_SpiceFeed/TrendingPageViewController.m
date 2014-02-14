@@ -51,6 +51,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.view.backgroundColor = [UIColor spicerDarkGrey];
 }
 
 - (void)viewDidUnload {
@@ -100,7 +102,6 @@
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
 //    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -128,23 +129,16 @@
         cell = [[TrendingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.contentView.backgroundColor = [UIColor clearColor];
+        
     }
     
     // Configure the cell
     cell.flaveImageView.alpha = 0.0f;
     cell.flaveImageView.file = [object objectForKey:kSFFlaveImageKey];
+//    cell.contentView = [[CellBackground alloc] initWithFrame:cell.frame];
     
     [cell.flaveImageView loadInBackground:^(UIImage *image, NSError *error) {
         if (!error) {
-            
-//            Flave *flave = [self.objects objectAtIndex:indexPath.row];
-//            CGFloat flaveHeight = [[flave objectForKey:kSFFlaveImageHeightKey] floatValue];
-//            CGFloat flaveWidth  = [[flave objectForKey:kSFFlaveImageWidthKey]  floatValue];
-//            CGFloat ratio = self.view.frame.size.width / flaveHeight;
-//            
-//            image.size = CGSizeMake(flaveWidth  * ratio,
-//                                    flaveHeight * ratio);
-            
             [UIView animateWithDuration:.15
                              animations:^{
                                  cell.flaveImageView.alpha = 1.0f;
@@ -243,6 +237,10 @@
 //        [self.selectedIndices addObject:index];
 //    }
 //    [self.tableView endUpdates];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 

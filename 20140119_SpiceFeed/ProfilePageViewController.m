@@ -41,12 +41,7 @@
             self.userFlaves = [NSMutableArray arrayWithArray:flaves];
         }
     }];
-    
-    self.profileInfoView.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.profileInfoView.layer.shadowOffset = CGSizeMake(0, 5);
-    self.profileInfoView.layer.shadowRadius = 5;
-    self.profileInfoView.layer.shadowOpacity = 0.8;
-    
+
     self.backgroundQueue = [[NSOperationQueue alloc] init];
 
 }

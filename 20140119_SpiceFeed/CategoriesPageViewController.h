@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "CategoryCollectionViewCell.h"
+#import "SFCategory.h"
 
 @interface CategoriesPageViewController : PFQueryTableViewController
 
 @property (nonatomic, assign) NSInteger index;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-
 
 @end

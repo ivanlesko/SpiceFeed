@@ -19,7 +19,10 @@
 }
 
 + (UIColor *)spicerDarkGrey {
-    return [UIColor colorWithRed:0.078431 green:0.062745 blue:0.062745 alpha:1];
+    return [UIColor colorWithRed:29.0 / 255.0
+                           green:23.0 / 255.0
+                            blue:23.0 / 255.0
+                           alpha:1];
 }
 
 + (UIColor *)spicerRed {

@@ -15,6 +15,7 @@
     #import <Foundation/Foundation.h>
     #import <Parse/Parse.h>
     #import "NSCharacterSet+CustomSets.h"
+    #import "SFViewController.h"
     #import "SFCache.h"
     #import "SFConstants.h"
     #import "SFUtility.h"

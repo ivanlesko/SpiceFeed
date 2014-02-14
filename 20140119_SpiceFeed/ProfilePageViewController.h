@@ -11,7 +11,7 @@
 #import "ProfilePageCollectionViewCell.h"
 #import "FlavePageViewController.h"
 
-@interface ProfilePageViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ProfilePageViewController : SFViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

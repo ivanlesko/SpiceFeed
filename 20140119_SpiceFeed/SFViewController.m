@@ -1,24 +1,24 @@
 //
-//  NetworkPageViewController.m
+//  SFViewController.m
 //  20140119_SpiceFeed
 //
-//  Created by Ivan Lesko on 2/9/14.
+//  Created by Ivan Lesko on 2/13/14.
 //  Copyright (c) 2014 Ivan Lesko. All rights reserved.
 //
 
-#import "NetworkPageViewController.h"
+#import "SFViewController.h"
 
-@interface NetworkPageViewController ()
+@interface SFViewController ()
 
 @end
 
-@implementation NetworkPageViewController
+@implementation SFViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.index = 2;
+        // Custom initialization
     }
     return self;
 }
@@ -28,7 +28,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor spicerDarkGrey];
 }
 
 - (void)didReceiveMemoryWarning

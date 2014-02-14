@@ -15,17 +15,26 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
+        NSLog(@"calling init cell");
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        NSLog(@"setting cell through init with style");
+    }
+    
+    return self;
 }
-*/
+
+
+//- (void)drawRect:(CGRect)rect
+//{
+//   
+//}
+
 
 @end

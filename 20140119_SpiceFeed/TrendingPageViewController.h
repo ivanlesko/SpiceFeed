@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "TrendingTableViewCell.h"
+#import "CellBackground.h"
 
 #import "Flave.h"
 

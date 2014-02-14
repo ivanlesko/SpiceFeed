@@ -39,7 +39,7 @@
                                   direction:UIPageViewControllerNavigationDirectionForward
                                    animated:NO
                                  completion:nil];
-    self.view.backgroundColor = [UIColor spicerGrey];
+    self.view.backgroundColor = [UIColor spicerDarkGrey];
     
     [self setupPageControl];
 }
@@ -144,6 +144,10 @@
     
     [self.view addSubview:self.pageControl];
     [self.view bringSubviewToFront:self.pageControl];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 

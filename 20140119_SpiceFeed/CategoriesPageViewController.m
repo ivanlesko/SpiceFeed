@@ -29,9 +29,9 @@
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         // The number of objects to show per page
-        self.objectsPerPage = 25;
+        self.objectsPerPage = 10;
         
-        self.index = 0;
+        self.index = 1;
     }
     return self;
 }
@@ -51,6 +51,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.view.backgroundColor = [UIColor spicerDarkGrey];
 }
 
 - (void)viewDidUnload {
@@ -99,8 +101,7 @@
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
-    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
+    PFQuery *query = [PFQuery queryWithClassName:kSFCategoryClassKey];
     //    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -113,6 +114,7 @@
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     [query orderByDescending:kSFCreatedAt];
+    
     return query;
 }
 
@@ -131,6 +133,7 @@
     }
     
     // Configure the cell
+    cell.categoryLabel.text = [object objectForKey:kSFCategoryNameKey];
     cell.categoryImageView.alpha = 0.0f;
     cell.categoryImageView.file = [object objectForKey:kSFCategoryCoverImageKey];
     
@@ -157,7 +160,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 127;
 }
 
 /*
@@ -237,6 +240,10 @@
     //        [self.selectedIndices addObject:index];
     //    }
     //    [self.tableView endUpdates];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 
