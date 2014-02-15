@@ -29,7 +29,7 @@
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         // The number of objects to show per page
-        self.objectsPerPage = 25;
+        self.objectsPerPage = 40;
         
         self.index = 0;
     }
@@ -53,6 +53,10 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.view.backgroundColor = [UIColor spicerDarkGrey];
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.backgroundView = nil;
 }
 
 - (void)viewDidUnload {
@@ -92,7 +96,7 @@
 
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
-    // This method is called every time objects are loaded from Parse via the PFQuery
+//    // This method is called every time objects are loaded from Parse via the PFQuery
 //    NSLog(@"objects loaded");
 //    NSLog(@"objects: %@", self.objects);
 }
@@ -101,7 +105,7 @@
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
-    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    PFQuery *query = [PFQuery queryWithClassName:kSFFlaveClassKey];
 //    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
@@ -127,19 +131,14 @@
     TrendingTableViewCell *cell = (TrendingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[TrendingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.contentView.backgroundColor = [UIColor clearColor];
-        
     }
     
     // Configure the cell
     cell.flaveImageView.alpha = 0.0f;
     cell.flaveImageView.file = [object objectForKey:kSFFlaveImageKey];
-//    cell.contentView = [[CellBackground alloc] initWithFrame:cell.frame];
-    
     [cell.flaveImageView loadInBackground:^(UIImage *image, NSError *error) {
         if (!error) {
-            [UIView animateWithDuration:.15
+            [UIView animateWithDuration:.85
                              animations:^{
                                  cell.flaveImageView.alpha = 1.0f;
                              }

@@ -274,14 +274,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="g0X-zP-EDr" customClass="PFImageView">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" red="0.96078437569999997" green="0.28627452250000002" blue="0.41176474089999998" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.74117648599999997" blue="0.69019609689999994" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.74117648599999997" blue="0.69019609689999994" alpha="0.0" colorSpace="deviceRGB"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.21295024679999999" blue="0.27814080029999999" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="flaveImageView" destination="g0X-zP-EDr" id="r1C-TP-0Hf"/>
                                 </connections>
@@ -309,7 +309,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj3-uq-euW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="-1371"/>
+            <point key="canvasLocation" x="570" y="-1347"/>
         </scene>
         <!--Categories Page View Controller-->
         <scene sceneID="N2y-Si-M4T">
@@ -375,7 +375,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eg7-0y-fKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="-1355"/>
+            <point key="canvasLocation" x="1082" y="-1347"/>
         </scene>
         <!--Network Page View Controller-->
         <scene sceneID="IsY-WE-Fad">
@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEk-nx-bRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528" y="-1371"/>
+            <point key="canvasLocation" x="1575" y="-1347"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lTI-mK-632">

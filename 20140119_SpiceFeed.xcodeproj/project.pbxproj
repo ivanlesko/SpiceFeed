@@ -79,6 +79,7 @@
 		4ED03DE818ADD3E20094F000 /* SFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03DE718ADD3E20094F000 /* SFCategory.m */; };
 		4ED03DEB18ADF6C50094F000 /* SFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03DEA18ADF6C50094F000 /* SFViewController.m */; };
 		4ED03DEE18ADFB110094F000 /* CellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03DED18ADFB110094F000 /* CellBackground.m */; };
+		4EDFC03218B0132F0003618D /* PFQueryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFC03118B0132F0003618D /* PFQueryCollectionViewController.m */; };
 		4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */; };
 		4EE8016418A982FF008F9B3C /* UIColor+SpiceFeedColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8016318A982FF008F9B3C /* UIColor+SpiceFeedColors.m */; };
 		4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF43BB018A15648005675B5 /* ParseUtilities.m */; };
@@ -201,6 +202,8 @@
 		4ED03DEA18ADF6C50094F000 /* SFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFViewController.m; sourceTree = "<group>"; };
 		4ED03DEC18ADFB110094F000 /* CellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellBackground.h; sourceTree = "<group>"; };
 		4ED03DED18ADFB110094F000 /* CellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBackground.m; sourceTree = "<group>"; };
+		4EDFC03018B0132F0003618D /* PFQueryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQueryCollectionViewController.h; sourceTree = "<group>"; };
+		4EDFC03118B0132F0003618D /* PFQueryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFQueryCollectionViewController.m; sourceTree = "<group>"; };
 		4EE5719A1899BEAE00ED4E1A /* AddFlavePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFlavePageViewController.h; sourceTree = "<group>"; };
 		4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFlavePageViewController.m; sourceTree = "<group>"; };
 		4EE8016218A982FF008F9B3C /* UIColor+SpiceFeedColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SpiceFeedColors.h"; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 				4E3AE35618A01A350005997D /* SFUtility.m */,
 				4EF43BAF18A15648005675B5 /* ParseUtilities.h */,
 				4EF43BB018A15648005675B5 /* ParseUtilities.m */,
+				4EDFC03018B0132F0003618D /* PFQueryCollectionViewController.h */,
+				4EDFC03118B0132F0003618D /* PFQueryCollectionViewController.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -717,6 +722,7 @@
 				4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */,
 				4EAA709E188CC8ED004CA02A /* AppDelegate.m in Sources */,
 				4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */,
+				4EDFC03218B0132F0003618D /* PFQueryCollectionViewController.m in Sources */,
 				4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */,
 				4ED03DEB18ADF6C50094F000 /* SFViewController.m in Sources */,
 				4E32BE8E189EC30700664338 /* SFConstants.m in Sources */,

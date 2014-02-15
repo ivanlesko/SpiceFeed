@@ -136,8 +136,13 @@
         return NO;
     }
     
-    self.flaveFile = [PFFile fileWithData:imageData];
-    self.thumbnailFile = [PFFile fileWithData:thumbnailData];
+    CFUUIDRef theUUID = CFUUIDCreate(NULL);
+    
+    NSString *uniqueImageName = [NSString stringWithFormat:@"%@.jpg",(__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID)];
+    self.flaveFile = [PFFile fileWithName:uniqueImageName data:imageData];
+    
+    NSString *uniqueThumbnailName = [NSString stringWithFormat:@"%@.jpg",(__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID)];
+    self.thumbnailFile = [PFFile fileWithName:uniqueThumbnailName data:thumbnailData];
     
     self.fileUploadBackgroundTaskID = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskID];
@@ -303,13 +308,6 @@
             }];
         }
     }];
-}
-
-- (void)createNewFlaveWithImageData:(NSData *)imageData
-{
-    CFUUIDRef theUUID = CFUUIDCreate(NULL);
-    NSString *uniqueString = (__bridge_transfer NSString*)CFUUIDCreateString(kCFAllocatorDefault, theUUID);
-//    NSString *uniqueName = [NSString stringWithFormat:@"%@.jpg", uniqueString];
 }
 
 #pragma mark - Textfield Delegate Methods
