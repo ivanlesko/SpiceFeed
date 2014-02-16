@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="tQd-7t-btb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="PNA-Mj-4bu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -12,30 +12,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_06.png" id="Of3-NZ-vSG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" id="x8F-vT-VTL">
-                                <rect key="frame" x="20" y="114" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.32000000000000001" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="1" green="0.98392939130000001" blue="0.99598234779999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="EMAIL" minimumFontSize="17" id="x8F-vT-VTL">
+                                <rect key="frame" x="20" y="178" width="280" height="32"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.078431375324726105" green="0.062745101749897003" blue="0.062745101749897003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.29019609093666077" green="0.27450981736183167" blue="0.26274511218070984" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" id="Ne5-n3-OFn">
-                                <rect key="frame" x="20" y="145" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.32000000000000001" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PASSWORD" minimumFontSize="17" id="Ne5-n3-OFn">
+                                <rect key="frame" x="20" y="223" width="280" height="32"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.078431375324726105" green="0.062745101749897003" blue="0.062745101749897003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.29019609093666077" green="0.27450981736183167" blue="0.26274511218070984" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FnY-SP-h5w">
-                                <rect key="frame" x="6" y="183" width="68" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FnY-SP-h5w">
+                                <rect key="frame" x="20" y="271" width="130" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.98392939130000001" blue="0.99598234779999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" image="loginButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -43,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="faF-e9-k52">
-                                <rect key="frame" x="132" y="518" width="57" height="30"/>
+                                <rect key="frame" x="132" y="345" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign-Up">
                                     <color key="titleColor" red="1" green="0.98392939130000001" blue="0.99598234779999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,10 +50,10 @@
                                     <segue destination="zNb-rr-Z9l" kind="push" identifier="signup" id="v2O-Br-zKE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lei-4r-nje">
-                                <rect key="frame" x="82" y="183" width="54" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lei-4r-nje">
+                                <rect key="frame" x="165" y="271" width="135" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Forgot?">
+                                <state key="normal" image="forgotButton">
                                     <color key="titleColor" red="1" green="0.98392939130000001" blue="0.99598234779999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -64,26 +61,39 @@
                                     <segue destination="Qkx-yD-i0T" kind="push" identifier="forgot" id="v7l-tm-lJ2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ulg-rf-PC9">
-                                <rect key="frame" x="118" y="421" width="85" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spicefeedLogo" id="tZ9-rs-eIT">
+                                <rect key="frame" x="66" y="88" width="189" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Just Browse">
-                                    <color key="titleColor" red="1" green="0.98392939130000001" blue="0.99598234779999995" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="tQd-7t-btb" kind="push" identifier="justBrowse" id="kfV-Ha-l6P"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPICEFEED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kcq-gP-uc8">
-                                <rect key="frame" x="20" y="51" width="280" height="55"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="justBrowseBackground" id="yVe-B5-arh" userLabel="Just Browse Background Image">
+                                <rect key="frame" x="0.0" y="440" width="320" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
-                                <color key="textColor" red="1" green="0.98392939130000001" blue="0.99598234779999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <view alpha="0.89000000000000001" contentMode="scaleToFill" id="0lh-pz-SVp">
+                                <rect key="frame" x="0.0" y="440" width="320" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ulg-rf-PC9">
+                                        <rect key="frame" x="95" y="51" width="130" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="justBrowseButton">
+                                            <color key="titleColor" red="1" green="0.98392939130000001" blue="0.99598234779999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="tQd-7t-btb" kind="push" identifier="justBrowse" id="kfV-Ha-l6P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.090196078431372548" blue="0.090196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="oMP-N3-x3s">
+                                <rect key="frame" x="20" y="296" width="160" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.11372549086809158" green="0.090196080505847931" blue="0.090196080505847931" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="4rT-rs-N6c"/>
                     <connections>
@@ -778,10 +788,15 @@
         <image name="bg_06.png" width="368" height="640"/>
         <image name="bg_09.png" width="368" height="640"/>
         <image name="followButton" width="83" height="25"/>
+        <image name="forgotButton" width="135" height="25"/>
         <image name="imagePlaceholderInverted.png" width="399" height="520"/>
+        <image name="justBrowseBackground" width="320" height="129"/>
+        <image name="justBrowseButton" width="260" height="50"/>
+        <image name="loginButton" width="130" height="25"/>
         <image name="plus_22.png" width="22" height="22"/>
         <image name="profileFlaveCraveBar" width="320" height="31"/>
         <image name="profilePicPlaceholder" width="107" height="107"/>
+        <image name="spicefeedLogo" width="188" height="17"/>
         <image name="user-22.png" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

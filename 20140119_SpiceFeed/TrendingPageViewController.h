@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LandingPageTitleBar.h"
+
 #import "TrendingTableViewCell.h"
 #import "CellBackground.h"
 
 #import "Flave.h"
 
-@interface TrendingPageViewController : PFQueryTableViewController
+@interface TrendingPageViewController : PFQueryTableViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSString *parseClassName;

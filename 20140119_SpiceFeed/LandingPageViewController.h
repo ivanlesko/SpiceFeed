@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LandingPageTitleBar.h"
+
 #import "TrendingPageViewController.h"
 #import "CategoriesPageViewController.h"
 #import "NetworkPageViewController.h"
@@ -19,5 +21,7 @@
 @property (nonatomic, strong) TrendingPageViewController   *trendingVC;
 @property (nonatomic, strong) CategoriesPageViewController *categoriesVC;
 @property (nonatomic, strong) NetworkPageViewController    *networkVC;
+
+@property (nonatomic, strong) LandingPageTitleBar *titleBar;
 
 @end

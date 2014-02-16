@@ -42,8 +42,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     // Hide the nav bar on the login page.  No reason for it to be there on the landing page.
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+    self.view.backgroundColor = [UIColor spicerGrey];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

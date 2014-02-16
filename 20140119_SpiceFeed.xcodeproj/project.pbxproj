@@ -55,6 +55,10 @@
 		4E6E20BB18AA863C0037E845 /* NetworkCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6E20BA18AA863C0037E845 /* NetworkCollectionViewCell.m */; };
 		4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */; };
 		4E9C85121890DF7700729455 /* profileAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E9C85111890DF7700729455 /* profileAvatar.png */; };
+		4EA4D67818B1759C00822E1F /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67618B1759C00822E1F /* Play-Regular.ttf */; };
+		4EA4D67918B1759C00822E1F /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67618B1759C00822E1F /* Play-Regular.ttf */; };
+		4EA4D67A18B1759C00822E1F /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67718B1759C00822E1F /* Play-Bold.ttf */; };
+		4EA4D67B18B1759C00822E1F /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67718B1759C00822E1F /* Play-Bold.ttf */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
 		4EAA7090188CC8ED004CA02A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708F188CC8ED004CA02A /* CoreGraphics.framework */; };
 		4EAA7092188CC8ED004CA02A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA7091188CC8ED004CA02A /* UIKit.framework */; };
@@ -79,6 +83,7 @@
 		4ED03DE818ADD3E20094F000 /* SFCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03DE718ADD3E20094F000 /* SFCategory.m */; };
 		4ED03DEB18ADF6C50094F000 /* SFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03DEA18ADF6C50094F000 /* SFViewController.m */; };
 		4ED03DEE18ADFB110094F000 /* CellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED03DED18ADFB110094F000 /* CellBackground.m */; };
+		4ED0DED618B038A40012CEA1 /* LandingPageTitleBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED0DED518B038A40012CEA1 /* LandingPageTitleBar.m */; };
 		4EDFC03218B0132F0003618D /* PFQueryCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFC03118B0132F0003618D /* PFQueryCollectionViewController.m */; };
 		4EE5719C1899BEAE00ED4E1A /* AddFlavePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE5719B1899BEAE00ED4E1A /* AddFlavePageViewController.m */; };
 		4EE8016418A982FF008F9B3C /* UIColor+SpiceFeedColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE8016318A982FF008F9B3C /* UIColor+SpiceFeedColors.m */; };
@@ -163,6 +168,8 @@
 		4E9C850D1890D34400729455 /* EmailResendConfirmationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailResendConfirmationViewController.h; sourceTree = "<group>"; };
 		4E9C850E1890D34400729455 /* EmailResendConfirmationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailResendConfirmationViewController.m; sourceTree = "<group>"; };
 		4E9C85111890DF7700729455 /* profileAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileAvatar.png; sourceTree = "<group>"; };
+		4EA4D67618B1759C00822E1F /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
+		4EA4D67718B1759C00822E1F /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		4EAA708A188CC8ED004CA02A /* 20140119_SpiceFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 20140119_SpiceFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EAA708D188CC8ED004CA02A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EAA708F188CC8ED004CA02A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,6 +209,8 @@
 		4ED03DEA18ADF6C50094F000 /* SFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFViewController.m; sourceTree = "<group>"; };
 		4ED03DEC18ADFB110094F000 /* CellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellBackground.h; sourceTree = "<group>"; };
 		4ED03DED18ADFB110094F000 /* CellBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellBackground.m; sourceTree = "<group>"; };
+		4ED0DED418B038A40012CEA1 /* LandingPageTitleBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingPageTitleBar.h; sourceTree = "<group>"; };
+		4ED0DED518B038A40012CEA1 /* LandingPageTitleBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageTitleBar.m; sourceTree = "<group>"; };
 		4EDFC03018B0132F0003618D /* PFQueryCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFQueryCollectionViewController.h; sourceTree = "<group>"; };
 		4EDFC03118B0132F0003618D /* PFQueryCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFQueryCollectionViewController.m; sourceTree = "<group>"; };
 		4EE5719A1899BEAE00ED4E1A /* AddFlavePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFlavePageViewController.h; sourceTree = "<group>"; };
@@ -441,6 +450,8 @@
 		4EAA7094188CC8ED004CA02A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4EA4D67618B1759C00822E1F /* Play-Regular.ttf */,
+				4EA4D67718B1759C00822E1F /* Play-Bold.ttf */,
 				4EAA7095188CC8ED004CA02A /* 20140119_SpiceFeed-Info.plist */,
 				4EAA7096188CC8ED004CA02A /* InfoPlist.strings */,
 				4EAA7099188CC8ED004CA02A /* main.m */,
@@ -484,6 +495,8 @@
 			children = (
 				4E1125DF18A84A970071B39A /* ProfilePageCollectionViewCell.h */,
 				4E1125E018A84A970071B39A /* ProfilePageCollectionViewCell.m */,
+				4ED0DED418B038A40012CEA1 /* LandingPageTitleBar.h */,
+				4ED0DED518B038A40012CEA1 /* LandingPageTitleBar.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -673,10 +686,12 @@
 				4E31F5F61895A261003C1E54 /* bg_01.png in Resources */,
 				4E2A000C18A4A53C00BB972E /* user-60.png in Resources */,
 				4E2A000A18A4A16D00BB972E /* imagePlaceholderInverted.png in Resources */,
+				4EA4D67A18B1759C00822E1F /* Play-Bold.ttf in Resources */,
 				4E31F6061895B576003C1E54 /* bg_09.png in Resources */,
 				4EAA70A1188CC8ED004CA02A /* Main.storyboard in Resources */,
 				4E31F5FD1895A8A8003C1E54 /* bg_02.png in Resources */,
 				4E2A001218A4A60800BB972E /* user-22.png in Resources */,
+				4EA4D67818B1759C00822E1F /* Play-Regular.ttf in Resources */,
 				4E3026AE189AF9C2009EE649 /* imagePlaceholder.png in Resources */,
 				4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */,
 				4E2A001018A4A5CC00BB972E /* user-44.png in Resources */,
@@ -690,6 +705,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EAA70B7188CC8ED004CA02A /* InfoPlist.strings in Resources */,
+				4EA4D67B18B1759C00822E1F /* Play-Bold.ttf in Resources */,
+				4EA4D67918B1759C00822E1F /* Play-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,6 +741,7 @@
 				4E9C850F1890D34400729455 /* EmailResendConfirmationViewController.m in Sources */,
 				4EDFC03218B0132F0003618D /* PFQueryCollectionViewController.m in Sources */,
 				4EAA714E188CE481004CA02A /* FlavePageViewController.m in Sources */,
+				4ED0DED618B038A40012CEA1 /* LandingPageTitleBar.m in Sources */,
 				4ED03DEB18ADF6C50094F000 /* SFViewController.m in Sources */,
 				4E32BE8E189EC30700664338 /* SFConstants.m in Sources */,
 				4ED03DEE18ADFB110094F000 /* CellBackground.m in Sources */,

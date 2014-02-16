@@ -29,7 +29,7 @@
         // Whether the built-in pagination is enabled
         self.paginationEnabled = YES;
         // The number of objects to show per page
-        self.objectsPerPage = 40;
+        self.objectsPerPage = 25;
         
         self.index = 0;
     }
@@ -67,6 +67,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    CGRect titleBarRect = CGRectMake(self.view.frame.origin.x,
+                                     self.view.frame.origin.y,
+                                     self.view.frame.size.width,
+                                     52.0f);
+    
+    LandingPageTitleBar *titleBar = [[LandingPageTitleBar alloc] initWithFrame:titleBarRect];
+    titleBar.titleLabel.text = @"TRENDING";
+    [self.view addSubview:titleBar];
+    [self.view bringSubviewToFront:titleBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -97,8 +107,6 @@
 - (void)objectsDidLoad:(NSError *)error {
     [super objectsDidLoad:error];
 //    // This method is called every time objects are loaded from Parse via the PFQuery
-//    NSLog(@"objects loaded");
-//    NSLog(@"objects: %@", self.objects);
 }
 
 
@@ -106,7 +114,6 @@
 // all objects ordered by createdAt descending.
 - (PFQuery *)queryForTable {
     PFQuery *query = [PFQuery queryWithClassName:kSFFlaveClassKey];
-//    [query whereKey:kSFFlaveIsTrendingKey equalTo:@YES];
     // If Pull To Refresh is enabled, query against the network by default.
     if (self.pullToRefreshEnabled) {
     query.cachePolicy = kPFCachePolicyNetworkOnly;
@@ -138,7 +145,7 @@
     cell.flaveImageView.file = [object objectForKey:kSFFlaveImageKey];
     [cell.flaveImageView loadInBackground:^(UIImage *image, NSError *error) {
         if (!error) {
-            [UIView animateWithDuration:.85
+            [UIView animateWithDuration:0.75
                              animations:^{
                                  cell.flaveImageView.alpha = 1.0f;
                              }
