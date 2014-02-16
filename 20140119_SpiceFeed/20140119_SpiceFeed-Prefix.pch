@@ -21,6 +21,7 @@
     #import "SFUtility.h"
     #import "SharedNetworkController.h"
     #import "UIColor+SpiceFeedColors.h"
+    #import "UIFont+CustomFonts.h"
 #endif
 
 #import <Parse/Parse.h>

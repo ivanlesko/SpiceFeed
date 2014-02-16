@@ -59,6 +59,8 @@
 		4EA4D67918B1759C00822E1F /* Play-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67618B1759C00822E1F /* Play-Regular.ttf */; };
 		4EA4D67A18B1759C00822E1F /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67718B1759C00822E1F /* Play-Bold.ttf */; };
 		4EA4D67B18B1759C00822E1F /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67718B1759C00822E1F /* Play-Bold.ttf */; };
+		4EA4D67E18B1796600822E1F /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D67D18B1796600822E1F /* UIFont+CustomFonts.m */; };
+		4EA4D67F18B1796600822E1F /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D67D18B1796600822E1F /* UIFont+CustomFonts.m */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
 		4EAA7090188CC8ED004CA02A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708F188CC8ED004CA02A /* CoreGraphics.framework */; };
 		4EAA7092188CC8ED004CA02A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA7091188CC8ED004CA02A /* UIKit.framework */; };
@@ -170,6 +172,8 @@
 		4E9C85111890DF7700729455 /* profileAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileAvatar.png; sourceTree = "<group>"; };
 		4EA4D67618B1759C00822E1F /* Play-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Regular.ttf"; sourceTree = "<group>"; };
 		4EA4D67718B1759C00822E1F /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
+		4EA4D67C18B1796600822E1F /* UIFont+CustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CustomFonts.h"; sourceTree = "<group>"; };
+		4EA4D67D18B1796600822E1F /* UIFont+CustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFonts.m"; sourceTree = "<group>"; };
 		4EAA708A188CC8ED004CA02A /* 20140119_SpiceFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 20140119_SpiceFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EAA708D188CC8ED004CA02A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EAA708F188CC8ED004CA02A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -266,6 +270,8 @@
 				4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */,
 				4EE8016218A982FF008F9B3C /* UIColor+SpiceFeedColors.h */,
 				4EE8016318A982FF008F9B3C /* UIColor+SpiceFeedColors.m */,
+				4EA4D67C18B1796600822E1F /* UIFont+CustomFonts.h */,
+				4EA4D67D18B1796600822E1F /* UIFont+CustomFonts.m */,
 			);
 			name = "Helper Files";
 			sourceTree = "<group>";
@@ -731,6 +737,7 @@
 				4E1125E418A882980071B39A /* LandingPageViewController.m in Sources */,
 				4E1125E118A84A970071B39A /* ProfilePageCollectionViewCell.m in Sources */,
 				4EAA7142188CE15D004CA02A /* SearchResultViewController.m in Sources */,
+				4EA4D67E18B1796600822E1F /* UIFont+CustomFonts.m in Sources */,
 				4E6E20BB18AA863C0037E845 /* NetworkCollectionViewCell.m in Sources */,
 				4EAA7137188CE0CA004CA02A /* SearchPageViewController.m in Sources */,
 				4EF43BB118A15648005675B5 /* ParseUtilities.m in Sources */,
@@ -761,6 +768,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA4D67F18B1796600822E1F /* UIFont+CustomFonts.m in Sources */,
 				4EAA70B9188CC8ED004CA02A /* _0140119_SpiceFeedTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

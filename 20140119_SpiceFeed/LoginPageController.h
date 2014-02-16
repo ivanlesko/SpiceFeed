@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginPageController : UIViewController <UITextFieldDelegate>
+@interface LoginPageController : SFViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;

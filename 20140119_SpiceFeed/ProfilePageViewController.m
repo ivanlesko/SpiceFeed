@@ -97,6 +97,10 @@
     [self performSegueWithIdentifier:@"flaveSegue" sender:nil];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 @end
 
 
