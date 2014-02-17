@@ -227,22 +227,12 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
-//    
-//    
-//    [self.tableView beginUpdates];
-//    NSString *index = [NSString stringWithFormat:@"%d",indexPath.row];
-//    BOOL selectedFlag = NO;
-//    for (NSString *thisIndex in self.selectedIndices) {
-//        if ([thisIndex isEqualToString:index]) {
-//            [self.selectedIndices removeObject:thisIndex];
-//            selectedFlag = YES;
-//        }
-//    }
-//    if (!selectedFlag) {
-//        [self.selectedIndices addObject:index];
-//    }
-//    [self.tableView endUpdates];
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
+    
+    FlaveDetailsPageViewController *flaveDetailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"flaveDetailVC"];
+    flaveDetailVC.flave = [self.objects objectAtIndex:indexPath.row];
+    
+    [self presentViewController:flaveDetailVC animated:NO completion:nil];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{

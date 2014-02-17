@@ -11,7 +11,7 @@
 @implementation UIFont (CustomFonts)
 
 + (UIFont *)playFontWithSize:(CGFloat)size {
-    return [UIFont fontWithName:@"Play.regular" size:size];
+    return [UIFont fontWithName:@"Play.Regular" size:size];
 }
 
 @end

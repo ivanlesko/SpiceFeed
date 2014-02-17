@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="PNA-Mj-4bu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="tQd-7t-btb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -315,7 +315,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cj3-uq-euW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="-1347"/>
+            <point key="canvasLocation" x="1563" y="-1311"/>
         </scene>
         <!--Categories Page View Controller-->
         <scene sceneID="N2y-Si-M4T">
@@ -381,7 +381,21 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eg7-0y-fKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082" y="-1347"/>
+            <point key="canvasLocation" x="1563" y="-611"/>
+        </scene>
+        <!--Flave Details Page View Controller-->
+        <scene sceneID="WBV-rK-h4n">
+            <objects>
+                <viewController storyboardIdentifier="flaveDetailVC" id="Lbg-9W-3OK" customClass="FlaveDetailsPageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UKQ-Y5-VrT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fnM-lz-ZEs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2028" y="-1306"/>
         </scene>
         <!--Network Page View Controller-->
         <scene sceneID="IsY-WE-Fad">
@@ -441,7 +455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QEk-nx-bRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1575" y="-1347"/>
+            <point key="canvasLocation" x="1563" y="89"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lTI-mK-632">
@@ -453,7 +467,7 @@
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.0" green="0.74117648601531982" blue="0.69019609689712524" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="tintColor" red="0.78823529411764703" green="0.011764705882352941" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="UzC-Ks-yHi" kind="relationship" relationship="viewControllers" id="66M-RV-0Lp"/>
@@ -586,7 +600,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xoh-bK-bVe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072" y="109"/>
+            <point key="canvasLocation" x="1073" y="793"/>
         </scene>
         <!--Add Flave Page View Controller - Add Flave-->
         <scene sceneID="3xL-wJ-2VU">
@@ -596,12 +610,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePlaceholderInverted.png" id="bwB-Ub-JxA">
-                                <rect key="frame" x="20" y="36" width="280" height="280"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addFlaveBackground" id="bwB-Ub-JxA">
+                                <rect key="frame" x="20" y="36" width="278" height="385"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tags" minimumFontSize="17" id="Qud-Ba-cyL">
-                                <rect key="frame" x="20" y="324" width="280" height="30"/>
+                                <rect key="frame" x="19" y="429" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.23921570181846619" green="0.23921570181846619" blue="0.24705883860588074" alpha="0.0" colorSpace="deviceRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -610,7 +624,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wJa-OU-AG0">
-                                <rect key="frame" x="103" y="362" width="115" height="48"/>
+                                <rect key="frame" x="102" y="467" width="115" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Spice it!">
@@ -620,10 +634,10 @@
                                     <action selector="spiceItButtonPushed:" destination="RLq-gW-HgA" eventType="touchUpInside" id="vbs-ML-mt7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c2W-Ro-CYe">
-                                <rect key="frame" x="20" y="36" width="280" height="280"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c2W-Ro-CYe">
+                                <rect key="frame" x="115" y="184" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
+                                <state key="normal" image="addFlaveButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -631,7 +645,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.23921570181846619" green="0.23921570181846619" blue="0.24705883860588074" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.090196078431372548" blue="0.0078431372549019607" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Flave" image="plus_22.png" id="wD6-sD-1DF"/>
                     <connections>
@@ -642,7 +656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cah-It-0TW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072" y="774"/>
+            <point key="canvasLocation" x="1073" y="1458"/>
         </scene>
         <!--Flave Page View Controller-->
         <scene sceneID="T2a-Ty-IeA">
@@ -694,7 +708,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XJi-Ym-18g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1619" y="109"/>
+            <point key="canvasLocation" x="1563" y="793"/>
         </scene>
         <!--Email Resend Confirmation View Controller-->
         <scene sceneID="RGR-cF-Syl">
@@ -742,7 +756,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3u-oK-MbT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072" y="1443"/>
+            <point key="canvasLocation" x="1073" y="2127"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JFl-GH-ic6">
@@ -757,7 +771,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="utN-WC-2X0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072" y="2120"/>
+            <point key="canvasLocation" x="1073" y="2804"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q5d-b0-obq">
@@ -781,11 +795,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addFlaveBackground" width="278" height="385"/>
+        <image name="addFlaveButton" width="90" height="90"/>
         <image name="bg_06.png" width="368" height="640"/>
         <image name="bg_09.png" width="368" height="640"/>
         <image name="followButton" width="83" height="25"/>
         <image name="forgotButton" width="135" height="25"/>
-        <image name="imagePlaceholderInverted.png" width="399" height="520"/>
         <image name="justBrowseBackground" width="320" height="129"/>
         <image name="justBrowseButton" width="260" height="50"/>
         <image name="loginButton" width="130" height="25"/>

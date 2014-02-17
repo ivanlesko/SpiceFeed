@@ -76,6 +76,7 @@ NSString *const kSFFlaveImageKey       = @"image";
 NSString *const kSFFlaveThumbnailKey   = @"thumbnail";
 NSString *const kSFFlaveUserKey        = @"user"; /** This may need to be username. */
 NSString *const kSFFlaveTagsKey        = @"tags";
+NSString *const kSFFlaveTagsArrayKey   = @"tagsArray";
 NSString *const kSFFlaveIsTrendingKey  = @"isTrending";
 NSString *const kSFFlaveSourceTypeKey  = @"source";
 NSString *const kSFFlaveOpenGraphIDKey = @"fbOpenGraphID";

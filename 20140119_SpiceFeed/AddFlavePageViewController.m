@@ -92,6 +92,7 @@
 }
 
 #pragma mark - Image Picker Delegate
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [self.imagePicker dismissViewControllerAnimated:YES completion:^{
@@ -182,6 +183,7 @@
     [flave setObject:[PFUser currentUser] forKey:kSFFlaveUserKey];
     [flave setObject:self.flaveFile forKey:kSFFlaveImageKey];
     [flave setObject:self.thumbnailFile forKey:kSFFlaveThumbnailKey];
+    [flave setObject:tags forKey:kSFFlaveTagsArrayKey];
     [flave setObject:self.selectedImageSource forKey:kSFFlaveSourceTypeKey];
     [flave setObject:@0 forKey:kSFFLaveReflaveCountKey];
     [flave setObject:@NO forKey:kSFFlaveIsTrendingKey];
@@ -236,7 +238,7 @@
 {
     [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded && !error) {
-            self.selectedImage.image = [UIImage imageNamed:@"imagePlaceholderInverted.png"];
+            self.selectedImage.image = [UIImage imageNamed:@"addFlaveBackground"];
             self.tagsTextfield.text = @"";
             self.tagsTextfield.alpha = 0.0f;
             self.tagsTextfield.userInteractionEnabled = NO;

@@ -15,6 +15,8 @@
 
 #import "Flave.h"
 
+#import "FlaveDetailsPageViewController.h"
+
 @interface TrendingPageViewController : PFQueryTableViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
