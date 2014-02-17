@@ -52,8 +52,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.view.backgroundColor = [UIColor spicerDarkGrey];
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.backgroundView = nil;
@@ -138,10 +136,10 @@
     TrendingTableViewCell *cell = (TrendingTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[TrendingTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.flaveImageView.alpha = 0.0f;
     }
     
     // Configure the cell
-    cell.flaveImageView.alpha = 0.0f;
     cell.flaveImageView.file = [object objectForKey:kSFFlaveImageKey];
     [cell.flaveImageView loadInBackground:^(UIImage *image, NSError *error) {
         if (!error) {
@@ -229,10 +227,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [super tableView:tableView didSelectRowAtIndexPath:indexPath];
     
-    FlaveDetailsPageViewController *flaveDetailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"flaveDetailVC"];
-    flaveDetailVC.flave = [self.objects objectAtIndex:indexPath.row];
-    
-    [self presentViewController:flaveDetailVC animated:NO completion:nil];
+    [self.delegate didSelectTrendingFlave:[self.objects objectAtIndex:indexPath.row]];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{

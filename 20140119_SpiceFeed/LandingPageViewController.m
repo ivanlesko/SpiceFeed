@@ -31,6 +31,8 @@
     self.dataSource = self;
     
     self.trendingVC   = [self.storyboard instantiateViewControllerWithIdentifier:@"trendingVC"];
+    self.trendingVC.delegate = self;
+    
     self.categoriesVC = [self.storyboard instantiateViewControllerWithIdentifier:@"categoriesVC"];
     self.networkVC    = [self.storyboard instantiateViewControllerWithIdentifier:@"networkVC"];
     
@@ -144,6 +146,24 @@
     
     [self.view addSubview:self.pageControl];
     [self.view bringSubviewToFront:self.pageControl];
+}
+
+#pragma mark - Trending Flaves View Controller
+
+- (void)didSelectTrendingFlave:(Flave *)flave {
+    FlaveDetailsView *flaveDetails = [[FlaveDetailsView alloc] initWithFrame:self.view.frame];
+    flaveDetails.backgroundColor = [UIColor colorWithRed:0
+                                                   green:0
+                                                    blue:0
+                                                   alpha:0.8];
+    
+    [self.view addSubview:flaveDetails];
+    flaveDetails.alpha = 0.0f;
+    [UIView animateWithDuration:0.3f
+                     animations:^{
+                         flaveDetails.alpha = 1.0f;
+                     }
+                     completion:nil];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{

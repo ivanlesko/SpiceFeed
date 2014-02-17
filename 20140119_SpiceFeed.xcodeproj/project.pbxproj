@@ -12,6 +12,10 @@
 		4E1125E718A882B10071B39A /* TrendingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125E618A882B10071B39A /* TrendingPageViewController.m */; };
 		4E1125EA18A882C00071B39A /* CategoriesPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125E918A882C00071B39A /* CategoriesPageViewController.m */; };
 		4E1125ED18A882CE0071B39A /* NetworkPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1125EC18A882CE0071B39A /* NetworkPageViewController.m */; };
+		4E14B00018B19C90006D58F8 /* FlaveDetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E14AFFF18B19C90006D58F8 /* FlaveDetailsView.m */; };
+		4E14B00218B1A45E006D58F8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E14B00118B1A45E006D58F8 /* Accelerate.framework */; };
+		4E14B00518B1A4F8006D58F8 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E14B00418B1A4F8006D58F8 /* FXBlurView.m */; };
+		4E14B00718B1A553006D58F8 /* FlaveDetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E14B00618B1A553006D58F8 /* FlaveDetailsView.xib */; };
 		4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */; };
 		4E2A000A18A4A16D00BB972E /* imagePlaceholderInverted.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A000918A4A16D00BB972E /* imagePlaceholderInverted.png */; };
 		4E2A000C18A4A53C00BB972E /* user-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A000B18A4A53C00BB972E /* user-60.png */; };
@@ -61,8 +65,6 @@
 		4EA4D67B18B1759C00822E1F /* Play-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EA4D67718B1759C00822E1F /* Play-Bold.ttf */; };
 		4EA4D67E18B1796600822E1F /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D67D18B1796600822E1F /* UIFont+CustomFonts.m */; };
 		4EA4D67F18B1796600822E1F /* UIFont+CustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D67D18B1796600822E1F /* UIFont+CustomFonts.m */; };
-		4EA4D68218B18C9600822E1F /* FlaveDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D68118B18C9600822E1F /* FlaveDetailsPageViewController.m */; };
-		4EA4D68318B18C9600822E1F /* FlaveDetailsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA4D68118B18C9600822E1F /* FlaveDetailsPageViewController.m */; };
 		4EAA708E188CC8ED004CA02A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708D188CC8ED004CA02A /* Foundation.framework */; };
 		4EAA7090188CC8ED004CA02A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA708F188CC8ED004CA02A /* CoreGraphics.framework */; };
 		4EAA7092188CC8ED004CA02A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EAA7091188CC8ED004CA02A /* UIKit.framework */; };
@@ -116,6 +118,12 @@
 		4E1125E918A882C00071B39A /* CategoriesPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesPageViewController.m; sourceTree = "<group>"; };
 		4E1125EB18A882CE0071B39A /* NetworkPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkPageViewController.h; sourceTree = "<group>"; };
 		4E1125EC18A882CE0071B39A /* NetworkPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkPageViewController.m; sourceTree = "<group>"; };
+		4E14AFFE18B19C90006D58F8 /* FlaveDetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlaveDetailsView.h; sourceTree = "<group>"; };
+		4E14AFFF18B19C90006D58F8 /* FlaveDetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlaveDetailsView.m; sourceTree = "<group>"; };
+		4E14B00118B1A45E006D58F8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		4E14B00318B1A4E9006D58F8 /* FXBlurView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
+		4E14B00418B1A4F8006D58F8 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
+		4E14B00618B1A553006D58F8 /* FlaveDetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlaveDetailsView.xib; sourceTree = "<group>"; };
 		4E176F7918A048CD00C0CDBB /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		4E176F7A18A048CD00C0CDBB /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		4E2A000918A4A16D00BB972E /* imagePlaceholderInverted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagePlaceholderInverted.png; sourceTree = "<group>"; };
@@ -176,8 +184,6 @@
 		4EA4D67718B1759C00822E1F /* Play-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Play-Bold.ttf"; sourceTree = "<group>"; };
 		4EA4D67C18B1796600822E1F /* UIFont+CustomFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+CustomFonts.h"; sourceTree = "<group>"; };
 		4EA4D67D18B1796600822E1F /* UIFont+CustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+CustomFonts.m"; sourceTree = "<group>"; };
-		4EA4D68018B18C9600822E1F /* FlaveDetailsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlaveDetailsPageViewController.h; sourceTree = "<group>"; };
-		4EA4D68118B18C9600822E1F /* FlaveDetailsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlaveDetailsPageViewController.m; sourceTree = "<group>"; };
 		4EAA708A188CC8ED004CA02A /* 20140119_SpiceFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 20140119_SpiceFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EAA708D188CC8ED004CA02A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4EAA708F188CC8ED004CA02A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -235,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E14B00218B1A45E006D58F8 /* Accelerate.framework in Frameworks */,
 				4E38705918947A4400AC82E2 /* SystemConfiguration.framework in Frameworks */,
 				4E38705718947A3F00AC82E2 /* StoreKit.framework in Frameworks */,
 				4E38705518947A3A00AC82E2 /* Security.framework in Frameworks */,
@@ -268,6 +275,8 @@
 		4E3026A9189AF54F009EE649 /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E14B00318B1A4E9006D58F8 /* FXBlurView.h */,
+				4E14B00418B1A4F8006D58F8 /* FXBlurView.m */,
 				4E3026AA189AF560009EE649 /* HelperMethods.h */,
 				4E3026AB189AF560009EE649 /* HelperMethods.m */,
 				4E176F7918A048CD00C0CDBB /* UIImage+Resize.h */,
@@ -416,6 +425,7 @@
 		4EAA708C188CC8ED004CA02A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E14B00118B1A45E006D58F8 /* Accelerate.framework */,
 				4E38705818947A4400AC82E2 /* SystemConfiguration.framework */,
 				4E38705618947A3F00AC82E2 /* StoreKit.framework */,
 				4E38705418947A3A00AC82E2 /* Security.framework */,
@@ -594,8 +604,9 @@
 			children = (
 				4EAA714C188CE481004CA02A /* FlavePageViewController.h */,
 				4EAA714D188CE481004CA02A /* FlavePageViewController.m */,
-				4EA4D68018B18C9600822E1F /* FlaveDetailsPageViewController.h */,
-				4EA4D68118B18C9600822E1F /* FlaveDetailsPageViewController.m */,
+				4E14AFFE18B19C90006D58F8 /* FlaveDetailsView.h */,
+				4E14AFFF18B19C90006D58F8 /* FlaveDetailsView.m */,
+				4E14B00618B1A553006D58F8 /* FlaveDetailsView.xib */,
 			);
 			name = "Flave Page";
 			sourceTree = "<group>";
@@ -704,6 +715,7 @@
 				4E31F5FD1895A8A8003C1E54 /* bg_02.png in Resources */,
 				4E2A001218A4A60800BB972E /* user-22.png in Resources */,
 				4EA4D67818B1759C00822E1F /* Play-Regular.ttf in Resources */,
+				4E14B00718B1A553006D58F8 /* FlaveDetailsView.xib in Resources */,
 				4E3026AE189AF9C2009EE649 /* imagePlaceholder.png in Resources */,
 				4E38705D1894870E00AC82E2 /* spiceIcon.png in Resources */,
 				4E2A001018A4A5CC00BB972E /* user-44.png in Resources */,
@@ -733,6 +745,7 @@
 				4E3026AC189AF560009EE649 /* HelperMethods.m in Sources */,
 				4E1125E718A882B10071B39A /* TrendingPageViewController.m in Sources */,
 				4EAA713B188CE105004CA02A /* ProfilePageViewController.m in Sources */,
+				4E14B00018B19C90006D58F8 /* FlaveDetailsView.m in Sources */,
 				4E42AAAC189DBE1600331108 /* UIView+ViewAnimations.m in Sources */,
 				4E176F7B18A048CD00C0CDBB /* UIImage+Resize.m in Sources */,
 				4E1125EA18A882C00071B39A /* CategoriesPageViewController.m in Sources */,
@@ -762,10 +775,10 @@
 				4EAA714A188CE3BC004CA02A /* LoginPageController.m in Sources */,
 				4E52CDD118A9E23F00D5B9EE /* TrendingTableViewCell.m in Sources */,
 				4EAA709A188CC8ED004CA02A /* main.m in Sources */,
-				4EA4D68218B18C9600822E1F /* FlaveDetailsPageViewController.m in Sources */,
 				4E1125ED18A882CE0071B39A /* NetworkPageViewController.m in Sources */,
 				4E32BE8B189EBD1A00664338 /* SFCache.m in Sources */,
 				4E3AE35718A01A350005997D /* SFUtility.m in Sources */,
+				4E14B00518B1A4F8006D58F8 /* FXBlurView.m in Sources */,
 				4EE8016418A982FF008F9B3C /* UIColor+SpiceFeedColors.m in Sources */,
 				4E3870431894515300AC82E2 /* SpiceModel.xcdatamodeld in Sources */,
 			);
@@ -775,7 +788,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EA4D68318B18C9600822E1F /* FlaveDetailsPageViewController.m in Sources */,
 				4EA4D67F18B1796600822E1F /* UIFont+CustomFonts.m in Sources */,
 				4EAA70B9188CC8ED004CA02A /* _0140119_SpiceFeedTests.m in Sources */,
 			);

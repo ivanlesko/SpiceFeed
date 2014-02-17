@@ -14,7 +14,9 @@
 #import "CategoriesPageViewController.h"
 #import "NetworkPageViewController.h"
 
-@interface LandingPageViewController : UIPageViewController <UIPageViewControllerDataSource>
+#import "FlaveDetailsView.h"
+
+@interface LandingPageViewController : UIPageViewController <UIPageViewControllerDataSource, TrendingPageViewControllerDelegate>
 
 @property (nonatomic, strong) UIPageControl *pageControl;
 
